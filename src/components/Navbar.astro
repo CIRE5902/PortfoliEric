@@ -1,9 +1,14 @@
 ---
+import "../css/components/navbar.css";
+
 import { Image } from "astro:assets";
 import imageAvatar from "../assets/avatar.png";
 import imageGem from "../assets/gem.svg";
 import imageSun from "../assets/sun.svg";
 import imageMoon from "../assets/moon.png";
+
+import ThemeIcon from "./ThemeIcons.astro";
+
 ---
 
 <nav class="navbar">
@@ -86,11 +91,11 @@ import imageMoon from "../assets/moon.png";
     <!-- Theme Switcher -->
     <li class="nav-item">
       <a href="#" class="nav-link" id="themeButton">
-        <Image src={imageMoon} alt="Moon Icon" class="theme-icon" id="darkIcon" />
-        <Image src={imageSun} alt="Sun Icon" class="theme-icon" id="lightIcon" />
-        <Image src={imageGem} alt="Gem Icon" class="theme-icon" id="ericIcon" />
+        <ThemeIcon />
         <span class="link-text" id="menuTheme">Theme</span>
       </a>
     </li>
   </ul>
 </nav>
+
+<script src="/js/theme.js" defer></script>
