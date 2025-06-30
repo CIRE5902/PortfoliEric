@@ -1,0 +1,41 @@
+@import './colors.css';
+
+
+/* Elementos básicos */
+main {
+  margin-left: 5rem;
+  padding: 1rem;
+}
+
+body {
+  font-family: 'Lexend', sans-serif;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  margin: 0;
+  padding: 0;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  /* width: calc(100% - 80px); */
+  /* padding: 100px 50px 30px 50px; */
+  padding: 100px 100px 30px 200px;
+  gap: 10px;
+}
+
+@media only screen and (max-width: 1350px) and (min-width: 950px) {
+  .content {
+    padding: 100px 90px 30px 175px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .content {
+    padding: 100px 50px 30px 50px;
+  }
+}
+
