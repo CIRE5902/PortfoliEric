@@ -19,34 +19,15 @@ import { Icon } from "astro-icon/components";
     </div>
 
     <a class="btn btn-resume" target="_blank" download>
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            class="bi bi-file-earmark-text"
-            viewBox="0 0 16 16"
-        >
-            <path
-                d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5z"
-            ></path>
-            <path
-                d="M12 4.5L8.5 1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5zM6 9.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1 0-1zm0-3h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1 0-1zm0 6h2a.5.5 0 0 1 0 1H6a.5.5 0 0 1 0-1z"
-            ></path>
-        </svg>
+        <Icon name="mdi:file-account" />
+
         <p id="btn-cv">Resume</p>
         <i class="fa fa-hand-pointer interaction-icon"></i>
     </a>
 
     <div class="btn btn-available">
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 16 16"
-        >
-            <path
-                fill-rule="evenodd"
-                d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
-            ></path>
-        </svg>
+        <Icon name="mdi:check" />
+
         <p id="btn-available">Available</p>
         <i class="fa fa-hand-pointer interaction-icon"></i>
     </div>
@@ -132,6 +113,7 @@ import { Icon } from "astro-icon/components";
     .btn-resume svg {
         width: 30px;
         height: 30px;
+        fill: currentColor;
     }
 
     .btn-available {

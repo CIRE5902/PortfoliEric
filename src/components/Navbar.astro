@@ -1,5 +1,5 @@
 ---
-import "../css/components/navbar.css";
+// import "../css/components/navbar.css";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import imageAvatar from "../assets/images/avatar.png";
@@ -13,12 +13,7 @@ import ThemeIcon from "./ThemeIcon.astro";
     <li class="logo">
       <a href="/" class="nav-link">
         <span class="link-text logo-text" id="menu-menu">Main</span>
-        <Icon
-          name="mdi:chevron-double-right"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          class="nav-icon"
-        />
+        <Icon name="mdi:chevron-double-right" class="nav-icon" />
       </a>
     </li>
 
@@ -33,12 +28,7 @@ import ThemeIcon from "./ThemeIcon.astro";
     <!-- About -->
     <li class="nav-item">
       <a href="/pages/about.html" class="nav-link">
-        <Icon
-          name="mdi:account"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          class="nav-icon"
-        />
+        <Icon name="mdi:account" class="nav-icon" />
         <span class="link-text" id="menu-about">About</span>
       </a>
     </li>
@@ -46,12 +36,7 @@ import ThemeIcon from "./ThemeIcon.astro";
     <!-- Projects -->
     <li class="nav-item">
       <a href="/#projects" class="nav-link">
-        <Icon
-          name="mdi:code-tags"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          class="nav-icon"
-        />
+        <Icon name="mdi:code-tags" class="nav-icon" />
         <span class="link-text" id="menu-projects">Projects</span>
       </a>
     </li>
@@ -59,12 +44,7 @@ import ThemeIcon from "./ThemeIcon.astro";
     <!-- Stack -->
     <li class="nav-item">
       <a href="/pages/stack.html" class="nav-link">
-          <Icon
-          name="mdi:stack-overflow"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          class="nav-icon"
-        />
+        <Icon name="mdi:stack-overflow" class="nav-icon" />
         <span class="link-text" id="menu-stack">Stack</span>
       </a>
     </li>
@@ -72,12 +52,7 @@ import ThemeIcon from "./ThemeIcon.astro";
     <!-- Contact -->
     <li class="nav-item">
       <a href="/pages/contact.html" class="nav-link">
-          <Icon
-          name="mdi:account-box-outline"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          class="nav-icon"
-        />
+        <Icon name="mdi:account-box-outline" class="nav-icon" />
         <span class="link-text" id="menu-contact">Contact</span>
       </a>
     </li>
@@ -92,4 +67,156 @@ import ThemeIcon from "./ThemeIcon.astro";
   </ul>
 </nav>
 
-<script src="/js/theme.js" defer></script>
+<style>
+  /* === NAVBAR === */
+
+  .navbar {
+    position: fixed;
+    background-color: var(--bg-secondary);
+    transition: width 600ms ease;
+    z-index: 1;
+  }
+
+  .navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+
+  .nav-item {
+    width: 100%;
+    display: flex;
+  }
+
+  .nav-item:last-child {
+    margin-top: auto;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    filter: grayscale(100%) opacity(0.7);
+    transition: var(--transition-speed);
+    justify-content: center;
+    padding-left: 15px;
+  }
+
+  .nav-link:hover {
+    filter: grayscale(0%) opacity(1);
+    color: var(--text-primary);
+  }
+
+  .nav-icon,
+  .theme-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .nav-icon {
+    fill: currentColor;
+  }
+
+  .link-text {
+    display: none;
+    margin-left: 1rem;
+  }
+
+  .nav-link svg {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .logo {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    font-size: 1.5rem;
+    letter-spacing: 0.3ch;
+    width: 100%;
+  }
+
+  .logo svg {
+    transform: rotate(0deg);
+    transition: var(--transition-speed);
+  }
+
+  .logo-text {
+    display: inline;
+    position: absolute;
+    left: -999px;
+    transition: var(--transition-speed);
+  }
+
+  .navbar:hover .logo svg {
+    transform: rotate(-180deg);
+  }
+
+  .navbar:hover .link-text {
+    display: inline;
+  }
+
+  .navbar:hover .logo-text {
+    left: 0px;
+  }
+
+  /* === RESPONSIVE === */
+
+  @media only screen and (max-width: 950px) {
+    .navbar {
+      bottom: 0;
+      width: 100vw;
+      height: 5rem;
+      border: none;
+    }
+
+    .navbar-nav {
+      flex-direction: row;
+    }
+
+    .link-text {
+      display: none !important;
+    }
+
+    .logo {
+      display: none;
+    }
+
+    .nav-link {
+      justify-content: center;
+    }
+
+    main {
+      margin: 0;
+    }
+
+    .content {
+      margin-bottom: 150px;
+    }
+  }
+
+  @media only screen and (min-width: 950px) {
+    .navbar {
+      top: 0;
+      width: 65px;
+      height: 100vh;
+    }
+
+    .navbar:hover {
+      width: 15rem;
+    }
+
+    .navbar:hover .logo svg {
+      margin-left: 11rem;
+    }
+  }
+</style>

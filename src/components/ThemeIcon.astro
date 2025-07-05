@@ -1,13 +1,44 @@
 ---
-// src/components/ThemeIcon.astro
 import { Image } from "astro:assets";
 import imageMoon from "../assets/icons/moon.png";
 import imageSun from "../assets/icons/sun.svg";
 import imageGem from "../assets/icons/gem.svg";
 ---
 
-<>
-  <Image src={imageMoon} alt="Moon Icon" class="theme-icon" id="dark-icon" />
-  <Image src={imageSun} alt="Sun Icon" class="theme-icon" id="light-icon" />
-  <Image src={imageGem} alt="Gem Icon" class="theme-icon" id="eric-icon" />
-</>
+<div class="theme-switcher">
+  <Image src={imageMoon} alt="Dark mode" class="theme-icon" id="dark-icon" />
+  <Image src={imageSun} alt="Light mode" class="theme-icon" id="light-icon" />
+  <Image src={imageGem} alt="Eric mode" class="theme-icon" id="eric-icon" />
+</div>
+
+<style>
+  .theme-icon {
+    display: none;
+    width: 30px;
+    height: 30px;
+  }
+
+  body.dark #dark-icon {
+    display: block;
+  }
+
+  body.light #light-icon {
+    display: block;
+  }
+
+  body.eric #eric-icon {
+    display: block;
+  }
+
+  .theme-button {
+    all: unset;
+    cursor: pointer;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-left: 8px;
+  }
+</style>
+
+<!-- 👇 Script en JavaScript puro, ejecuta al cargar la página -->
+<script src="/js/theme.js" defer></script>
