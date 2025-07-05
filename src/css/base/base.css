@@ -1,7 +1,10 @@
 @import './colors.css';
+@import './buttons.css';
+@import './typography.css';
 
 
 /* Elementos básicos */
+
 main {
   margin-left: 5rem;
   padding: 1rem;

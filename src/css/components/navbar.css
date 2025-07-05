@@ -101,15 +101,15 @@
   display: none;
 }
 
-.dark #darkIcon {
+.dark #dark-icon {
   display: block;
 }
 
-.light #lightIcon {
+.light #light-icon {
   display: block;
 }
 
-.eric #ericIcon {
+.eric #eric-icon {
   display: block;
 }
 

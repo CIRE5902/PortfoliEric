@@ -1,5 +1,17 @@
-// @ts-check
+// @ts-ignore
 import { defineConfig } from 'astro/config';
+import icon from 'astro-icon';
 
-// https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+  integrations: [
+    icon({
+      collections: {
+        // 👇 Aquí añades el set que quieres usar
+        mdi: async () => await import('@iconify-json/mdi/icons.json'),
+        solar: async () => await import('@iconify-json/solar/icons.json'),
+      },
+    }),
+  ],
+});
+
+// @ts-check

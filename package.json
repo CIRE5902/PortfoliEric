@@ -9,6 +9,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.10.1"
+    "@iconify-json/mdi": "^1.2.3",
+    "@iconify-json/solar": "^1.2.2",
+    "astro": "^5.10.1",
+    "astro-icon": "^1.1.5"
   }
 }

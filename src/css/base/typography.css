@@ -1,0 +1,17 @@
+h1 {
+  font-size: 45px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  width: fit-content;
+  margin: 0;
+}
+
+h1:hover {
+  filter: drop-shadow(0 0 10px #a285d1);
+  color: #a285d1;
+}
+
+h2 {
+  margin: 0;
+}

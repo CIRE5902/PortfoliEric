@@ -1,10 +1,34 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
+import ProfileHeader from "../components/ProfileHeader.astro";
+// import RiddleRoom from "../components/RiddleRoom.astro";
+// import Experience from "../components/Experience.astro";
+// import Education from "../components/Education.astro";
+// import Projects from "../components/Projects.astro";
+// import SpotifyEmbed from "../components/SpotifyEmbed.astro";
+// import BooksCarousel from "../components/BooksCarousel.astro";
+// import TechStackGlobe from "../components/TechStackGlobe.astro";
 ---
 
 <BaseLayout>
   <main class="content">
+    <div class="content-profile-riddle">
+      <ProfileHeader />
+      <!-- <RiddleRoom /> -->
+    </div>
 
+    <div class="box-experience-education">
+      <!-- <Experience /> -->
+      <!-- <Education /> -->
+    </div>
+
+    <div class="box-projects">
+      <!-- <Projects /> -->
+      <div class="box-media">
+        <!-- <SpotifyEmbed /> -->
+        <!-- <BooksCarousel /> -->
+      </div>
+      <!-- <TechStackGlobe /> -->
+    </div>
   </main>
 </BaseLayout>

@@ -1,0 +1,13 @@
+---
+// src/components/ThemeIcon.astro
+import { Image } from "astro:assets";
+import imageMoon from "../assets/icons/moon.png";
+import imageSun from "../assets/icons/sun.svg";
+import imageGem from "../assets/icons/gem.svg";
+---
+
+<>
+  <Image src={imageMoon} alt="Moon Icon" class="theme-icon" id="dark-icon" />
+  <Image src={imageSun} alt="Sun Icon" class="theme-icon" id="light-icon" />
+  <Image src={imageGem} alt="Gem Icon" class="theme-icon" id="eric-icon" />
+</>
