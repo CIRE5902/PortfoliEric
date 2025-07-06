@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProfileHeader from "../components/ProfileHeader.astro";
-// import RiddleRoom from "../components/RiddleRoom.astro";
+import RiddleRoom from "../components/RiddleRoom.astro";
 // import Experience from "../components/Experience.astro";
 // import Education from "../components/Education.astro";
 // import Projects from "../components/Projects.astro";
@@ -14,7 +14,7 @@ import ProfileHeader from "../components/ProfileHeader.astro";
   <main class="content">
     <div class="content-profile-riddle">
       <ProfileHeader />
-      <!-- <RiddleRoom /> -->
+      <RiddleRoom />
     </div>
 
     <div class="box-experience-education">
@@ -32,3 +32,10 @@ import ProfileHeader from "../components/ProfileHeader.astro";
     </div>
   </main>
 </BaseLayout>
+
+<style>
+  .content-profile-riddle {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+  }
+</style>
