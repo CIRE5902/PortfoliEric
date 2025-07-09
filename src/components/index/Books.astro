@@ -1,0 +1,133 @@
+<div class="box-books box-card">
+    <div class="carousel-container">
+        <div class="carousel-track">
+            <a
+                href="https://www.goodreads.com/book/show/17281807-mazinger-z-1-de-3?from_search=true&from_srp=true&qid=w7Ozo9QPF4&rank=1"
+                target="_blank"
+            >
+                <img
+                    src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1358996611i/17281807.jpg"
+                    alt="Mazinger Z"
+                    width="110"
+                    height="150"
+                />
+            </a>
+            <a
+                href="https://www.goodreads.com/book/show/724659.The_Iron_Giant?from_search=true&from_srp=true&qid=fko4cHdxRp&rank=2"
+                target="_blank"
+            >
+                <img
+                    src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1333577862i/724659.jpg"
+                    alt="The Iron Giant"
+                    width="110"
+                    height="150"
+                />
+            </a>
+            <a
+                href="https://www.goodreads.com/book/show/25034555-hachiko-el-perro-que-esperaba?from_search=true&from_srp=true&qid=4OZAgqzCPe&rank=4"
+                target="_blank"
+            >
+                <img
+                    src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1425065572i/25034555.jpg"
+                    alt="Hachiko: The True Story of a Loyal Dog"
+                    width="110"
+                    height="150"
+                />
+            </a>
+            <a
+                href="https://www.goodreads.com/book/show/3735293-clean-code"
+                target="_blank"
+            >
+                <img
+                    src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1436202607l/3735293.jpg"
+                    alt="Clean Code"
+                    width="110"
+                    height="150"
+                />
+            </a>
+            <a
+                href="https://www.goodreads.com/book/show/40121378-atomic-habits"
+                target="_blank"
+            >
+                <img
+                    src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1535115320l/40121378.jpg"
+                    alt="Atomic Habits"
+                    width="110"
+                    height="150"
+                />
+            </a>
+            <a
+                href="https://www.goodreads.com/book/show/33.The_Lord_of_the_Rings"
+                target="_blank"
+            >
+                <img
+                    src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1566425108l/33.jpg"
+                    alt="The Lord of the Rings"
+                    width="110"
+                    height="150"
+                />
+            </a>
+            <a
+                href="https://www.goodreads.com/book/show/5907.The_Hobbit"
+                target="_blank"
+            >
+                <img
+                    src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546071216l/5907.jpg"
+                    alt="The Hobbit"
+                    width="110"
+                    height="150"
+                />
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* ========== 12. Carrusel de Libros ========== */
+    .carousel-container {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .carousel-track {
+        display: flex;
+        animation: scroll 20s linear infinite;
+        width: max-content;
+    }
+
+    .carousel-track a {
+        display: inline-block;
+        padding: 0 20px;
+    }
+
+    .carousel-track img {
+        border-radius: 10px;
+        transition:
+            transform 0.3s ease-in-out,
+            box-shadow 0.3s ease-in-out;
+        transform-origin: left center;
+    }
+
+    .carousel-container:hover .carousel-track {
+        animation-play-state: paused;
+    }
+
+    .carousel-track img:hover {
+        cursor: pointer;
+        transform: rotateY(-28deg) rotateZ(-2deg) scale(1.05);
+        box-shadow:
+            1px 3px 2px #eaeaee,
+            20px 8px 0 rgba(243, 243, 245, 0.7);
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+</style>

@@ -1,41 +1,123 @@
 ---
+import "../css/base/components/boxes.css";
+
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ProfileHeader from "../components/ProfileHeader.astro";
-import RiddleRoom from "../components/RiddleRoom.astro";
-// import Experience from "../components/Experience.astro";
-// import Education from "../components/Education.astro";
-// import Projects from "../components/Projects.astro";
-// import SpotifyEmbed from "../components/SpotifyEmbed.astro";
-// import BooksCarousel from "../components/BooksCarousel.astro";
-// import TechStackGlobe from "../components/TechStackGlobe.astro";
+
+import ProfileHeader from "../components/index/ProfileHeader.astro";
+import RiddleRoom from "../components/index/RiddleRoom.astro";
+
+import Experience from "../components/index/Experience.astro";
+import Education from "../components/index/Education.astro";
+import Projects from "../components/index/Projects.astro";
+
+import Spotify from "../components/index/Spotify.astro";
+import Books from "../components/index/Books.astro";
+import Stack from "../components/index/Stack.astro";
 ---
 
 <BaseLayout>
   <main class="content">
-    <div class="content-profile-riddle">
+    <div class="content-profile-header">
       <ProfileHeader />
       <RiddleRoom />
     </div>
 
-    <div class="box-experience-education">
-      <!-- <Experience /> -->
-      <!-- <Education /> -->
-    </div>
-
-    <div class="box-projects">
-      <!-- <Projects /> -->
-      <div class="box-media">
-        <!-- <SpotifyEmbed /> -->
-        <!-- <BooksCarousel /> -->
+    <div class="content-profile-info">
+      <div class="div1">
+        <Experience class="experience" />
+        <Education class="education" />
       </div>
-      <!-- <TechStackGlobe /> -->
+      <div class="div2">
+        <Projects class="projects" />
+        <div class="books-spotify">
+          <Spotify class="spotify" />
+          <Books class="books" />
+        </div>
+        <Stack class="stack" />
+      </div>
     </div>
   </main>
 </BaseLayout>
 
 <style>
-  .content-profile-riddle {
+  .content-profile-header {
     display: grid;
     grid-template-columns: 0.5fr 1fr;
+  }
+
+  .content-profile-info {
+    display: grid;
+    grid-template-rows: 300px 300px;
+  }
+
+  .div1 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .div2 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .div1,
+  .div2 {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .books-spotify {
+    display: grid;
+    grid-template-rows: 0.6fr 1fr;
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .content-profile-info {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    .div1 {
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1fr;
+    }
+
+    .div2 {
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-columns: 1fr;
+    }
+
+  }
+
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .content-profile-info {
+      grid-template-rows: auto auto;
+    }
+
+    .div1 {
+      grid-template-columns: 1fr;
+    }
+
+    .div2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 300px auto;
+      gap: 1rem;
+    }
+
+    .projects {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .stack {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .books-spotify {
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
   }
 </style>

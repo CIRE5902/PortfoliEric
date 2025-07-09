@@ -1,0 +1,17 @@
+---
+// src/components/ProfileHeader.astro
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+import Project from "../../assets/images/project/comingsoon.png";
+---
+
+<div class="box-project box-card">
+    <div class="box-title box-title-project">
+        <Icon name="mdi:code-tags" class="box-icon" />
+        <h3 id="projectsTitle">Projects</h3>
+    </div>
+    <div class="box-image">
+        <Image src={Project} class="box-icon" alt="Copernic" />
+    </div>
+</div>

@@ -1,0 +1,77 @@
+---
+// src/components/ProfileHeader.astro
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+import Quibac from "../../assets/images/experience/quibac.jpeg";
+import Canroca from "../../assets/images/experience/canroca.png";
+import Softgam from "../../assets/images/experience/softgam.png";
+import Inology from "../../assets/images/experience/inology.png";
+---
+
+<div class="box-experience box-card">
+    <div class="box-title">
+        <Icon name="mdi:work-outline" class="box-icon" />
+        <h3 id="experienceTitle">Experience</h3>
+    </div>
+    <div class="box-experience-items">
+        <div class="box-item">
+            <div class="box-item-image">
+                <Image src={Inology} class="box-icon" alt="Canrpca" />
+            </div>
+            <div class="box-item-desc">
+                <div>
+                    <h3>Inology</h3>
+                    <p id="secondExperience">
+                        WEB APPLICATION DEVELOPMENT TECHNICIAN
+                    </p>
+                </div>
+            </div>
+            <div class="box-date"><p>01/2025 - actually</p></div>
+        </div>
+        <div class="box-item">
+            <div class="box-item-image">
+                <Image src={Softgam} class="box-icon" alt="Softgam" />
+            </div>
+            <div class="box-item-desc">
+                <div>
+                    <h3>Softgam</h3>
+                    <p id="thirdExperience">
+                        WEB APPLICATION DEVELOPMENT TECHNICIAN
+                    </p>
+                </div>
+            </div>
+            <div class="box-date">
+                <p>02/2024 - 08/2024</p>
+            </div>
+        </div>
+        <div class="box-item">
+            <div class="box-item-image">
+                <Image src={Canroca} class="box-icon" alt="Canrpca" />
+            </div>
+            <div class="box-item-desc">
+                <div>
+                    <h3>Ins CanRoca</h3>
+                    <p id="secondExperience">
+                        NETWORK SYSTEM ADMINISTRATION TECHNICIAN
+                    </p>
+                </div>
+            </div>
+            <div class="box-date"><p>09/2022 - 02/2023</p></div>
+        </div>
+        <div class="box-item">
+            <div class="box-item-image">
+                <Image src={Quibac} class="box-icon" alt="Quibac" />
+            </div>
+            <div class="box-item-desc">
+                <div>
+                    <h3>Quibac S.L</h3>
+                    <p id="firstExperience">
+                        NETWORK SYSTEM ADMINISTRATION TECHNICIAN
+                    </p>
+                </div>
+            </div>
+            <div class="box-date"><p>06/2022 - 07/2022</p></div>
+        </div>
+    </div>
+</div>

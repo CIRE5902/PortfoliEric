@@ -1,7 +1,7 @@
 ---
 // src/components/ProfileHeader.astro
 import { Image } from "astro:assets";
-import imageAvatar from "../assets/images/avatar.png";
+import imageAvatar from "../../assets/images/avatar.png";
 import { Icon } from "astro-icon/components";
 ---
 
@@ -26,7 +26,7 @@ import { Icon } from "astro-icon/components";
     </a>
 
     <div class="btn btn-available">
-        <Icon name="mdi:check" />
+        <Icon name="mdi:event-available-outline" />
 
         <p id="btn-available">Available</p>
         <i class="fa fa-hand-pointer interaction-icon"></i>
@@ -92,7 +92,6 @@ import { Icon } from "astro-icon/components";
         text-decoration: none;
         transition: 0.4s ease;
         border: 2px solid #a285d1;
-        color: #a285d1;
     }
     .btn-resume:hover {
         background-color: #a285d1;
@@ -133,12 +132,6 @@ import { Icon } from "astro-icon/components";
     .btn-available:hover::before,
     .btn-available:hover::after {
         border-color: transparent;
-    }
-
-    .btn-available svg,
-    .btn-resume svg {
-        width: 30px;
-        height: 30px;
     }
 
     .animate-title {
@@ -200,7 +193,7 @@ import { Icon } from "astro-icon/components";
 
     .social-links svg {
         width: 54px;
-        height:54px;
+        height: 54px;
         transition: transform 0.3s ease;
         fill: var(--text-primary);
         color: var(--text-primary);
