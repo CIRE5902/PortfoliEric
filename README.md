@@ -11,5 +11,8 @@ git push
 
 # Luego pasas a main y haces merge
 git checkout main
+git pull origin main
 git merge dev
+git add . 
+git commit -m
 git push
