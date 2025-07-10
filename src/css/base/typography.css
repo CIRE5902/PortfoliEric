@@ -7,7 +7,7 @@ h1 {
   margin: 0;
 }
 
-h1:hover {
+h1:where(.page-title):hover {
   filter: drop-shadow(0 0 10px #a285d1);
   color: #a285d1;
 }

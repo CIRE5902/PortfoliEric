@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout>
+  <main class="thanks-page">
+    <h1>¡Gracias por tu mensaje!</h1>
+    <p>He recibido tu mensaje y te responderé lo antes posible.</p>
+    <a href="/" class="back-home">Volver al inicio</a>
+  </main>
+</BaseLayout>
+
+<style>
+  .thanks-page {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .thanks-page h1 {
+    font-size: 2.2rem;
+    color: #4b3b75;
+  }
+
+  .thanks-page p {
+    font-size: 1.2rem;
+    max-width: 600px;
+  }
+
+  .back-home {
+    margin-top: 1rem;
+    padding: 10px 20px;
+    background-color: #a285d1;
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .back-home:hover {
+    background-color: #8c6dc2;
+  }
+</style>

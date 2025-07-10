@@ -7,7 +7,7 @@ const { title = "Contact Me" } = Astro.props;
 <script defer src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
 
 <section class="contact-form-container">
-    <form name="contact" method="POST" data-netlify="true">
+    <form name="contact" method="POST" data-netlify="true" action="/sendedemail">
         <input type="hidden" name="form-name" value="contact" />
 
         <div class="form-row">
@@ -18,7 +18,8 @@ const { title = "Contact Me" } = Astro.props;
         <input type="text" name="subject" placeholder="Subject" />
 
         <input id="message" type="hidden" name="message" />
-        <trix-editor input="message" placeholder="Write a message"></trix-editor>
+        <trix-editor input="message" placeholder="Write a message"
+        ></trix-editor>
 
         <button type="submit" class="btn-send">
             <span>Send Message</span>
