@@ -1,0 +1,108 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div class="contact-info">
+    <div class="contact-details-social">
+        <div class="social-media-box">
+            <a href="tel:+34611489590" aria-label="Llamar">
+                <Icon name="mdi:phone" class="contact-icon" />
+                <p>+34 611 48 95 90</p>
+            </a>
+        </div>
+
+        <div class="social-media-box">
+            <a
+                href="https://maps.app.goo.gl/aChFM2tCbQNzLkAG6"
+                target="_blank"
+                aria-label="Ubicación"
+            >
+                <Icon name="mdi:map-marker" class="contact-icon" />
+                <p>Terrassa, Barcelona</p>
+            </a>
+        </div>
+
+        <div class="social-media-box">
+            <a
+                href="mailto:ericperezvera02@gmail.com"
+                aria-label="Enviar correo"
+            >
+                <Icon name="mdi:email-outline" class="contact-icon" />
+                <p>ericperezvera02@gmail.com</p>
+            </a>
+        </div>
+
+        <div class="social-media-box">
+            <a
+                href="https://wa.me/611489590"
+                target="_blank"
+                aria-label="WhatsApp"
+            >
+                <Icon name="mdi:whatsapp" class="contact-icon" />
+                <p>Eric</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .contact-info {
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .contact-details-social {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .social-media-box {
+        width: 100%;
+        transition:
+            background-color 0.3s ease,
+            color 0.3s ease,
+            border-color 0.3s ease,
+            box-shadow 0.3s ease,
+            transform 0.3s ease;
+    }
+
+    .social-media-box a {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .social-media-box a:hover {
+        fill: #a285d1;
+        color: #a285d1;
+    }
+
+    .contact-icon {
+        width: 32px;
+        height: 32px;
+    }
+    /* Responsive grid para grupos si los usaras */
+    @media (max-width: 1100px) {
+        .contact-details-social {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .contact-details-social {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+        }
+    }
+</style>

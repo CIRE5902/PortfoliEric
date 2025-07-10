@@ -20,14 +20,14 @@ import ThemeIcon from "./ThemeIcon.astro";
     <!-- Inicio -->
     <li class="nav-item">
       <a href="/" class="nav-link">
-        <Image src={imageAvatar} alt="avatar" class="nav-icon" />
+        <Image src={imageAvatar} alt="avatar" class:list={["nav-icon"]} />
         <span class="link-text" id="menu-home">Home</span>
       </a>
     </li>
 
     <!-- About -->
     <li class="nav-item">
-      <a href="/pages/about.html" class="nav-link">
+      <a href="/me" class="nav-link">
         <Icon name="mdi:account" class="nav-icon" />
         <span class="link-text" id="menu-about">About</span>
       </a>
@@ -35,7 +35,7 @@ import ThemeIcon from "./ThemeIcon.astro";
 
     <!-- Projects -->
     <li class="nav-item">
-      <a href="/#projects" class="nav-link">
+      <a href="/projects" class="nav-link">
         <Icon name="mdi:code-tags" class="nav-icon" />
         <span class="link-text" id="menu-projects">Projects</span>
       </a>
@@ -43,7 +43,7 @@ import ThemeIcon from "./ThemeIcon.astro";
 
     <!-- Stack -->
     <li class="nav-item">
-      <a href="/pages/stack.html" class="nav-link">
+      <a href="/stack" class="nav-link">
         <Icon name="mdi:stack-overflow" class="nav-icon" />
         <span class="link-text" id="menu-stack">Stack</span>
       </a>
@@ -51,7 +51,7 @@ import ThemeIcon from "./ThemeIcon.astro";
 
     <!-- Contact -->
     <li class="nav-item">
-      <a href="/pages/contact.html" class="nav-link">
+      <a href="/contact" class="nav-link">
         <Icon name="mdi:account-box-outline" class="nav-icon" />
         <span class="link-text" id="menu-contact">Contact</span>
       </a>

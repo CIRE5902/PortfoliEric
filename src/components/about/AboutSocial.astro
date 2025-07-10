@@ -1,0 +1,153 @@
+---
+// Asegúrate de tener astro-icon instalado y activo
+import { Icon } from "astro-icon/components";
+---
+
+<div class="about-txtimg-socialMedia">
+  <ul>
+    <li>
+      <a
+        href="https://open.spotify.com/user/ericperezvera02"
+        target="_blank"
+        aria-label="Spotify"
+      >
+        <div>
+          <Icon name="mdi:spotify" class="about-icons" />
+          <span id="firstFollow">Follow on Spotify</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://www.instagram.com/eriicpz___/"
+        target="_blank"
+        aria-label="Instagram"
+      >
+        <div>
+          <Icon name="mdi:instagram" class="about-icons" />
+          <span id="secondFollow">Follow on Instagram</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://www.linkedin.com/in/ericperezvera"
+        target="_blank"
+        aria-label="LinkedIn"
+      >
+        <div>
+          <Icon name="mdi:linkedin" class="about-icons" />
+          <span id="thirdFollow">Follow on LinkedIn</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="mailto:ericperezvera02@gmail.com" aria-label="Email">
+        <div>
+          <Icon name="mdi:email-outline" class="about-icons" />
+          <span id="quarterFollow">Send Email</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/CIRE5902" target="_blank" aria-label="GitHub">
+        <div>
+          <Icon name="mdi:github" class="about-icons" />
+          <span id="fifthFollow">Follow on GitHub</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://www.figma.com/@d5318559_4aaa_4"
+        target="_blank"
+        aria-label="Figma"
+      >
+        <div>
+          <Icon name="solar:figma-bold" class="about-icons" />
+          <span id="sixthFollow">Follow on Figma</span>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<style>
+  .about-txtimg-socialMedia ul {
+    padding: 15px;
+
+    width: auto;
+    height: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    list-style: none;
+    gap: 35px;
+  }
+
+  .about-txtimg-socialMedia ul li a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .about-txtimg-socialMedia ul li div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    padding: 5px;
+    width: 200px;
+  }
+
+  .about-txtimg-socialMedia ul li div:hover {
+    background-color: #a285d1;
+    color: #ffffff;
+    fill: #ffffff;
+    box-shadow:
+      0 0 10px #a285d1,
+      0 0 40px #a285d1,
+      0 0 80px #a285d1;
+  }
+
+  .about-icons {
+    height: 25px;
+    width: 25px;
+    fill: currentColor;
+  }
+
+  .about-txtimg-socialMedia ul li div:hover .about-icons {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+  }
+
+  @media screen and (max-width: 600px) {
+    .about-txtimg-socialMedia ul {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .about-txtimg-socialMedia ul {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 850px) {
+    .about-txtimg-socialMedia ul {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    .about-txtimg-socialMedia ul {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 10px;
+    }
+  }
+
+  @media screen and (min-width: 1250px) {
+    .about-txtimg-socialMedia ul {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 15px 75px;
+    }
+  }
+</style>

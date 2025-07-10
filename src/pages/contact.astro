@@ -1,0 +1,34 @@
+---
+// src/pages/contact.astro
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import Title from "../components/common/PageTitle.astro";
+import ContactInfo from "../components/contact/ContactInfo.astro";
+import ContactForm from "../components/contact/ContactForm.astro";
+---
+
+<BaseLayout>
+    <main class="content">
+        <Title text="CONTACT ME" id="contactTitle" />
+        <div class="contact">
+            <ContactInfo />
+            <ContactForm />
+        </div>
+    </main>
+</BaseLayout>
+
+<style>
+    .contact {
+        align-items: start;
+        display: grid;
+        grid-template-columns: 0.4fr 1fr;
+    }
+
+    @media (max-width: 850px) {
+        .contact {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto;
+            row-gap: 30px;
+        }
+    }
+</style>
