@@ -1,0 +1,39 @@
+---
+import StackCard from "./StackCard.astro";
+
+interface StackItem {
+    name: string;
+    icon: string;
+}
+
+interface Subcategory {
+    title: string;
+    items: StackItem[];
+}
+
+const { title, subcategories } = Astro.props as {
+    title: string;
+    subcategories: Subcategory[];
+};
+---
+
+<div class="stack-category">
+    <div class="stack-category-title">
+        <h3>{title}</h3>
+    </div>
+
+    {
+        subcategories.map((subcategory) => (
+            <div class="stack-category-subcategory">
+                <div class="stack-category-subcategory-title">
+                    <h4>{subcategory.title}</h4>
+                </div>
+                <div class="stack-category-subcategory-items">
+                    {subcategory.items.map((item) => (
+                        <StackCard name={item.name} icon={item.icon} />
+                    ))}
+                </div>
+            </div>
+        ))
+    }
+</div>
