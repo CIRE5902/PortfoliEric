@@ -13,6 +13,9 @@ import Projects from "../components/index/Projects.astro";
 import Spotify from "../components/index/Spotify.astro";
 import Books from "../components/index/Books.astro";
 import Stack from "../components/index/Stack.astro";
+
+import GithubContributions from "../components/index/GithubContributions.astro";
+import SpotifyPlaylist from "../components/index/SpotifyPlaylist.astro";
 ---
 
 <BaseLayout>
@@ -35,6 +38,10 @@ import Stack from "../components/index/Stack.astro";
         </div>
         <Stack class="stack" />
       </div>
+      <div class="div3">
+        <GithubContributions class="contributions" />
+        <SpotifyPlaylist class="spotify-playlist" />
+      </div>
     </div>
   </main>
 </BaseLayout>
@@ -47,7 +54,7 @@ import Stack from "../components/index/Stack.astro";
 
   .content-profile-info {
     display: grid;
-    grid-template-rows: 300px 300px;
+    grid-template-rows: 300px 300px 200px;
   }
 
   .div1 {
@@ -58,11 +65,16 @@ import Stack from "../components/index/Stack.astro";
     grid-template-columns: 1fr 1fr 1fr;
   }
 
+  .div3 {
+    grid-template-columns: 2fr 1fr;
+  }
+
   .div1,
-  .div2 {
+  .div2,
+  .div3 {
     display: grid;
     gap: 1rem;
-    padding: 1rem;
+    padding: 0.5rem;
   }
 
   .books-spotify {
@@ -77,7 +89,8 @@ import Stack from "../components/index/Stack.astro";
       grid-template-rows: 1fr 1fr;
     }
 
-    .div1 {
+    .div1,
+    .div3 {
       grid-template-rows: 1fr 1fr;
       grid-template-columns: 1fr;
     }
@@ -86,7 +99,6 @@ import Stack from "../components/index/Stack.astro";
       grid-template-rows: 1fr 1fr 1fr;
       grid-template-columns: 1fr;
     }
-
   }
 
   @media (min-width: 641px) and (max-width: 1024px) {
@@ -94,7 +106,8 @@ import Stack from "../components/index/Stack.astro";
       grid-template-rows: auto auto;
     }
 
-    .div1 {
+    .div1,
+    .div3 {
       grid-template-columns: 1fr;
     }
 

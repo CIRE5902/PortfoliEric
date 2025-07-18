@@ -1,6 +1,6 @@
 .box-card {
   overflow: hidden;
-  padding: 15px;
+  padding: 10px;
   border-radius: 10px;
   border: 1px solid rgba(162, 133, 209, 0.1);
   transition: all 0.3s cubic-bezier(0.47, 0, 0.74, 0.71);
@@ -9,6 +9,7 @@
   background-clip: padding-box;
   display: grid;
   gap: 15px;
+  box-sizing: border-box;
 }
 
 .box-card:hover {
@@ -110,8 +111,8 @@
     display: flex;
     justify-content: flex-start;
   }
-  
-  .box-title{
+
+  .box-title {
     padding: 0 10px;
   }
 
