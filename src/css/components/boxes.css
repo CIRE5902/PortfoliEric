@@ -64,7 +64,7 @@
 .box-education-items {
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
-  scrollbar-color: #a285d1;
+  scrollbar-color: var(--purple-dark);
   scrollbar-width: thin;
   height: 100%;
   display: grid;

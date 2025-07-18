@@ -79,7 +79,7 @@ import { Icon } from "astro-icon/components";
     }
 
     .main-slogan {
-        color: #a285d1;
+        color: var(--purple-dark);
         font-weight: bold;
         display: flex;
         flex-direction: row;
@@ -88,17 +88,17 @@ import { Icon } from "astro-icon/components";
     }
 
     .btn-resume {
-        /* background-color: #a285d1; */
+        /* background-color: var(--purple-dark); */
         text-decoration: none;
         transition: 0.4s ease;
-        border: 2px solid #a285d1;
+        border: 2px solid var(--purple-dark);
     }
     .btn-resume:hover {
-        background-color: #a285d1;
+        background-color: var(--purple-dark);
         box-shadow:
-            0 0 10px #a285d1,
-            0 0 40px #a285d1,
-            0 0 80px #a285d1;
+            0 0 10px var(--purple-dark),
+            0 0 40px var(--purple-dark),
+            0 0 80px var(--purple-dark);
     }
 
     .btn-resume:hover::before,
@@ -114,17 +114,17 @@ import { Icon } from "astro-icon/components";
     }
 
     .btn-available {
-        background-color: #a285d1;
+        background-color: var(--purple-dark);
     }
 
     .btn-available:hover {
         background: transparent;
-        border: 2px #a285d1;
+        border: 2px var(--purple-dark);
         /* color: #ffffff;  */
         box-shadow:
-            0 0 10px #a285d1,
-            0 0 40px #a285d1,
-            0 0 80px #a285d1;
+            0 0 10px var(--purple-dark),
+            0 0 40px var(--purple-dark),
+            0 0 80px var(--purple-dark);
     }
 
     .btn-available:hover::before,
@@ -139,7 +139,7 @@ import { Icon } from "astro-icon/components";
     .animate-description {
         white-space: nowrap;
         width: 13ch;
-        color: #a285d1;
+        color: var(--purple-dark);
         overflow: hidden;
     }
 
@@ -153,7 +153,7 @@ import { Icon } from "astro-icon/components";
         80%,
         90.1%,
         92% {
-            color: #a285d1;
+            color: var(--purple-dark);
             /* Un tono lila que combina con la imagen */
             text-shadow: none;
         }
@@ -170,11 +170,11 @@ import { Icon } from "astro-icon/components";
         100% {
             color: #fff;
             text-shadow:
-                0 0 10px #a285d1,
-                0 0 20px #a285d1,
-                0 0 40px #a285d1,
-                0 0 80px #a285d1,
-                0 0 160px #a285d1;
+                0 0 10px var(--purple-dark),
+                0 0 20px var(--purple-dark),
+                0 0 40px var(--purple-dark),
+                0 0 80px var(--purple-dark),
+                0 0 160px var(--purple-dark);
         }
     }
 
@@ -198,9 +198,9 @@ import { Icon } from "astro-icon/components";
     }
 
     .social-links svg:hover {
-        color: #a285d1;
-        fill: #a285d1;
-        filter: drop-shadow(0 0 6px #a285d1);
+        color: var(--purple-dark);
+        fill: var(--purple-dark);
+        filter: drop-shadow(0 0 6px var(--purple-dark));
         transition: all 0.3s ease;
     }
 

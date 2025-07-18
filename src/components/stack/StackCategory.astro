@@ -1,39 +1,45 @@
 ---
 import StackCard from "./StackCard.astro";
+const { categoria, tecnologias } = Astro.props;
 
-interface StackItem {
-    name: string;
-    icon: string;
+interface Tecnologia {
+    nombre: string;
+    icono: string;
+    nivel: string;
+    enlace?: string;
 }
-
-interface Subcategory {
-    title: string;
-    items: StackItem[];
-}
-
-const { title, subcategories } = Astro.props as {
-    title: string;
-    subcategories: Subcategory[];
-};
 ---
 
 <div class="stack-category">
-    <div class="stack-category-title">
-        <h3>{title}</h3>
+    <h2 class="category-title">{categoria}</h2>
+    <div class="cards-grid">
+        {
+            (tecnologias as Tecnologia[]).map((tec) => (
+                <StackCard
+                    nombre={tec.nombre}
+                    icono={tec.icono}
+                    nivel={tec.nivel}
+                    enlace={tec.enlace}
+                />
+            ))
+        }
     </div>
-
-    {
-        subcategories.map((subcategory) => (
-            <div class="stack-category-subcategory">
-                <div class="stack-category-subcategory-title">
-                    <h4>{subcategory.title}</h4>
-                </div>
-                <div class="stack-category-subcategory-items">
-                    {subcategory.items.map((item) => (
-                        <StackCard name={item.name} icon={item.icon} />
-                    ))}
-                </div>
-            </div>
-        ))
-    }
 </div>
+
+<style>
+    .stack-category {
+        padding: 1rem;
+        border-radius: 8px;
+    }
+    .category-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--purple-dark);
+        text-shadow: 0 0 4px var(--purple-dark);
+    }
+    .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 1rem;
+    }
+</style>

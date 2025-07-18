@@ -1,0 +1,297 @@
+[
+    {
+        "categoria": "Frontend",
+        "tecnologias": [
+            {
+                "nombre": "HTML",
+                "icono": "logos:html-5",
+                "nivel": "favourite",
+                "enlace": "http://developer.mozilla.org/es/docs/Web/HTML"
+            },
+            {
+                "nombre": "CSS",
+                "icono": "logos:css-3",
+                "nivel": "favourite",
+                "enlace": "https://developer.mozilla.org/es/docs/Web/CSS"
+            },
+            {
+                "nombre": "Javascript",
+                "icono": "logos:javascript",
+                "nivel": "favourite",
+                "enlace": "https://developer.mozilla.org/es/docs/Web/JavaScript"
+            },
+            {
+                "nombre": "React",
+                "icono": "logos:react",
+                "nivel": "learning",
+                "enlace": "https://es.react.dev/"
+            },
+            {
+                "nombre": "Typescript",
+                "icono": "logos:typescript-icon",
+                "nivel": "learning",
+                "enlace": "https://www.typescriptlang.org/"
+            },
+            {
+                "nombre": "Vue",
+                "icono": "logos:vue",
+                "nivel": "familiar",
+                "enlace": "https://vuejs.org/"
+            },
+            {
+                "nombre": "Nuxt",
+                "icono": "logos:nuxt-icon",
+                "nivel": "familiar",
+                "enlace": "https://nuxt.com/"
+            },
+            {
+                "nombre": "Tailwind",
+                "icono": "logos:tailwindcss-icon",
+                "nivel": "familiar",
+                "enlace": "https://tailwindcss.com/"
+            }
+        ]
+    },
+    {
+        "categoria": "Backend",
+        "tecnologias": [
+            {
+                "nombre": "Laravel",
+                "icono": "logos:laravel",
+                "nivel": "favourite",
+                "enlace": "https://laravel.com/"
+            },
+            {
+                "nombre": "Php",
+                "icono": "logos:php",
+                "nivel": "favourite",
+                "enlace": "https://www.php.net/"
+            },
+            {
+                "nombre": "Sql",
+                "icono": "local:sql",
+                "nivel": "favourite",
+                "enlace": "https://www.microsoft.com/es-es/sql-server"
+            },
+            {
+                "nombre": "Java",
+                "icono": "logos:java",
+                "nivel": "favourite",
+                "enlace": "https://www.java.com"
+            },
+            {
+                "nombre": "MariaDB",
+                "icono": "logos:mariadb-icon",
+                "nivel": "favourite",
+                "enlace": "https://mariadb.org/"
+            },
+            {
+                "nombre": "Postgre",
+                "icono": "logos:postgresql",
+                "nivel": "favourite",
+                "enlace": "https://www.postgresql.org/"
+            },
+            {
+                "nombre": "Node",
+                "icono": "logos:nodejs-icon",
+                "nivel": "learning",
+                "enlace": "https://nodejs.org"
+            },
+            {
+                "nombre": "Mongo",
+                "icono": "logos:mongodb-icon",
+                "nivel": "familiar",
+                "enlace": "https://www.mongodb.com/"
+            }
+        ]
+    },
+    {
+        "categoria": "Systems & Services",
+        "tecnologias": [
+            {
+                "nombre": "Linux",
+                "icono": "logos:linux-tux",
+                "nivel": "favourite",
+                "enlace": "https://www.linux.org/"
+            },
+            {
+                "nombre": "SSH",
+                "icono": "mdi:ssh",
+                "nivel": "favourite",
+                "enlace": "https://www.ssh.com/"
+            },
+            {
+                "nombre": "DNS",
+                "icono": "mdi:dns",
+                "nivel": "favourite",
+                "enlace": ""
+            },
+            {
+                "nombre": "DHCP",
+                "icono": "local:dhcp",
+                "nivel": "favourite",
+                "enlace": ""
+            },
+            {
+                "nombre": "Apache",
+                "icono": "logos:apache",
+                "nivel": "favourite",
+                "enlace": "https://httpd.apache.org/"
+            },
+            {
+                "nombre": "PFSENSE",
+                "icono": "local:pfsense",
+                "nivel": "favourite",
+                "enlace": "https://www.pfsense.org/"
+            },
+            {
+                "nombre": "Windows",
+                "icono": "logos:microsoft-windows-icon",
+                "nivel": "familiar",
+                "enlace": "https://www.microsoft.com/es-es/windows"
+            },
+            {
+                "nombre": "IPFIRE",
+                "icono": "local:ipfire",
+                "nivel": "familiar",
+                "enlace": "https://www.ipfire.org/"
+            },
+            {
+                "nombre": "NFS",
+                "icono": "local:nfs",
+                "nivel": "familiar",
+                "enlace": ""
+            },
+            {
+                "nombre": "FTP",
+                "icono": "local:ftp",
+                "nivel": "familiar",
+                "enlace": ""
+            },
+            {
+                "nombre": "Nginx",
+                "icono": "logos:nginx",
+                "nivel": "familiar",
+                "enlace": "https://nginx.org/"
+            }
+        ]
+    },
+    {
+        "categoria": "Tools",
+        "tecnologias": [
+            {
+                "nombre": "VsCode",
+                "icono": "local:vscode",
+                "nivel": "favourite",
+                "enlace": "https://code.visualstudio.com/"
+            },
+            {
+                "nombre": "git",
+                "icono": "logos:git-icon",
+                "nivel": "favourite",
+                "enlace": "https://git-scm.com/"
+            },
+            {
+                "nombre": "github",
+                "icono": "logos:github-icon",
+                "nivel": "favourite",
+                "enlace": "https://github.com/"
+            },
+            {
+                "nombre": "figma",
+                "icono": "logos:figma",
+                "nivel": "favourite",
+                "enlace": "https://www.figma.com/"
+            },
+            {
+                "nombre": "dbeaver",
+                "icono": "local:dbeaver",
+                "nivel": "favourite",
+                "enlace": "https://dbeaver.io/"
+            },
+            {
+                "nombre": "postman",
+                "icono": "logos:postman-icon",
+                "nivel": "favourite",
+                "enlace": "https://www.postman.com/"
+            },
+            {
+                "nombre": "docker",
+                "icono": "logos:docker-icon",
+                "nivel": "favourite",
+                "enlace": "http://docker.com/s"
+            },
+            {
+                "nombre": "virtualbox",
+                "icono": "local:vm",
+                "nivel": "favourite",
+                "enlace": "https://www.virtualbox.org/"
+            },
+            {
+                "nombre": "wireshark",
+                "icono": "local:wireshark",
+                "nivel": "favourite",
+                "enlace": "https://www.wireshark.org/"
+            },
+            {
+                "nombre": "vagrant",
+                "icono": "logos:vagrant-icon",
+                "nivel": "favourite",
+                "enlace": "https://developer.hashicorp.com/vagrant"
+            },
+            {
+                "nombre": "trello",
+                "icono": "logos:trello",
+                "nivel": "familiar",
+                "enlace": "https://trello.com/"
+            },
+            {
+                "nombre": "netlify",
+                "icono": "logos:netlify-icon",
+                "nivel": "familiar",
+                "enlace": "https://www.netlify.com/"
+            }
+        ]
+    },
+    {
+        "categoria": "Help",
+        "tecnologias": [
+            {
+                "nombre": "codepen",
+                "icono": "logos:codepen-icon",
+                "nivel": "favourite",
+                "enlace": "https://codepen.io/"
+            },
+            {
+                "nombre": "github",
+                "icono": "logos:github-icon",
+                "nivel": "favourite",
+                "enlace": "https://docs.github.com/es/discussions"
+            },
+            {
+                "nombre": "webleb",
+                "icono": "local:webleb",
+                "nivel": "familiar",
+                "enlace": "https://www.web-leb.com/"
+            },
+            {
+                "nombre": "awwwards",
+                "icono": "local:awwwards",
+                "nivel": "familiar",
+                "enlace": "https://www.awwwards.com/"
+            },
+            {
+                "nombre": "pinterest",
+                "icono": "logos:pinterest",
+                "nivel": "familiar",
+                "enlace": "https://es.pinterest.com/"
+            },
+            {
+                "nombre": "dribbble",
+                "icono": "logos:dribbble-icon",
+                "nivel": "familiar",
+                "enlace": "https://dribbble.com/"
+            }
+        ]
+    }
+]

@@ -93,15 +93,15 @@ import { Icon } from "astro-icon/components";
 
     .btn-send:hover .send-icon {
         animation: shake 0.5s;
-        color: #a285d1;
-        filter: drop-shadow(0 0 10px #a285d1) drop-shadow(0 0 40px #a285d1)
-            drop-shadow(0 0 80px #a285d1);
+        color: var(--purple-dark);
+        filter: drop-shadow(0 0 10px var(--purple-dark)) drop-shadow(0 0 40px var(--purple-dark))
+            drop-shadow(0 0 80px var(--purple-dark));
         transition: filter 1s ease;
     }
 
     .send-button:hover .send-icon {
-        filter: drop-shadow(0 0 10px #a285d1) drop-shadow(0 0 40px #a285d1)
-            drop-shadow(0 0 80px #a285d1);
+        filter: drop-shadow(0 0 10px var(--purple-dark)) drop-shadow(0 0 40px var(--purple-dark))
+            drop-shadow(0 0 80px var(--purple-dark));
     }
 
     @keyframes shake {

@@ -1,6 +1,60 @@
 ---
 // src/components/stack/StackCard.astro
-const { name, icon } = Astro.props;
+import { Icon } from "astro-icon/components";
+const { nombre, icono, nivel, enlace } = Astro.props;
 ---
 
-<p>{name}</p>
+<a
+  href={enlace || "#"}
+  class="stack-card-link"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <div class="stack-card">
+    <div class="icon-wrapper">
+      {icono && <Icon name={icono} class="stack-icon" />}
+    </div>
+    <div class="stack-name">{nombre}</div>
+    <div class="stack-level">{nivel}</div>
+  </div>
+</a>
+
+<style>
+  .stack-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+    color: var(--text-primary);
+  }
+
+  .stack-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 10px var(--purple-dark);
+  }
+
+  .icon-wrapper {
+    margin-bottom: 0.5rem;
+  }
+
+  .stack-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .stack-level {
+    font-size: 0.8rem;
+    opacity: 0.75;
+  }
+
+  .stack-icon {
+    height: 45px;
+    width: 45px;
+  }
+  .stack-card-link {
+    text-decoration: none;
+  }
+</style>

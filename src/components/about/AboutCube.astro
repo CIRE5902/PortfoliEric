@@ -87,9 +87,9 @@ import imageEric from "../../assets/images/me/eric.jpg";
         height: 100%;
         object-fit: cover;
         box-shadow:
-            0 0 0.5rem #a285d1,
-            0 0 1.5rem #a285d1,
-            0 0 3rem #a285d1;
+            0 0 0.5rem var(--purple-dark),
+            0 0 1.5rem var(--purple-dark),
+            0 0 3rem var(--purple-dark);
     }
 
     /* Calculamos Z con la mitad del tamaño del contenedor (max 150px) */
@@ -163,11 +163,11 @@ import imageEric from "../../assets/images/me/eric.jpg";
 
     .image-buttons input:focus {
         outline: none;
-        border-color: #a285d1;
+        border-color: var(--purple-dark);
         box-shadow:
-            0 0 10px #a285d1,
-            0 0 40px #a285d1,
-            0 0 80px #a285d1;
+            0 0 10px var(--purple-dark),
+            0 0 40px var(--purple-dark),
+            0 0 80px var(--purple-dark);
     }
 
     @media screen and (max-width: 550px) {

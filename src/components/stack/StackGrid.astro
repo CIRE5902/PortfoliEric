@@ -1,0 +1,25 @@
+---
+import stackData from "../../data/stack-data.json";
+import StackCategory from "./StackCategory.astro";
+---
+
+<section class="stack-section">
+  <div class="stack-grid">
+    {
+      stackData.map((category) => (
+        <StackCategory
+          categoria={category.categoria}
+          tecnologias={category.tecnologias}
+        />
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .stack-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+</style>

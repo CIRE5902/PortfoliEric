@@ -1,34 +1,36 @@
 :root {
-    /* Valores predeterminados (light mode) */
-    --text-primary: #151515;
-    --text-secondary: #404040;
-    --bg-primary: #FDFDFD;
-    --bg-secondary: #F5F5F5;
-    --cards: #F7F7F7;
-    --transition-speed: 600ms;
-    --muted: 240 5% 20%;
-  }
-  
-  .dark {
-    --text-primary: #EEEEEE;
-    --text-secondary: #BBBBBB;
-    --bg-primary: #242427;
-    --bg-secondary: #1F1F22;
-    --cards: #151515;
-  }
-  
-  .light {
-    --text-primary: #151515;
-    --text-secondary: #404040;
-    --bg-primary: #FDFDFD;
-    --bg-secondary: #F5F5F5;
-    --cards: #F7F7F7;
-  }
-  
-  .eric {
-    --text-primary: #151515;
-    --text-secondary: #404040;
-    --bg-primary: #D1C6E0; 
-    --bg-secondary: #B59ED2; 
-    --cards: #F7F7F7; 
-  }
+  --text-primary: #151515;
+  --text-secondary: #404040;
+  --bg-primary: #FDFDFD;
+  --bg-secondary: #F5F5F5;
+  --cards: #F7F7F7;
+  --transition-speed: 600ms;
+  --muted: 240 5% 20%;
+
+  --purple-dark: #a285d1;
+
+}
+
+.dark {
+  --text-primary: #EEEEEE;
+  --text-secondary: #BBBBBB;
+  --bg-primary: #242427;
+  --bg-secondary: #1F1F22;
+  --cards: #151515;
+}
+
+.light {
+  --text-primary: #151515;
+  --text-secondary: #404040;
+  --bg-primary: #FDFDFD;
+  --bg-secondary: #F5F5F5;
+  --cards: #F7F7F7;
+}
+
+.eric {
+  --text-primary: #151515;
+  --text-secondary: #404040;
+  --bg-primary: #D1C6E0;
+  --bg-secondary: #B59ED2;
+  --cards: #F7F7F7;
+}
