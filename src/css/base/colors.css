@@ -9,6 +9,7 @@
 
   --purple-dark: #a285d1;
 
+  --card-glass: rgba(240, 240, 240, 0.75);
 }
 
 .dark {
@@ -17,6 +18,8 @@
   --bg-primary: #242427;
   --bg-secondary: #1F1F22;
   --cards: #151515;
+
+  --card-glass: rgba(255, 255, 255, 0.06);
 }
 
 .light {
@@ -25,6 +28,8 @@
   --bg-primary: #FDFDFD;
   --bg-secondary: #F5F5F5;
   --cards: #F7F7F7;
+
+  --card-glass: rgba(200, 200, 200, 0.20);
 }
 
 .eric {
@@ -33,4 +38,6 @@
   --bg-primary: #D1C6E0;
   --bg-secondary: #B59ED2;
   --cards: #F7F7F7;
+
+  --card-glass: rgba(80, 40, 120, 0.06);
 }

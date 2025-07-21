@@ -2,107 +2,148 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<div class="contact-info">
-    <div class="contact-details-social">
-        <div class="social-media-box">
-            <a href="tel:+34611489590" aria-label="Llamar">
-                <Icon name="mdi:phone" class="contact-icon" />
-                <p>+34 611 48 95 90</p>
-            </a>
-        </div>
+<div class="contact-info box-card">
+    <h2>Contact Information</h2>
 
-        <div class="social-media-box">
-            <a
-                href="https://maps.app.goo.gl/aChFM2tCbQNzLkAG6"
-                target="_blank"
-                aria-label="Ubicación"
-            >
-                <Icon name="mdi:map-marker" class="contact-icon" />
-                <p>Terrassa, Barcelona</p>
+    <ul class="info-list">
+        <li>
+            <Icon name="mdi:email" class={"contact-icon"} />
+            <a href="mailto:ericperezvera02@gmail.com">
+                <div>
+                    <span class="social-name">Email</span>
+                    <span class="social-link">ericperezvera02@gmail.com</span>
+                </div>
             </a>
-        </div>
+        </li>
+        <li>
+            <Icon name="mdi:linkedin" class={"contact-icon"} />
+            <a href="https://www.linkedin.com/in/ericperezvera" target="_blank">
+                <div>
+                    <span class="social-name">LinkedIn</span>
+                    <span class="social-link"
+                        >linkedin.com/in/ericperezvera</span
+                    >
+                </div>
+            </a>
+        </li>
+        <li>
+            <Icon name="mdi:whatsapp" class={"contact-icon"} />
+            <a href="https://wa.me/611489590" target="_blank">
+                <div>
+                    <span class="social-name">Whatsapp</span>
+                    <span class="social-link">wa.me/611489590</span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <Icon name="mdi:phone" class={"contact-icon"} />
+            <a href="tel:+34611489590">
+                <div>
+                    <span class="social-name">Telephone</span>
+                    <span class="social-link">+34 611 48 95 90</span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <Icon name="mdi:map-marker" class={"contact-icon"} />
+            <a href="https://maps.app.goo.gl/aChFM2tCbQNzLkAG6" target="_blank">
+                <div>
+                    <span class="social-name">Ubication</span>
+                    <span class="social-link">Terrassa, Barcelona</span>
+                </div>
+            </a>
+        </li>
+    </ul>
 
-        <div class="social-media-box">
-            <a
-                href="mailto:ericperezvera02@gmail.com"
-                aria-label="Enviar correo"
-            >
-                <Icon name="mdi:email-outline" class="contact-icon" />
-                <p>ericperezvera02@gmail.com</p>
-            </a>
-        </div>
+    <hr />
 
-        <div class="social-media-box">
-            <a
-                href="https://wa.me/611489590"
-                target="_blank"
-                aria-label="WhatsApp"
-            >
-                <Icon name="mdi:whatsapp" class="contact-icon" />
-                <p>Eric</p>
-            </a>
-        </div>
+    <div class="status">
+        <span class="status-dot">🟢</span>
+        <span>Available for freelance and full-time opportunities</span>
     </div>
 </div>
 
 <style>
+    h2 {
+        margin-bottom: 30px;
+    }
+
     .contact-info {
-        display: flex;
-        align-items: start;
-        justify-content: start;
-        flex-direction: column;
-        gap: 20px;
+        padding: clamp(1rem, 5vw, 2rem);
+        border-radius: 1rem;
+        background-color: var(--card-glass);
     }
 
-    .contact-details-social {
+    .info-list {
+        list-style: none;
+        display: grid;
+        row-gap: 15px;
+        padding: 5px;
+    }
+
+    .info-list li {
         display: flex;
         align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
+        margin-bottom: 0.75rem;
+        gap: 15px;
     }
 
-    .social-media-box {
-        width: 100%;
-        transition:
-            background-color 0.3s ease,
-            color 0.3s ease,
-            border-color 0.3s ease,
-            box-shadow 0.3s ease,
-            transform 0.3s ease;
-    }
-
-    .social-media-box a {
-        text-decoration: none;
-        color: inherit;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .social-media-box a:hover {
-        fill: var(--purple-dark);
+    .info-list li:hover .social-link {
         color: var(--purple-dark);
     }
 
-    .contact-icon {
-        width: 32px;
-        height: 32px;
-    }
-    /* Responsive grid para grupos si los usaras */
-    @media (max-width: 1100px) {
-        .contact-details-social {
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-        }
+    .info-list div {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        /* gap: 5px; */
     }
 
-    @media (max-width: 600px) {
-        .contact-details-social {
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr 1fr 1fr;
+    .social-name {
+        font-size: 14px;
+    }
+
+    .social-link {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .contact-icon {
+        font-size: 30px;
+    }
+
+    hr {
+        margin: 1.5rem 0;
+        border: none;
+        border-top: 1px solid var(--card-glass);
+    }
+
+    .status {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: bold;
+        margin-top: 30px;
+    }
+
+    .status-dot {
+        display: inline-block;
+        animation: pulse-glow 1.5s infinite;
+        filter: drop-shadow(0 0 2px #4caf50) drop-shadow(0 0 5px #4caf50)
+            drop-shadow(0 0 10px #4caf50);
+    }
+
+    @keyframes pulse-glow {
+        0% {
+            filter: drop-shadow(0 0 2px #4caf50) drop-shadow(0 0 5px #4caf50)
+                drop-shadow(0 0 10px #4caf50);
+        }
+        50% {
+            filter: drop-shadow(0 0 5px #4caf50) drop-shadow(0 0 15px #4caf50)
+                drop-shadow(0 0 25px #4caf50);
+        }
+        100% {
+            filter: drop-shadow(0 0 2px #4caf50) drop-shadow(0 0 5px #4caf50)
+                drop-shadow(0 0 10px #4caf50);
         }
     }
 </style>

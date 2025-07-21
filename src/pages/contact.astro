@@ -18,17 +18,15 @@ import ContactForm from "../components/contact/ContactForm.astro";
 </BaseLayout>
 
 <style>
-    .contact {
-        align-items: start;
-        display: grid;
-        grid-template-columns: 0.4fr 1fr;
-    }
+  .contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
 
-    @media (max-width: 850px) {
-        .contact {
-            grid-template-columns: 1fr;
-            grid-template-rows: auto auto;
-            row-gap: 30px;
-        }
+  @media (max-width: 1158px) {
+    .contact {
+      grid-template-columns: 1fr;
     }
+  }
 </style>
