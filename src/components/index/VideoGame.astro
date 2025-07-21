@@ -1,0 +1,125 @@
+---
+interface Juego {
+    name: string;
+    background_image: string;
+    slug: string;
+}
+
+import { Icon } from "astro-icon/components";
+
+const slugs = [
+    "elden-ring",
+    "the-last-of-us-part-i",
+    "rocket-league",
+    "tom-clancys-rainbow-six-siege-2",
+    "cod-black-ops-ii",
+];
+
+const API_KEY = "a71507d59e70420d9bce17e9af1fc7b4";
+const juegos: Juego[] = [];
+
+for (const slug of slugs) {
+    const res = await fetch(
+        `https://api.rawg.io/api/games/${slug}?key=${API_KEY}`,
+    );
+    if (res.ok) {
+        const data = await res.json();
+        juegos.push({
+            name: data.name,
+            background_image: data.background_image,
+            slug: data.slug,
+        });
+    }
+}
+---
+
+<div class="juegos-slider box-card" id="juegosSlider">
+    {
+        juegos.map((juego, index) => (
+            <div
+                class={`juego-slide ${index === 0 ? "active" : ""}`}
+                style={`background-image: url(${juego.background_image});`}
+            >
+                <a
+                    href={`https://rawg.io/games/${juego.slug}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <div class="game-name">
+                        <Icon name="mdi:open-in-new" class="link-icon" />
+                        <h3>{juego.name}</h3>
+                    </div>
+                </a>
+            </div>
+        ))
+    }
+</div>
+
+<script>
+    let index = 0;
+    const slides = document.querySelectorAll("#juegosSlider .juego-slide");
+    if (slides.length > 0) {
+        slides[0].classList.add("active");
+        setInterval(() => {
+            slides[index].classList.remove("active");
+            index = (index + 1) % slides.length;
+            slides[index].classList.add("active");
+        }, 4000);
+    }
+</script>
+
+<style>
+    .juegos-slider {
+        position: relative;
+        width: 100%;
+    }
+
+    .juego-slide {
+        display: none;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        border-radius: 16px;
+        padding: 1rem;
+        overflow: hidden;
+        text-align: center;
+        transition: all 0.4s ease;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100%;
+    }
+
+    .juego-slide.active {
+        display: flex;
+    }
+
+    .game-name {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 0.5rem 1rem;
+        border-radius: 12px;
+        color: white;
+        font-weight: bold;
+        margin-top: auto;
+    }
+    a {
+        text-decoration: none;
+    }
+
+    .link-icon {
+        margin-left: 0.4rem;
+        vertical-align: middle;
+        font-size: 1rem;
+        opacity: 0.7;
+        transition: transform 0.3s ease;
+    }
+
+    .game-name:hover .link-icon {
+        transform: scale(1.3);
+    }
+</style>

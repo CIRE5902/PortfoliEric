@@ -1,10 +1,5 @@
----
-// src/components/ProfileHeader.astro
-import { Image } from "astro:assets";
-import Contributions from "../../assets/images/github/contributions.png";
----
-
 <div class="box-card">
+    <h4 class="github-title">Github Contributions</h4>
     <img
         src="https://ghchart.rshah.org/CIRE5902"
         class="image-contributions"
@@ -13,13 +8,11 @@ import Contributions from "../../assets/images/github/contributions.png";
 </div>
 
 <style>
-    div {
-        height: 100%;
-        width: 100%;
-    }
     .image-contributions {
-        height: 90%;
-        width: 95%;
+        padding: 10px;
+    }
+    .github-title {
+        margin: 0;
         padding: 10px;
     }
 </style>
