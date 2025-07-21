@@ -25,6 +25,11 @@ body {
   gap: 10px;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 @media only screen and (max-width: 1350px) and (min-width: 950px) {
   .content {
     padding: 100px 90px 50px 275px;
@@ -38,8 +43,7 @@ body {
 }
 
 @media (max-width: 550px) {
-    .content {
-        padding: 70px 20px 100px 20px;
-    }
+  .content {
+    padding: 70px 20px 100px 20px;
+  }
 }
-
