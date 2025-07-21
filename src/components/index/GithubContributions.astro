@@ -1,18 +1,29 @@
 <div class="box-card">
-    <h4 class="github-title">Github Contributions</h4>
+  <h4 class="github-title">Github Contributions</h4>
+  <div class="contributions-scroll">
     <img
-        src="https://ghchart.rshah.org/CIRE5902"
-        class="image-contributions"
-        alt="contributions"
+      src="https://ghchart.rshah.org/CIRE5902"
+      class="image-contributions"
+      alt="contributions"
     />
+  </div>
 </div>
 
 <style>
-    .image-contributions {
-        padding: 10px;
-    }
-    .github-title {
-        margin: 0;
-        padding: 10px;
-    }
+.github-title {
+  margin: 0;
+  padding: 10px;
+}
+
+.contributions-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+}
+
+.image-contributions {
+  padding: 10px;
+  min-width: 650px;
+  height: auto;
+}
 </style>
