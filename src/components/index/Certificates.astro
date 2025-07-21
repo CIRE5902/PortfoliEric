@@ -1,0 +1,78 @@
+---
+// src/components/Certificates.astro
+import { Icon } from "astro-icon/components";
+---
+
+<div class="box-certificates box-card">
+    <div class="box-title">
+        <Icon name="mdi:certificate" class="box-icon" />
+        <h3 id="certificatesTitle">Certificates</h3>
+    </div>
+
+    <div class="box-certificates-items">
+        <div class="certificate-item">
+            <h3>English B1</h3>
+            <Icon name="mdi:download" class="download-icon" />
+        </div>
+        <div class="certificate-item">
+            <h3>DAW</h3>
+            <Icon name="mdi:download" class="download-icon" />
+        </div>
+        <div class="certificate-item">
+            <h3>ASIX</h3>
+            <Icon name="mdi:download" class="download-icon" />
+        </div>
+        <div class="certificate-item">
+            <h3>SMIX</h3>
+            <Icon name="mdi:download" class="download-icon" />
+        </div>
+    </div>
+</div>
+
+<style>
+    .box-certificates {
+        padding: 1.5rem;
+        box-sizing: border-box;
+    }
+
+    .box-certificates-items {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .certificate-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 1rem;
+    }
+
+    .certificate-item:hover {
+        background: var(--purple-dark);
+    }
+
+    .download-icon {
+        font-size: 1.4rem;
+        transition: transform 0.2s ease;
+        flex-shrink: 0;
+    }
+
+    .certificate-item:hover .download-icon {
+        transform: scale(1.15);
+    }
+
+    @media (max-width: 480px) {
+        .certificate-item {
+            align-items: center;
+        }
+
+        .certificate-item h3 {
+            font-size: 1rem;
+        }
+
+        .download-icon {
+            align-self: flex-end;
+        }
+    }
+</style>
