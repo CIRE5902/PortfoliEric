@@ -1,103 +1,134 @@
 ---
-// SocialLinks.astro
+// Asegúrate de tener astro-icon instalado y activo
 import { Icon } from "astro-icon/components";
-
-const links = [
-  {
-    href: "https://open.spotify.com/user/ericperezvera02",
-    icon: "mdi:spotify",
-    text: "Follow on Spotify",
-    label: "Spotify"
-  },
-  {
-    href: "https://www.instagram.com/eriicpz___/",
-    icon: "mdi:instagram",
-    text: "Follow on Instagram",
-    label: "Instagram"
-  },
-  {
-    href: "https://www.linkedin.com/in/ericperezvera",
-    icon: "mdi:linkedin",
-    text: "Follow on LinkedIn",
-    label: "LinkedIn"
-  },
-  {
-    href: "mailto:ericperezvera02@gmail.com",
-    icon: "mdi:email-outline",
-    text: "Send Email",
-    label: "Email"
-  },
-  {
-    href: "https://github.com/CIRE5902",
-    icon: "mdi:github",
-    text: "Follow on GitHub",
-    label: "GitHub"
-  },
-  {
-    href: "https://www.figma.com/@d5318559_4aaa_4",
-    icon: "solar:figma-bold",
-    text: "Follow on Figma",
-    label: "Figma"
-  }
-];
 ---
 
 <div class="about-txtimg-socialMedia">
   <ul>
-    {links.map(({ href, icon, text, label }) => (
-      <li>
-        <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
-          <div>
-            <Icon name={icon} class="about-icons" />
-            <span>{text}</span>
-          </div>
-        </a>
-      </li>
-    ))}
+    <li>
+      <a
+        href="https://open.spotify.com/user/ericperezvera02"
+        target="_blank"
+        aria-label="Spotify"
+      >
+        <div>
+          <Icon name="mdi:spotify" class="about-icons" />
+          <span id="firstFollow">Follow on Spotify</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://www.instagram.com/eriicpz___/"
+        target="_blank"
+        aria-label="Instagram"
+      >
+        <div>
+          <Icon name="mdi:instagram" class="about-icons" />
+          <span id="secondFollow">Follow on Instagram</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://www.linkedin.com/in/ericperezvera"
+        target="_blank"
+        aria-label="LinkedIn"
+      >
+        <div>
+          <Icon name="mdi:linkedin" class="about-icons" />
+          <span id="thirdFollow">Follow on LinkedIn</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="mailto:ericperezvera02@gmail.com" aria-label="Email">
+        <div>
+          <Icon name="mdi:email-outline" class="about-icons" />
+          <span id="quarterFollow">Send Email</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/CIRE5902" target="_blank" aria-label="GitHub">
+        <div>
+          <Icon name="mdi:github" class="about-icons" />
+          <span id="fifthFollow">Follow on GitHub</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://www.figma.com/@d5318559_4aaa_4"
+        target="_blank"
+        aria-label="Figma"
+      >
+        <div>
+          <Icon name="solar:figma-bold" class="about-icons" />
+          <span id="sixthFollow">Follow on Figma</span>
+        </div>
+      </a>
+    </li>
   </ul>
 </div>
 
 <style>
   .about-txtimg-socialMedia ul {
-    display: grid;
-    gap: 35px;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
     padding: 15px;
+
+    width: auto;
+    height: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     list-style: none;
+    gap: 35px;
   }
 
-  .about-txtimg-socialMedia a {
+  .about-txtimg-socialMedia ul li a {
     text-decoration: none;
     color: inherit;
   }
 
-  .about-txtimg-socialMedia li div {
+  .about-txtimg-socialMedia ul li div {
     display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 15px;
     padding: 5px;
     width: 200px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .about-txtimg-socialMedia li div:hover {
+  .about-txtimg-socialMedia ul li div:hover {
     background-color: var(--purple-dark);
-    color: #fff;
+    color: #ffffff;
+    fill: #ffffff;
     box-shadow:
       0 0 10px var(--purple-dark),
       0 0 40px var(--purple-dark),
       0 0 80px var(--purple-dark);
+    transition: 0.3s;
   }
 
   .about-icons {
-    width: 25px;
     height: 25px;
+    width: 25px;
     fill: currentColor;
+  }
+
+  .about-txtimg-socialMedia ul li div:hover .about-icons {
+    transform: scale(1.2);
     transition: transform 0.3s ease;
   }
 
-  .about-txtimg-socialMedia li div:hover .about-icons {
-    transform: scale(1.2);
+  @media screen and (max-width: 600px) {
+    .about-txtimg-socialMedia ul {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .about-txtimg-socialMedia ul {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
 
   @media screen and (max-width: 850px) {
