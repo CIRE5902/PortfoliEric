@@ -23,6 +23,7 @@ body {
   /* padding: 100px 50px 30px 50px; */
   padding: 100px 100px 30px 275px;
   gap: 10px;
+  max-width: 100%;
 }
 
 a {
@@ -45,5 +46,6 @@ a {
 @media (max-width: 550px) {
   .content {
     padding: 70px 20px 100px 20px;
+    width: 100%;
   }
 }

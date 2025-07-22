@@ -48,7 +48,7 @@
 
 .box-item-desc {
   display: flex;
-  gap: 5px;
+  /* gap: 5px; */
   flex-direction: column;
   justify-content: center;
 }
@@ -106,7 +106,8 @@
 @media (max-width: 1025px) {
   .box-item {
     grid-template-columns: 1fr 10fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: min-content min-content;
+    row-gap: 10px;
   }
 
   .box-date {
