@@ -17,6 +17,14 @@ h3 {
   margin: 0;
 }
 
+h2.subtitle-contact,
+h2.category-title {
+  margin-bottom: 30px;
+  color: var(--purple-dark);
+  text-shadow: 0 0 4px var(--purple-dark);
+}
+
+
 p {
   margin: 0;
   padding: 0;
