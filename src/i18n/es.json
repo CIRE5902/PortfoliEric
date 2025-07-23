@@ -138,5 +138,28 @@
       "part2": " a mi manera, y también valoro la soledad, aunque disfruto pasando tiempo con mi",
       "part3": " y amigos cercanos. Las películas emocionales e inspiradoras, especialmente las que tienen un mensaje significativo, son mis favoritas — como"
     }
+  },
+  "contact": {
+    "title": "Contacto",
+    "info": {
+      "title": "Información de Contacto",
+      "email": "Correo electrónico",
+      "whatsapp": "Whatsapp",
+      "phone": "Teléfono",
+      "location": "Ubicación",
+      "available": "Disponible para proyectos freelance y oportunidades a tiempo completo"
+    },
+    "form": {
+      "title": "Envíame un Mensaje",
+      "fullName": "Nombre completo",
+      "fullNamePlaceholder": "Tu nombre",
+      "email": "Correo electrónico",
+      "emailPlaceholder": "tu@email.com",
+      "subject": "Asunto",
+      "subjectPlaceholder": "Asunto...",
+      "message": "Mensaje",
+      "messagePlaceholder": "Tu mensaje aquí...",
+      "sendButton": "Enviar Mensaje"
+    }
   }
 }

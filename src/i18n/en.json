@@ -138,5 +138,28 @@
       "part2": " in my own style, and I also value solitude, but I truly enjoy spending time with my",
       "part3": " and close friends. Emotional and inspiring movies, especially those with a meaningful message, are my favorites — like"
     }
+  },
+  "contact": {
+    "title": "Contact",
+    "info": {
+      "title": "Contact Information",
+      "email": "Email",
+      "whatsapp": "Whatsapp",
+      "phone": "Phone",
+      "location": "Location",
+      "available": "Available for freelance and full-time opportunities"
+    },
+    "form": {
+      "title": "Send Me a Message",
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Your Name",
+      "email": "Email",
+      "emailPlaceholder": "you@example.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "Subject...",
+      "message": "Message",
+      "messagePlaceholder": "Your message here...",
+      "sendButton": "Send Message"
+    }
   }
 }

@@ -1,23 +1,26 @@
 ---
-import { getI18nStaticPaths } from '../../i18n/utils';
+import { getI18nStaticPaths, useTranslations } from '../../i18n/utils';
+import type { Lang } from '../../i18n/ui';
 
 export function getStaticPaths() {
   return getI18nStaticPaths();
 }
 
-import BaseLayout from "../../layouts/BaseLayout.astro";
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
 
+import BaseLayout from "../../layouts/BaseLayout.astro";
 import Title from "../../components/common/PageTitle.astro";
 import ContactInfo from "../../components/contact/ContactInfo.astro";
 import ContactForm from "../../components/contact/ContactForm.astro";
 ---
 
-<BaseLayout>
+<BaseLayout lang={lang}>
     <main class="content">
-        <Title text="CONTACT ME" id="contactTitle" />
+        <Title text={t("contact.title")} id="contactTitle" />
         <div class="contact">
-            <ContactInfo />
-            <ContactForm />
+            <ContactInfo lang={lang} />
+            <ContactForm lang={lang} />
         </div>
     </main>
 </BaseLayout>

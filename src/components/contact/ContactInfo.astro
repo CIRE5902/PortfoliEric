@@ -1,23 +1,32 @@
 ---
 import { Icon } from "astro-icon/components";
+import type { Lang } from "../../i18n/ui";
+import { useTranslations } from "../../i18n/utils";
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <div class="contact-info box-card">
-    <h2 class="subtitle-contact">Contact Information</h2>
+    <h2 class="subtitle-contact">{t("contact.info.title")}</h2>
 
     <ul class="info-list">
         <li>
-            <Icon name="mdi:email" class={"contact-icon"} />
+            <Icon name="mdi:email" class="contact-icon" />
             <a href="mailto:ericperezvera02@gmail.com">
                 <div>
-                    <span class="social-name">Email</span>
+                    <span class="social-name">{t("contact.info.email")}</span>
                     <span class="social-link">ericperezvera02@gmail.com</span>
                 </div>
             </a>
         </li>
         <li>
-            <Icon name="mdi:linkedin" class={"contact-icon"} />
-            <a href="https://www.linkedin.com/in/ericperezvera" target="_blank">
+            <Icon name="mdi:linkedin" class="contact-icon" />
+            <a
+                href="https://www.linkedin.com/in/ericperezvera"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 <div>
                     <span class="social-name">LinkedIn</span>
                     <span class="social-link"
@@ -27,28 +36,38 @@ import { Icon } from "astro-icon/components";
             </a>
         </li>
         <li>
-            <Icon name="mdi:whatsapp" class={"contact-icon"} />
-            <a href="https://wa.me/611489590" target="_blank">
+            <Icon name="mdi:whatsapp" class="contact-icon" />
+            <a
+                href="https://wa.me/611489590"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 <div>
-                    <span class="social-name">Whatsapp</span>
+                    <span class="social-name">{t("contact.info.whatsapp")}</span
+                    >
                     <span class="social-link">wa.me/611489590</span>
                 </div>
             </a>
         </li>
         <li>
-            <Icon name="mdi:phone" class={"contact-icon"} />
+            <Icon name="mdi:phone" class="contact-icon" />
             <a href="tel:+34611489590">
                 <div>
-                    <span class="social-name">Telephone</span>
+                    <span class="social-name">{t("contact.info.phone")}</span>
                     <span class="social-link">+34 611 48 95 90</span>
                 </div>
             </a>
         </li>
         <li>
-            <Icon name="mdi:map-marker" class={"contact-icon"} />
-            <a href="https://maps.app.goo.gl/aChFM2tCbQNzLkAG6" target="_blank">
+            <Icon name="mdi:map-marker" class="contact-icon" />
+            <a
+                href="https://maps.app.goo.gl/aChFM2tCbQNzLkAG6"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 <div>
-                    <span class="social-name">Ubication</span>
+                    <span class="social-name">{t("contact.info.location")}</span
+                    >
                     <span class="social-link">Terrassa, Barcelona</span>
                 </div>
             </a>
@@ -59,12 +78,11 @@ import { Icon } from "astro-icon/components";
 
     <div class="status">
         <span class="status-dot">🟢</span>
-        <span>Available for freelance and full-time opportunities</span>
+        <span>{t("contact.info.available")}</span>
     </div>
 </div>
 
 <style>
-
     .contact-info {
         padding: clamp(1rem, 5vw, 2rem);
         border-radius: 1rem;
@@ -116,7 +134,7 @@ import { Icon } from "astro-icon/components";
 
     .status {
         display: flex;
-        align-items: center;
+        /* align-items: center; */
         gap: 10px;
         font-weight: bold;
         margin-top: 30px;

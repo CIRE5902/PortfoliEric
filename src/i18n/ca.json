@@ -138,5 +138,28 @@
       "part2": " a la meva manera, i també valoro la solitud, però realment gaudeixo passant temps amb la meva",
       "part3": " i amics propers. Les pel·lícules emocionals i inspiradores, especialment aquelles que tenen un missatge significatiu, són les meves favorites — com"
     }
+  },
+  "contact": {
+    "title": "Contacte",
+    "info": {
+      "title": "Informació de Contacte",
+      "email": "Correu electrònic",
+      "whatsapp": "Whatsapp",
+      "phone": "Telèfon",
+      "location": "Ubicació",
+      "available": "Disponible per a projectes freelance i oportunitats a temps complet"
+    },
+    "form": {
+      "title": "Envia'm un Missatge",
+      "fullName": "Nom complet",
+      "fullNamePlaceholder": "El teu nom",
+      "email": "Correu electrònic",
+      "emailPlaceholder": "el_teu@correu.com",
+      "subject": "Assumpte",
+      "subjectPlaceholder": "Assumpte...",
+      "message": "Missatge",
+      "messagePlaceholder": "El teu missatge aquí...",
+      "sendButton": "Envia Missatge"
+    }
   }
 }

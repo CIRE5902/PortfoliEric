@@ -1,7 +1,10 @@
 ---
 import { Icon } from "astro-icon/components";
+import type { Lang } from "../../i18n/ui";
+import { useTranslations } from "../../i18n/utils";
 
-const showAnimation = false;
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <form
@@ -15,37 +18,49 @@ const showAnimation = false;
     <input type="hidden" name="form-name" value="contact" />
     <input type="hidden" name="bot-field" />
 
-    <h2 class="subtitle-contact">Send Me a Message</h2>
+    <h2 class="subtitle-contact">{t("contact.form.title")}</h2>
 
     <label>
-        Full Name *
-        <input type="text" name="name" required placeholder="Your Name" />
-    </label>
-
-    <label>
-        Email Address *
+        {t("contact.form.fullName")} *
         <input
-            type="email"
-            name="email"
+            type="text"
+            name="name"
             required
-            placeholder="you@example.com"
+            placeholder={t("contact.form.fullNamePlaceholder")}
         />
     </label>
 
     <label>
-        Subject *
-        <input type="text" name="subject" required placeholder="Subject..." />
+        {t("contact.form.email")} *
+        <input
+            type="email"
+            name="email"
+            required
+            placeholder={t("contact.form.emailPlaceholder")}
+        />
     </label>
 
     <label>
-        Message *
-        <textarea name="message" required placeholder="Your message here..."
-        ></textarea>
+        {t("contact.form.subject")} *
+        <input
+            type="text"
+            name="subject"
+            required
+            placeholder={t("contact.form.subjectPlaceholder")}
+        />
+    </label>
+
+    <label>
+        {t("contact.form.message")} *
+        <textarea
+            name="message"
+            required
+            placeholder={t("contact.form.messagePlaceholder")}></textarea>
     </label>
 
     <button type="submit">
         <Icon name="mdi:send" class="send-icon" />
-        <span>Send Message</span>
+        <span>{t("contact.form.sendButton")}</span>
     </button>
 </form>
 
