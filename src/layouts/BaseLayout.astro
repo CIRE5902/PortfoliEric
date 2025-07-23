@@ -5,6 +5,7 @@ import { useTranslations } from "../i18n/utils";
 import "../css/main.css";
 
 import Navbar from "../components/common/Navbar.astro";
+import LanguagePicker from "../components/common/LanguagePicker.astro";
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
@@ -19,6 +20,7 @@ const t = useTranslations(lang);
     <slot name="head" />
   </head>
   <body data-page="home">
+    <LanguagePicker lang={lang}/>
     <Navbar lang={lang} />
     <slot />
     <slot name="footer" />

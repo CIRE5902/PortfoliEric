@@ -14,11 +14,13 @@ const t = useTranslations(lang);
   <Image src={imageAvatar} class:list={["main-avatar"]} alt="avatar" />
 
   <h1 class="main-title">
-    {t("profile.greeting")} <span class="animate-title">Éric</span>
+    {t("profile.greeting")}
+    <span class="animate-title">Éric</span>
   </h1>
 
   <h2>
-    {t("profile.description.prefix")} <span class="animate-description">{t("profile.description.role")}</span>
+    {t("profile.description.prefix")}
+    <span class="animate-description">{t("profile.description.role")}</span>
   </h2>
 
   <div class="main-slogan">
@@ -41,163 +43,181 @@ const t = useTranslations(lang);
   </a>
 
   <div class="social-links">
-    <a href="https://www.linkedin.com/in/ericperezvera" target="_blank" aria-label="LinkedIn">
+    <a
+      href="https://www.linkedin.com/in/ericperezvera"
+      target="_blank"
+      aria-label="LinkedIn"
+    >
       <Icon name="mdi:linkedin" class="social-icon" />
     </a>
-    <a href="mailto:ericperezvera02@gmail.com" target="_blank" aria-label="Email">
+    <a
+      href="mailto:ericperezvera02@gmail.com"
+      target="_blank"
+      aria-label="Email"
+    >
       <Icon name="mdi:email" class="social-icon" />
     </a>
     <a href="https://github.com/CIRE5902" target="_blank" aria-label="GitHub">
       <Icon name="mdi:github" class="social-icon" />
     </a>
-    <a href="https://www.figma.com/@d5318559_4aaa_4" target="_blank" aria-label="Figma">
+    <a
+      href="https://www.figma.com/@d5318559_4aaa_4"
+      target="_blank"
+      aria-label="Figma"
+    >
       <Icon name="solar:figma-bold" class="social-icon" />
     </a>
   </div>
 </div>
 
 <style>
-    .main-avatar {
-        height: 150px;
-        width: 150px;
-        border-radius: 50%;
+  .main-avatar {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+  }
+
+  .main-title {
+    width: auto;
+  }
+
+  .main-slogan {
+    color: var(--purple-dark);
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .btn-resume {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    transition: 0.4s ease;
+    border: 2px solid var(--purple-dark);
+  }
+  .btn-resume:hover {
+    background-color: var(--purple-dark);
+    box-shadow:
+      0 0 10px var(--purple-dark),
+      0 0 40px var(--purple-dark),
+      0 0 80px var(--purple-dark);
+  }
+
+  .btn-resume:hover::before,
+  .btn-resume:hover::after {
+    border-color: transparent;
+  }
+
+  .btn-available svg,
+  .btn-resume svg {
+    width: 30px;
+    height: 30px;
+    fill: currentColor;
+  }
+
+  .btn-available {
+    background-color: var(--purple-dark);
+  }
+
+  .btn-available:hover {
+    background: transparent;
+    border: 2px var(--purple-dark);
+    /* color: #ffffff;  */
+    box-shadow:
+      0 0 10px var(--purple-dark),
+      0 0 40px var(--purple-dark),
+      0 0 80px var(--purple-dark);
+  }
+
+  .btn-available:hover::before,
+  .btn-available:hover::after {
+    border-color: transparent;
+  }
+
+  .animate-title {
+    animation: animate 5s linear infinite;
+  }
+
+  .animate-description {
+    white-space: nowrap;
+    width: 13ch;
+    color: var(--purple-dark);
+    overflow: hidden;
+  }
+
+  @keyframes animate {
+    0%,
+    18%,
+    20%,
+    50.1%,
+    60%,
+    65.1%,
+    80%,
+    90.1%,
+    92% {
+      color: var(--purple-dark);
+      /* Un tono lila que combina con la imagen */
+      text-shadow: none;
     }
 
-    .main-title {
-        width: auto;
+    18.1%,
+    20.1%,
+    30%,
+    50%,
+    60.1%,
+    65%,
+    80.1%,
+    90%,
+    92.1%,
+    100% {
+      color: #fff;
+      text-shadow:
+        0 0 10px var(--purple-dark),
+        0 0 20px var(--purple-dark),
+        0 0 40px var(--purple-dark),
+        0 0 80px var(--purple-dark),
+        0 0 160px var(--purple-dark);
     }
+  }
 
-    .main-slogan {
-        color: var(--purple-dark);
-        font-weight: bold;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 5px;
-    }
+  .social-links {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    display: flex;
+    gap: 40px;
+  }
 
-    .btn-resume {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        transition: 0.4s ease;
-        border: 2px solid var(--purple-dark);
-    }
-    .btn-resume:hover {
-        background-color: var(--purple-dark);
-        box-shadow:
-            0 0 10px var(--purple-dark),
-            0 0 40px var(--purple-dark),
-            0 0 80px var(--purple-dark);
-    }
+  .social-links a img:hover {
+    transform: scale(1.1);
+  }
 
-    .btn-resume:hover::before,
-    .btn-resume:hover::after {
-        border-color: transparent;
-    }
+  .social-links svg {
+    width: 54px;
+    height: 54px;
+    transition: transform 0.3s ease;
+    fill: var(--text-primary);
+    color: var(--text-primary);
+  }
 
-    .btn-available svg,
-    .btn-resume svg {
-        width: 30px;
-        height: 30px;
-        fill: currentColor;
-    }
+  .social-links svg:hover {
+    color: var(--purple-dark);
+    fill: var(--purple-dark);
+    filter: drop-shadow(0 0 6px var(--purple-dark));
+    transition: all 0.3s ease;
+  }
 
-    .btn-available {
-        background-color: var(--purple-dark);
-    }
+  .content-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 
-    .btn-available:hover {
-        background: transparent;
-        border: 2px var(--purple-dark);
-        /* color: #ffffff;  */
-        box-shadow:
-            0 0 10px var(--purple-dark),
-            0 0 40px var(--purple-dark),
-            0 0 80px var(--purple-dark);
-    }
-
-    .btn-available:hover::before,
-    .btn-available:hover::after {
-        border-color: transparent;
-    }
-
-    .animate-title {
-        animation: animate 5s linear infinite;
-    }
-
-    .animate-description {
-        white-space: nowrap;
-        width: 13ch;
-        color: var(--purple-dark);
-        overflow: hidden;
-    }
-
-    @keyframes animate {
-        0%,
-        18%,
-        20%,
-        50.1%,
-        60%,
-        65.1%,
-        80%,
-        90.1%,
-        92% {
-            color: var(--purple-dark);
-            /* Un tono lila que combina con la imagen */
-            text-shadow: none;
-        }
-
-        18.1%,
-        20.1%,
-        30%,
-        50%,
-        60.1%,
-        65%,
-        80.1%,
-        90%,
-        92.1%,
-        100% {
-            color: #fff;
-            text-shadow:
-                0 0 10px var(--purple-dark),
-                0 0 20px var(--purple-dark),
-                0 0 40px var(--purple-dark),
-                0 0 80px var(--purple-dark),
-                0 0 160px var(--purple-dark);
-        }
-    }
-
+  @media screen and (max-width: 550px) {
     .social-links {
-        margin-top: 20px;
-        margin-bottom: 50px;
-        display: flex;
-        gap: 40px;
+      gap: 20px;
     }
-
-    .social-links a img:hover {
-        transform: scale(1.1);
-    }
-
-    .social-links svg {
-        width: 54px;
-        height: 54px;
-        transition: transform 0.3s ease;
-        fill: var(--text-primary);
-        color: var(--text-primary);
-    }
-
-    .social-links svg:hover {
-        color: var(--purple-dark);
-        fill: var(--purple-dark);
-        filter: drop-shadow(0 0 6px var(--purple-dark));
-        transition: all 0.3s ease;
-    }
-
-    .content-profile {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
+  }
 </style>

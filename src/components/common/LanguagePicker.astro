@@ -1,0 +1,82 @@
+---
+import { languages, type Lang } from "../../i18n/ui";
+import { Image } from "astro:assets";
+
+const { lang } = Astro.props as { lang: Lang };
+
+import enFlag from "../../assets/images/languages/en.png";
+import esFlag from "../../assets/images/languages/es.png";
+import caFlag from "../../assets/images/languages/ca.png";
+
+const flags: Record<Lang, typeof enFlag> = {
+  en: enFlag,
+  es: esFlag,
+  ca: caFlag,
+};
+---
+
+<div class="language-picker">
+  <div class="icon-wrapper">
+    <div class="language-selector" id="language-selector">
+      <div class="selected-language" id="selected-language">
+        <Image src={flags[lang]} alt={`Bandera de ${lang}`} />
+      </div>
+      <div class="language-options">
+        {
+          (Object.keys(flags) as Lang[]).map((key) =>
+            key !== lang ? (
+              <>
+                <a href={`/${key}/`} aria-label={`${key}`}>
+                  <Image src={flags[key]} alt={`Bandera de ${key}`} />
+                </a>
+              </>
+            ) : null,
+          )
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .language-picker {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 20px;
+    z-index: 1;
+  }
+  
+  .icon-wrapper {
+    position: relative;
+  }
+  .language-selector {
+    cursor: pointer;
+    user-select: none;
+  }
+  #selected-language img {
+    width: 54px;
+    height: auto;
+  }
+  .language-options {
+    display: none;
+    position: absolute;
+    background: var(--card-glass);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    gap: 0.5rem;
+    z-index: 10;
+  }
+  .language-options a img {
+    width: 42px;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+  }
+  .language-selector:hover .language-options,
+  .language-options:hover {
+    display: flex;
+    flex-direction: column;
+  }
+</style>
