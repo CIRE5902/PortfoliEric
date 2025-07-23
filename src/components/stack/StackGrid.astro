@@ -1,6 +1,8 @@
 ---
 import stackData from "../../data/stack-data.json";
 import StackCategory from "./StackCategory.astro";
+
+const { lang } = Astro.props;
 ---
 
 <section class="stack-section">
@@ -8,8 +10,10 @@ import StackCategory from "./StackCategory.astro";
     {
       stackData.map((category) => (
         <StackCategory
+          lang={lang}
           categoria={category.categoria}
           tecnologias={category.tecnologias}
+          key={category.categoria}
         />
       ))
     }

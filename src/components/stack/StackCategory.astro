@@ -1,39 +1,44 @@
 ---
 import StackCard from "./StackCard.astro";
-const { categoria, tecnologias } = Astro.props;
+import { useTranslations } from "../../i18n/utils";
+
+const { lang, categoria, tecnologias } = Astro.props;
+const t = useTranslations(lang);
 
 interface Tecnologia {
-    nombre: string;
-    icono: string;
-    nivel: string;
-    enlace?: string;
+  nombre: string;
+  icono: string;
+  nivel: string;
+  enlace?: string;
 }
 ---
 
 <div class="stack-category">
-    <h2 class="category-title">{categoria}</h2>
-    <div class="cards-grid">
-        {
-            (tecnologias as Tecnologia[]).map((tec) => (
-                <StackCard
-                    nombre={tec.nombre}
-                    icono={tec.icono}
-                    nivel={tec.nivel}
-                    enlace={tec.enlace}
-                />
-            ))
-        }
-    </div>
+  <h2 class="category-title">{t(`stack.categories.${categoria}`)}</h2>
+  <div class="cards-grid">
+    {
+      (tecnologias as Tecnologia[]).map((tec) => (
+        <StackCard
+          lang={lang}
+          nombre={tec.nombre}
+          icono={tec.icono}
+          nivel={tec.nivel}
+          enlace={tec.enlace}
+          key={tec.nombre}
+        />
+      ))
+    }
+  </div>
 </div>
 
 <style>
-    .stack-category {
-        padding: 1rem;
-        border-radius: 8px;
-    }
-    .cards-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-        gap: 1rem;
-    }
+  .stack-category {
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+  }
 </style>

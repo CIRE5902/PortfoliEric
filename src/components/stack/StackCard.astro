@@ -1,21 +1,21 @@
 ---
-// src/components/stack/StackCard.astro
+import { useTranslations } from "../../i18n/utils";
 import { Icon } from "astro-icon/components";
-const { nombre, icono, nivel, enlace } = Astro.props;
+const { lang, nombre, icono, nivel, enlace } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <a
   href={enlace || "#"}
-  class="stack-card-link"
   target="_blank"
   rel="noopener noreferrer"
+  class="stack-card-link"
 >
   <div class="stack-card">
-    <div class="icon-wrapper">
-      {icono && <Icon name={icono} class="stack-icon" />}
-    </div>
+    <div class="icon-wrapper"></div>
+    {icono && <Icon name={icono} class="stack-icon" />}
     <div class="stack-name">{nombre}</div>
-    <div class="stack-level">{nivel}</div>
+    <div class="stack-level">{t(`stack.levels.${nivel}`)}</div>
   </div>
 </a>
 

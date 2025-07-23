@@ -1,6 +1,5 @@
 {
   "siteTitle": "El portfoli de l'Éric",
-
   "navMain": "Menú",
   "navHome": "Inici",
   "navAbout": "Biografia",
@@ -8,7 +7,6 @@
   "navStack": "Tecnologies",
   "navContact": "Contacte",
   "navTheme": "Tema",
-
   "profile": {
     "greeting": "Hola, sóc",
     "description": {
@@ -21,11 +19,9 @@
       "available": "Disponible"
     }
   },
-
   "github": {
     "title": "Contribucions a GitHub"
   },
-
   "experience": {
     "title": "Experiència",
     "roles": {
@@ -36,7 +32,6 @@
       "current": "actualment"
     }
   },
-
   "education": {
     "title": "Educació",
     "diplomas": {
@@ -45,7 +40,6 @@
       "smix": "Sistemes Microinformàtics i Xarxes (SMIX)"
     }
   },
-
   "certificates": {
     "title": "Certificats",
     "names": {
@@ -55,15 +49,24 @@
       "smix": "SMIX"
     }
   },
-
   "projects": {
     "title": "Projectes"
   },
-
   "stack": {
-    "title": "Stack"
+    "title": "Tecnologies",
+    "categories": {
+      "Frontend": "Frontend",
+      "Backend": "Backend",
+      "Systems & Services": "Sistemes i Serveis",
+      "Tools": "Eines",
+      "Help": "Ajuda"
+    },
+    "levels": {
+      "favourite": "Preferit",
+      "learning": "Aprenent",
+      "familiar": "Familiar"
+    }
   },
-
   "cube": {
     "alts": {
       "eric": "Eric",
@@ -74,7 +77,6 @@
       "rojo": "Rojo"
     }
   },
-
   "social": {
     "followSpotify": "Segueix a Spotify",
     "followInstagram": "Segueix a Instagram",
@@ -83,7 +85,6 @@
     "followGitHub": "Segueix a GitHub",
     "followFigma": "Segueix a Figma"
   },
-
   "about": {
     "title": "JO",
     "name": "Eric",
