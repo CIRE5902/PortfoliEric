@@ -7,7 +7,8 @@ h1 {
   margin: 0;
 }
 
-h1:where(.page-title):hover {
+h1.page-title,
+h1.error-title {
   filter: drop-shadow(0 0 10px var(--purple-dark));
   color: var(--purple-dark);
 }
