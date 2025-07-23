@@ -47,15 +47,27 @@ const flags: Record<Lang, typeof enFlag> = {
     gap: 20px;
     z-index: 1;
   }
-  
+
   .icon-wrapper {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 65px;
+    height: 65px;
+    border-radius: 50px;
   }
   .language-selector {
     cursor: pointer;
     user-select: none;
   }
-  #selected-language img {
+  .selected-language {
+    display: flex;
+  }
+  .selected-language img {
     width: 54px;
     height: auto;
   }
@@ -64,7 +76,9 @@ const flags: Record<Lang, typeof enFlag> = {
     position: absolute;
     background: var(--card-glass);
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     gap: 0.5rem;
     z-index: 10;
   }
