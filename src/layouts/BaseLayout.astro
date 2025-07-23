@@ -1,23 +1,26 @@
 ---
+import type { Lang } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+
 import "../css/main.css";
-// import Header from "../components/Header.astro";
+
 import Navbar from "../components/common/Navbar.astro";
-// import Footer from "../components/Footer.astro";
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio de Éric</title>
-
-    <!-- <script src="/js/language.js" defer></script> -->
+    <title>{t("siteTitle")}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <slot name="head" />
   </head>
   <body data-page="home">
-    <!-- <Header /> -->
-    <Navbar />
+    <Navbar lang={lang} />
     <slot />
-    <!-- <Footer /> -->
+    <slot name="footer" />
   </body>
 </html>

@@ -1,59 +1,63 @@
 ---
-// import "../css/components/navbar.css";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import imageAvatar from "../../assets/images/avatar.png";
-
 import ThemeIcon from "./ThemeIcon.astro";
+
+import type { Lang } from "../../i18n/ui";
+import { useTranslations } from "../../i18n/utils";
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <nav class="navbar">
   <ul class="navbar-nav">
     <!-- Logo principal -->
     <li class="logo">
-      <a href="/" class="nav-link">
-        <span class="link-text logo-text" id="menu-menu">Main</span>
+      <a href={`/${lang}`} class="nav-link">
+        <span class="link-text logo-text">{t("navMain")}</span>
         <Icon name="mdi:chevron-double-right" class="nav-icon" />
       </a>
     </li>
 
     <!-- Inicio -->
     <li class="nav-item">
-      <a href="/" class="nav-link">
+      <a href={`/${lang}`} class="nav-link">
         <Image src={imageAvatar} alt="avatar" class:list={["nav-icon"]} />
-        <span class="link-text" id="menu-home">Home</span>
+        <span class="link-text">{t("navHome")}</span>
       </a>
     </li>
 
     <!-- About -->
     <li class="nav-item">
-      <a href="/me" class="nav-link">
+      <a href={`/${lang}/about`} class="nav-link">
         <Icon name="mdi:account" class="nav-icon" />
-        <span class="link-text" id="menu-about">About</span>
+        <span class="link-text">{t("navAbout")}</span>
       </a>
     </li>
 
     <!-- Projects -->
     <li class="nav-item">
-      <a href="/projects" class="nav-link">
+      <a href={`/${lang}/projects`} class="nav-link">
         <Icon name="mdi:code-tags" class="nav-icon" />
-        <span class="link-text" id="menu-projects">Projects</span>
+        <span class="link-text">{t("navProjects")}</span>
       </a>
     </li>
 
     <!-- Stack -->
     <li class="nav-item">
-      <a href="/stack" class="nav-link">
+      <a href={`/${lang}/stack`} class="nav-link">
         <Icon name="mdi:stack-overflow" class="nav-icon" />
-        <span class="link-text" id="menu-stack">Stack</span>
+        <span class="link-text">{t("navStack")}</span>
       </a>
     </li>
 
     <!-- Contact -->
     <li class="nav-item">
-      <a href="/contact" class="nav-link">
+      <a href={`/${lang}/contact`} class="nav-link">
         <Icon name="mdi:account-box-outline" class="nav-icon" />
-        <span class="link-text" id="menu-contact">Contact</span>
+        <span class="link-text">{t("navContact")}</span>
       </a>
     </li>
 
@@ -61,7 +65,7 @@ import ThemeIcon from "./ThemeIcon.astro";
     <li class="nav-item">
       <a href="#" class="nav-link" id="theme-button">
         <ThemeIcon />
-        <span class="link-text" id="menu-theme">Theme</span>
+        <span class="link-text">{t("navTheme")}</span>
       </a>
     </li>
   </ul>

@@ -1,0 +1,175 @@
+---
+import { getI18nStaticPaths, useTranslations } from '../../i18n/utils';
+import type { Lang } from '../../i18n/ui';
+
+export async function getStaticPaths() {
+  return getI18nStaticPaths();
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+
+import "../../css/components/boxes.css";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProfileHeader from "../../components/index/ProfileHeader.astro";
+import RiddleRoom from "../../components/index/RiddleRoom.astro";
+import Experience from "../../components/index/Experience.astro";
+import Education from "../../components/index/Education.astro";
+import Projects from "../../components/index/Projects.astro";
+import Spotify from "../../components/index/Spotify.astro";
+import Books from "../../components/index/Books.astro";
+import Stack from "../../components/index/Stack.astro";
+import GithubContributions from "../../components/index/GithubContributions.astro";
+import SpotifyPlaylist from "../../components/index/SpotifyPlaylist.astro";
+import Certificates from "../../components/index/Certificates.astro";
+import VideoGame from "../../components/index/VideoGame.astro";
+---
+
+
+<BaseLayout lang={lang}>
+  <main class="content">
+    <div class="content-profile-header">
+      <ProfileHeader lang={lang} />
+      <RiddleRoom lang={lang} />
+    </div>
+
+    <div class="content-profile-info">
+      <div class="div1">
+        <Experience lang={lang} class="experience" />
+        <Education lang={lang} class="education" />
+      </div>
+      <div class="div2">
+        <Projects lang={lang} class="projects" />
+        <div class="div4">
+          <Spotify lang={lang} class="spotify" />
+          <Books lang={lang} class="books" />
+        </div>
+        <Stack lang={lang} class="stack" />
+      </div>
+      <div class="div3">
+        <div class="div5">
+          <GithubContributions lang={lang} class="contributions" />
+          <div class="div6">
+            <Certificates lang={lang} class="certificates" />
+            <VideoGame lang={lang} class="videogame" />
+          </div>
+        </div>
+        <SpotifyPlaylist lang={lang} class="spotify-playlist" />
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .content-profile-header {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+  }
+
+  .content-profile-info {
+    display: grid;
+    grid-template-rows: 300px 300px auto;
+  }
+
+  .div1 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .div2 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .div3 {
+    grid-template-columns: 1.2fr 1fr;
+  }
+
+  .div5 {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .div6 {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 350px;
+  }
+
+  .div1,
+  .div2,
+  .div3 {
+    display: grid;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  .div4,
+  .div5,
+  .div6 {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .content-profile-info {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    .div1 {
+      grid-template-rows: auto auto;
+      grid-template-columns: 1fr;
+    }
+
+    .div2 {
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-columns: 1fr;
+    }
+
+    .div3 {
+      grid-template-rows: 1fr auto;
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (min-width: 641px) and (max-width: 1158px) {
+    .content-profile-info {
+      grid-template-rows: auto auto;
+    }
+
+    .div1 {
+      grid-template-columns: 1fr;
+    }
+
+    .div3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      gap: 1rem;
+    }
+
+    .div2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 250px auto;
+      gap: 1rem;
+    }
+
+    .projects {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .stack {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .div4 {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      display: grid;
+      grid-template-rows: auto auto;
+      gap: 0.5rem;
+    }
+  }
+</style>
