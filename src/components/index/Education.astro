@@ -1,62 +1,54 @@
 ---
-// src/components/ProfileHeader.astro
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
 import Copernic from "../../assets/images/education/copernic.png";
+
+import type { Lang } from "../../i18n/ui";
+import { useTranslations } from "../../i18n/utils";
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <div class="box-education box-card">
-    <div class="box-title">
-        <Icon name="mdi:education-outline" class="box-icon" />
-        <h3 id="studiesTitle">Education</h3>
-    </div>
-    <div class="box-education-items">
-        <div class="box-item">
-            <div class="box-item-image">
-                <Image
-                    src={Copernic}
-                    class:list={["box-icon"]}
-                    alt="Copernic"
-                />
-            </div>
-            <div class="box-item-desc">
-                <h3>INS Nicolau Copèrnic</h3>
-                <p id="thirdStudies">Web Application Development (DAW)</p>
-            </div>
-            <div class="box-date"><p>09/2023 - 06/2024</p></div>
-        </div>
+  <div class="box-title">
+    <Icon name="mdi:education-outline" class="box-icon" />
+    <h3>{t("education.title")}</h3>
+  </div>
 
-        <div class="box-item">
-            <div class="box-item-image">
-                <Image
-                    src={Copernic}
-                    class:list={["box-icon"]}
-                    alt="Copernic"
-                />
-            </div>
-            <div class="box-item-desc">
-                <h3>INS Nicolau Copèrnic</h3>
-                <p id="secondStudies">Network System Administration (ASIR)</p>
-            </div>
-            <div class="box-date"><p>09/2021 - 06/2023</p></div>
-        </div>
-
-        <div class="box-item">
-            <div class="box-item-image">
-                <Image
-                    src={Copernic}
-                    class:list={["box-icon"]}
-                    alt="Copernic"
-                />
-            </div>
-            <div class="box-item-desc">
-                <h3>INS Nicolau Copèrnic</h3>
-                <p id="firstStudies">
-                    Microcomputer Systems and Networks (SMIX)
-                </p>
-            </div>
-            <div class="box-date"><p>09/2018 - 06/2021</p></div>
-        </div>
+  <div class="box-education-items">
+    <div class="box-item">
+      <div class="box-item-image">
+        <Image src={Copernic} class:list={["box-icon"]} alt="Copernic" />
+      </div>
+      <div class="box-item-desc">
+        <h3>INS Nicolau Copèrnic</h3>
+        <p>{t("education.diplomas.daw")}</p>
+      </div>
+      <div class="box-date"><p>09/2023 - 06/2024</p></div>
     </div>
+
+    <div class="box-item">
+      <div class="box-item-image">
+        <Image src={Copernic} class:list={["box-icon"]} alt="Copernic" />
+      </div>
+      <div class="box-item-desc">
+        <h3>INS Nicolau Copèrnic</h3>
+        <p>{t("education.diplomas.asir")}</p>
+      </div>
+      <div class="box-date"><p>09/2021 - 06/2023</p></div>
+    </div>
+
+    <div class="box-item">
+      <div class="box-item-image">
+        <Image src={Copernic} class:list={["box-icon"]} alt="Copernic" />
+      </div>
+      <div class="box-item-desc">
+        <h3>INS Nicolau Copèrnic</h3>
+        <p>{t("education.diplomas.smix")}</p>
+      </div>
+      <div class="box-date"><p>09/2018 - 06/2021</p></div>
+    </div>
+  </div>
 </div>

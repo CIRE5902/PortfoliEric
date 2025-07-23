@@ -1,15 +1,20 @@
-// i18n/utils.ts
-import { languages, defaultLang } from './ui';
+import { languages, defaultLang, type Lang } from './ui';
 
-export function getLangFromUrl(url: URL) {
+export function getLangFromUrl(url: URL): Lang {
   const [, lang] = url.pathname.split('/');
-  if (lang in languages) return lang as keyof typeof languages;
+  if (lang in languages) return lang as Lang;
   return defaultLang;
 }
 
-export function useTranslations(lang: keyof typeof languages) {
-  return function t(key: keyof typeof languages[typeof defaultLang]) {
-    return languages[lang][key] || languages[defaultLang][key];
+function getNested(obj: any, path: string) {
+  return path.split('.').reduce((o, i) => (o ? o[i] : undefined), obj);
+}
+
+export function useTranslations(lang: Lang) {
+  return function t(key: string): string {
+    const text = getNested(languages[lang], key);
+    if (text !== undefined) return text;
+    return getNested(languages[defaultLang], key) || key;
   };
 }
 

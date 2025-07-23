@@ -1,97 +1,103 @@
 ---
-// src/components/ProfileHeader.astro
 import { Icon } from "astro-icon/components";
+
+import type { Lang } from "../../i18n/ui";
+import { useTranslations } from "../../i18n/utils";
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <div class="box-tech box-card">
-    <div class="box-title box-title-tech">
-        <Icon name="mdi:layers" class="tech-icons" />
-        <h3 id="stackTitle">Stack</h3>
-    </div>
+  <div class="box-title box-title-tech">
+    <Icon name="mdi:layers" class="tech-icons" />
+    <h3>{t("stack.title")}</h3>
+  </div>
 
-    <div class="box-tech-categorys">
-        <div class="globe-section" onclick="location.href='stack'">
-            <canvas id="tagCanvas"></canvas>
+  <div class="box-tech-categorys">
+    <div class="globe-section" onclick={`location.href='/${lang}/stack'`}>
+      <canvas id="tagCanvas"></canvas>
 
-            <div id="tags" style="display: none;">
-                <ul>
-                    <li>
-                        <a href="#"
-                            ><img
-                                src="https://api.iconify.design/logos:linux-tux.svg"
-                                alt="Linux"
-                                class="tech-icons"
-                            /></a
-                        >
-                    </li>
-                    <li>
-                        <a href="#"
-                            ><img
-                                src="https://api.iconify.design/logos:html-5.svg"
-                                alt="HTML5"
-                                class="tech-icons"
-                            /></a
-                        >
-                    </li>
-                    <li>
-                        <a href="#"
-                            ><img
-                                src="https://api.iconify.design/logos:css-3.svg"
-                                alt="CSS3"
-                                class="tech-icons"
-                            /></a
-                        >
-                    </li>
-                    <li>
-                        <a href="#"
-                            ><img
-                                src="https://api.iconify.design/logos:javascript.svg"
-                                alt="JavaScript"
-                                class="tech-icons"
-                            /></a
-                        >
-                    </li>
-                    <li>
-                        <a href="#"
-                            ><img
-                                src="https://api.iconify.design/logos:react.svg"
-                                alt="React"
-                                class="tech-icons"
-                            /></a
-                        >
-                    </li>
-                    <li>
-                        <a href="#"
-                            ><img
-                                src="https://api.iconify.design/logos:php.svg"
-                                alt="PHP"
-                                class="tech-icons"
-                            /></a
-                        >
-                    </li>
-                    <li>
-                        <a href="#"
-                            ><img
-                                src="https://api.iconify.design/logos:java.svg"
-                                alt="Java"
-                                class="tech-icons"
-                            /></a
-                        >
-                    </li>
-                    <li>
-                        <a href="#"
-                            ><img
-                                src="https://api.iconify.design/logos:git-icon.svg"
-                                alt="Git"
-                                class="tech-icons"
-                            /></a
-                        >
-                    </li>
-                </ul>
-            </div>
-        </div>
+      <div id="tags" style="display: none;">
+        <ul>
+          <li>
+            <a href="#">
+              <img
+                src="https://api.iconify.design/logos:linux-tux.svg"
+                alt="Linux"
+                class="tech-icons"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="https://api.iconify.design/logos:html-5.svg"
+                alt="HTML5"
+                class="tech-icons"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="https://api.iconify.design/logos:css-3.svg"
+                alt="CSS3"
+                class="tech-icons"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="https://api.iconify.design/logos:javascript.svg"
+                alt="JavaScript"
+                class="tech-icons"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="https://api.iconify.design/logos:react.svg"
+                alt="React"
+                class="tech-icons"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="https://api.iconify.design/logos:php.svg"
+                alt="PHP"
+                class="tech-icons"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="https://api.iconify.design/logos:java.svg"
+                alt="Java"
+                class="tech-icons"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="https://api.iconify.design/logos:git-icon.svg"
+                alt="Git"
+                class="tech-icons"
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </div>
 </div>
+
 
 <style>
     #tagCanvas {

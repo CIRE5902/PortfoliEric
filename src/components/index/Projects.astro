@@ -1,17 +1,22 @@
 ---
-// src/components/ProfileHeader.astro
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
 import Project from "../../assets/images/project/comingsoon.png";
+
+import type { Lang } from "../../i18n/ui";
+import { useTranslations } from "../../i18n/utils";
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <div class="box-project box-card">
-    <div class="box-title box-title-project">
-        <Icon name="mdi:code-tags" class="box-icon" />
-        <h3 id="projectsTitle">Projects</h3>
-    </div>
-    <div class="box-image">
-        <Image src={Project} class:list={["box-icon"]} alt="Copernic" />
-    </div>
+  <div class="box-title box-title-project">
+    <Icon name="mdi:code-tags" class="box-icon" />
+    <h3>{t("projects.title")}</h3>
+  </div>
+  <div class="box-image">
+    <Image src={Project} class:list={["box-icon"]} alt="Project Coming Soon" />
+  </div>
 </div>

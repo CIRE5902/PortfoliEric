@@ -7,5 +7,54 @@
   "navProjects": "Projects",
   "navStack": "Stack",
   "navContact": "Contact",
-  "navTheme": "Theme"
+  "navTheme": "Theme",
+
+  "profile": {
+    "greeting": "Hi, it's",
+    "description": {
+      "prefix": "I'm a",
+      "role": "Web Developer"
+    },
+    "slogan": "...no time to give up",
+    "buttons": {
+      "cv": "Resume",
+      "available": "Available"
+    }
+  },
+  "github": {
+    "title": "Github Contributions"
+  },
+  "experience": {
+    "title": "Experience",
+    "roles": {
+      "web": "Web Application Development Technician",
+      "network": "Network System Administration Technician"
+    },
+    "dates": {
+      "current": "currently"
+    }
+  },
+  "education": {
+    "title": "Education",
+    "diplomas": {
+      "daw": "Web Application Development (DAW)",
+      "asir": "Network System Administration (ASIR)",
+      "smix": "Microcomputer Systems and Networks (SMIX)"
+    }
+  },
+  "certificates": {
+    "title": "Certificates",
+    "names": {
+      "englishB1": "English B1",
+      "daw": "DAW",
+      "asix": "ASIX",
+      "smix": "SMIX"
+    }
+  },
+  "projects": {
+    "title": "Projects"
+  },
+  "stack": {
+    "title": "Stack"
+  }
 }

@@ -1,70 +1,59 @@
 ---
-// src/components/ProfileHeader.astro
 import { Image } from "astro:assets";
 import imageAvatar from "../../assets/images/avatar.png";
 import { Icon } from "astro-icon/components";
+
+import type { Lang } from "../../i18n/ui";
+import { useTranslations } from "../../i18n/utils";
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <div class="content-profile">
-    <Image src={imageAvatar} class:list={["main-avatar"]} alt="avatar" />
-    <h1 class="main-title" id="main-title">
-        Hi, it's <span class="animate-title">Éric</span>
-    </h1>
-    <h2 id="main-description">
-        I'm a <span class="animate-description">Web Developer</span>
-    </h2>
-    <div class="main-slogan">
-        <p id="main-slogan">...no time to give up</p>
-        <p>⚡ ✌️</p>
+  <Image src={imageAvatar} class:list={["main-avatar"]} alt="avatar" />
+
+  <h1 class="main-title">
+    {t("profile.greeting")} <span class="animate-title">Éric</span>
+  </h1>
+
+  <h2>
+    {t("profile.description.prefix")} <span class="animate-description">{t("profile.description.role")}</span>
+  </h2>
+
+  <div class="main-slogan">
+    <p>{t("profile.slogan")}</p>
+    <p>⚡ ✌️</p>
+  </div>
+
+  <a class="btn btn-resume" href="/documents/CV_ERIC_PEREZ_VERA" download>
+    <Icon name="mdi:file-account" />
+    <p>{t("profile.buttons.cv")}</p>
+    <i class="fa fa-hand-pointer interaction-icon"></i>
+  </a>
+
+  <a href={`/${lang}/contact`}>
+    <div class="btn btn-available">
+      <Icon name="mdi:event-available-outline" />
+      <p>{t("profile.buttons.available")}</p>
+      <i class="fa fa-hand-pointer interaction-icon"></i>
     </div>
+  </a>
 
-    <a class="btn btn-resume" href="/documents/CV_ERIC_PEREZ_VERA" download>
-            <Icon name="mdi:file-account" />
-            <p id="btn-cv">Resume</p>
-            <i class="fa fa-hand-pointer interaction-icon"></i>
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/ericperezvera" target="_blank" aria-label="LinkedIn">
+      <Icon name="mdi:linkedin" class="social-icon" />
     </a>
-
-    <a href="/contact">
-        <div class="btn btn-available">
-            <Icon name="mdi:event-available-outline" />
-            <p id="btn-available">Available</p>
-            <i class="fa fa-hand-pointer interaction-icon"></i>
-        </div>
+    <a href="mailto:ericperezvera02@gmail.com" target="_blank" aria-label="Email">
+      <Icon name="mdi:email" class="social-icon" />
     </a>
-
-    <div class="social-links">
-        <a
-            href="https://www.linkedin.com/in/ericperezvera"
-            target="_blank"
-            aria-label="LinkedIn"
-        >
-            <Icon name="mdi:linkedin" class="social-icon" />
-        </a>
-
-        <a
-            href="mailto:ericperezvera02@gmail.com"
-            target="_blank"
-            aria-label="Email"
-        >
-            <Icon name="mdi:email" class="social-icon" />
-        </a>
-
-        <a
-            href="https://github.com/CIRE5902"
-            target="_blank"
-            aria-label="GitHub"
-        >
-            <Icon name="mdi:github" class="social-icon" />
-        </a>
-
-        <a
-            href="https://www.figma.com/@d5318559_4aaa_4"
-            target="_blank"
-            aria-label="Figma"
-        >
-            <Icon name="solar:figma-bold" class="social-icon" />
-        </a>
-    </div>
+    <a href="https://github.com/CIRE5902" target="_blank" aria-label="GitHub">
+      <Icon name="mdi:github" class="social-icon" />
+    </a>
+    <a href="https://www.figma.com/@d5318559_4aaa_4" target="_blank" aria-label="Figma">
+      <Icon name="solar:figma-bold" class="social-icon" />
+    </a>
+  </div>
 </div>
 
 <style>

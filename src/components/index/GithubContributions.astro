@@ -1,5 +1,13 @@
+---
+import type { Lang } from "../../i18n/ui";
+import { useTranslations } from "../../i18n/utils";
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
 <div class="box-card">
-  <h4 class="github-title">Github Contributions</h4>
+  <h4 class="github-title">{t("github.title")}</h4>
   <div class="contributions-scroll">
     <img
       src="https://ghchart.rshah.org/CIRE5902"

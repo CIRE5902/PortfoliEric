@@ -1,35 +1,41 @@
 ---
 import { Icon } from "astro-icon/components";
+
+import type { Lang } from "../../i18n/ui";
+import { useTranslations } from "../../i18n/utils";
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <div class="box-certificates box-card">
-    <div class="box-title">
-        <Icon name="mdi:certificate" class="box-icon" />
-        <h3 id="certificatesTitle">Certificates</h3>
-    </div>
+  <div class="box-title">
+    <Icon name="mdi:certificate" class="box-icon" />
+    <h3>{t("certificates.title")}</h3>
+  </div>
 
-    <div class="box-certificates-items">
-        <a href="/certificates/InglesB1_EricPerezVera.pdf" download>
-            <div class="certificate-item">
-                <h3>English B1</h3>
-                <Icon name="mdi:download" class="download-icon" />
-            </div>
-        </a>
-        <a href="/certificates/DAW.pdf" download>
-            <div class="certificate-item">
-                <h3>DAW</h3>
-                <Icon name="mdi:download" class="download-icon" />
-            </div>
-        </a>
-        <div class="certificate-item">
-            <h3>ASIX</h3>
-            <Icon name="mdi:download" class="download-icon" />
-        </div>
-        <div class="certificate-item">
-            <h3>SMIX</h3>
-            <Icon name="mdi:download" class="download-icon" />
-        </div>
+  <div class="box-certificates-items">
+    <a href="/certificates/InglesB1_EricPerezVera.pdf" download>
+      <div class="certificate-item">
+        <h3>{t("certificates.names.englishB1")}</h3>
+        <Icon name="mdi:download" class="download-icon" />
+      </div>
+    </a>
+    <a href="/certificates/DAW.pdf" download>
+      <div class="certificate-item">
+        <h3>{t("certificates.names.daw")}</h3>
+        <Icon name="mdi:download" class="download-icon" />
+      </div>
+    </a>
+    <div class="certificate-item">
+      <h3>{t("certificates.names.asix")}</h3>
+      <Icon name="mdi:download" class="download-icon" />
     </div>
+    <div class="certificate-item">
+      <h3>{t("certificates.names.smix")}</h3>
+      <Icon name="mdi:download" class="download-icon" />
+    </div>
+  </div>
 </div>
 
 <style>

@@ -7,5 +7,54 @@
   "navProjects": "Proyectos",
   "navStack": "Tecnologías",
   "navContact": "Contacto",
-  "navTheme": "Tema"
+  "navTheme": "Tema",
+
+  "profile": {
+    "greeting": "Hola, soy",
+    "description": {
+      "prefix": "Soy un",
+      "role": "Desarrollador Web"
+    },
+    "slogan": "...no hay tiempo para rendirse",
+    "buttons": {
+      "cv": "Currículum",
+      "available": "Disponible"
+    }
+  },
+  "github": {
+    "title": "Contribuciones en GitHub"
+  },
+  "experience": {
+    "title": "Experiencia",
+    "roles": {
+      "web": "Técnico en desarrollo de aplicaciones web",
+      "network": "Técnico en administración de sistemas y redes"
+    },
+    "dates": {
+      "current": "actualmente"
+    }
+  },
+  "education": {
+    "title": "Educación",
+    "diplomas": {
+      "daw": "Desarrollo de Aplicaciones Web (DAW)",
+      "asir": "Administración de Sistemas Informáticos en Red (ASIR)",
+      "smix": "Sistemas Microinformáticos y Redes (SMIX)"
+    }
+  },
+  "certificates": {
+    "title": "Certificados",
+    "names": {
+      "englishB1": "Inglés B1",
+      "daw": "DAW",
+      "asix": "ASIX",
+      "smix": "SMIX"
+    }
+  },
+  "projects": {
+    "title": "Proyectos"
+  },
+  "stack": {
+    "title": "Stack"
+  }
 }
