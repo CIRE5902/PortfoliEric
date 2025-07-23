@@ -3,7 +3,7 @@
 
   "navMain": "Menú",
   "navHome": "Inicio",
-  "navAbout": "Sobre mí",
+  "navAbout": "Biografía",
   "navProjects": "Proyectos",
   "navStack": "Tecnologías",
   "navContact": "Contacto",
@@ -21,9 +21,11 @@
       "available": "Disponible"
     }
   },
+
   "github": {
     "title": "Contribuciones en GitHub"
   },
+
   "experience": {
     "title": "Experiencia",
     "roles": {
@@ -34,6 +36,7 @@
       "current": "actualmente"
     }
   },
+
   "education": {
     "title": "Educación",
     "diplomas": {
@@ -42,6 +45,7 @@
       "smix": "Sistemas Microinformáticos y Redes (SMIX)"
     }
   },
+
   "certificates": {
     "title": "Certificados",
     "names": {
@@ -51,10 +55,87 @@
       "smix": "SMIX"
     }
   },
+
   "projects": {
     "title": "Proyectos"
   },
+
   "stack": {
     "title": "Stack"
+  },
+
+  "cube": {
+    "alts": {
+      "eric": "Eric",
+      "mentaGaryTabby": "Menta, Gary y Tabby",
+      "nala": "Nala",
+      "clio": "Clio",
+      "terrassa": "Terrassa",
+      "rojo": "Rojo"
+    }
+  },
+
+  "social": {
+    "followSpotify": "Follow on Spotify",
+    "followInstagram": "Follow on Instagram",
+    "followLinkedIn": "Follow on LinkedIn",
+    "sendEmail": "Enviar Email",
+    "followGitHub": "Follow on GitHub",
+    "followFigma": "Follow on Figma"
+  },
+
+  "about": {
+    "title": "YO",
+    "name": "Eric",
+    "nickname": "“Cirelema”",
+    "age": "22 años",
+    "location": "Barcelona, España",
+    "intuitive": "intuitivas",
+    "visuallyAppealing": "visualmente atractivas",
+    "visualSide": "lado visual",
+    "interfaceDesign": "diseño de interfaces",
+    "webDeveloper": "Desarrollador Web",
+    "systemsAdministrator": "Administrador de Sistemas",
+    "css": "CSS",
+    "webApplications": "aplicaciones web",
+    "programming": "programación",
+    "animalWorld": "mundo animal",
+    "motorVehicles": "mundo del motor",
+    "sports": "deporte",
+    "fashion": "moda",
+    "animals": "animales",
+    "family": "familia",
+    "favoriteMovies": "El Gigante de Hierro, El Señor de los Anillos, o Soy Leyenda",
+    "paragraph1": {
+      "part1": "Mi nombre es",
+      "part2": "—aunque mis amigos me llaman",
+      "part3": "—, tengo",
+      "part4": "y soy de",
+      "part5": ". En un principio, consideré dedicarme al sector de cuidado de animales, que siempre ha sido una de mis grandes pasiones. Sin embargo, tras unas prácticas, descubrí que también tiene momentos muy duros, así que decidí dar el salto a la programación."
+    },
+    "paragraph2": {
+      "part1": "Desde entonces, disfruto creando experiencias web",
+      "part2": "e",
+      "part3": ". Me apasiona el",
+      "part4": "y el",
+      "part5": ", porque creo que la estética es clave para ofrecer la mejor experiencia de usuario posible."
+    },
+    "paragraph3": {
+      "part1": "Completé mis estudios como",
+      "part2": "y",
+      "part3": ". Durante mi Formación Profesional, destaqué ayudando a mis compañeros a aprender",
+      "part4": "."
+    },
+    "paragraph4": {
+      "part1": "Ahora tengo experiencia desarrollando",
+      "part2": ", y mi objetivo es combinar mis dos grandes pasiones —",
+      "part3": " y el ",
+      "part4": "— creando proyectos que ayuden a mejorar la vida de los animales."
+    },
+    "paragraph5": {
+      "part1": "Fuera del mundo tech, me apasiona el",
+      "part2": " a mi manera, y también valoro la soledad, aunque disfruto pasando tiempo con mi",
+      "part3": " y amigos cercanos. Las películas emocionales e inspiradoras, especialmente las que tienen un mensaje significativo, son mis favoritas — como"
+    }
   }
 }

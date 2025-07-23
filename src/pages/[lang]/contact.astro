@@ -1,9 +1,15 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import { getI18nStaticPaths } from '../../i18n/utils';
 
-import Title from "../components/common/PageTitle.astro";
-import ContactInfo from "../components/contact/ContactInfo.astro";
-import ContactForm from "../components/contact/ContactForm.astro";
+export function getStaticPaths() {
+  return getI18nStaticPaths();
+}
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import Title from "../../components/common/PageTitle.astro";
+import ContactInfo from "../../components/contact/ContactInfo.astro";
+import ContactForm from "../../components/contact/ContactForm.astro";
 ---
 
 <BaseLayout>

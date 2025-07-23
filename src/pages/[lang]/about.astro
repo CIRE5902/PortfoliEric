@@ -1,27 +1,37 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import { getI18nStaticPaths, useTranslations } from '../../i18n/utils';
+import type { Lang } from '../../i18n/ui';
 
-import Title from "../components/common/PageTitle.astro";
-import AboutText from "../components/about/AboutText.astro";
-import AboutCube from "../components/about/AboutCube.astro";
-import AboutSocial from "../components/about/AboutSocial.astro";
+export async function getStaticPaths() {
+  return getI18nStaticPaths();
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import Title from "../../components/common/PageTitle.astro";
+import AboutText from "../../components/about/AboutText.astro";
+import AboutCube from "../../components/about/AboutCube.astro";
+import AboutSocial from "../../components/about/AboutSocial.astro";
 ---
 
-<BaseLayout>
-    <main class="content">
-        <Title text="ME" id="aboutTitle" />
-        <div class="about-txtimg">
-            <div class="about-txtimg-info">
-                <AboutText />
-            </div>
-            <div class="about-txtimg-image">
-                <div class="about-txtimg-image-img">
-                    <AboutCube />
-                </div>
-                <AboutSocial />
-            </div>
+<BaseLayout lang={lang}>
+  <main class="content about">
+    <Title text={t("about.title")} id="aboutTitle" />
+    <div class="about-txtimg">
+      <div class="about-txtimg-info">
+        <AboutText lang={lang} />
+      </div>
+      <div class="about-txtimg-image">
+        <div class="about-txtimg-image-img">
+          <AboutCube lang={lang} />
         </div>
-    </main>
+        <AboutSocial lang={lang} />
+      </div>
+    </div>
+  </main>
 </BaseLayout>
 
 <style>

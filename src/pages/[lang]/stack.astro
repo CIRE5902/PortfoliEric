@@ -1,7 +1,13 @@
 ---
-import Title from "../components/common/PageTitle.astro";
-import StackGrid from "../components/stack/StackGrid.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import { getI18nStaticPaths } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return getI18nStaticPaths();
+}
+
+import Title from "../../components/common/PageTitle.astro";
+import StackGrid from "../../components/stack/StackGrid.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>

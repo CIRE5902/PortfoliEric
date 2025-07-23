@@ -1,5 +1,13 @@
 ---
+import { getI18nStaticPaths, useTranslations } from '../../i18n/utils';
+import type { Lang } from '../../i18n/ui';
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+
 import { Image } from "astro:assets";
+
 import imageNala from "../../assets/images/me/nala.jpg";
 import imageMentaGaryTabby from "../../assets/images/me/mentatabbygary.jpg";
 import imageClio from "../../assets/images/me/clio.jpg";
@@ -9,57 +17,23 @@ import imageEric from "../../assets/images/me/eric.jpg";
 ---
 
 <div class="cube-container">
-    <div class="cube initial-position">
-        <Image
-            src={imageEric}
-            alt="Eric"
-            class:list={["cube-face-image", "image-1"]}
-        />
-        <Image
-            src={imageMentaGaryTabby}
-            alt="Menta, Gary y Tabby"
-            class:list={["cube-face-image", "image-2"]}
-        />
-        <Image
-            src={imageNala}
-            alt="Nala"
-            class:list={["cube-face-image", "image-3"]}
-        />
-        <Image
-            src={imageClio}
-            alt="Clio"
-            class:list={["cube-face-image", "image-4"]}
-        />
-        <Image
-            src={imageTerrassa}
-            alt="Terrassa"
-            class:list={["cube-face-image", "image-5"]}
-        />
-        <Image
-            src={imageRojo}
-            alt="Rojo"
-            class:list={["cube-face-image", "image-6"]}
-        />
-    </div>
+  <div class="cube initial-position">
+    <Image src={imageEric} class:list={["cube-face-image", "image-1"]} alt={t("cube.alts.eric")} />
+    <Image src={imageMentaGaryTabby} class:list={["cube-face-image", "image-2"]} alt={t("cube.alts.mentaGaryTabby")} />
+    <Image src={imageNala} class:list={["cube-face-image", "image-3"]} alt={t("cube.alts.nala")} />
+    <Image src={imageClio} class:list={["cube-face-image", "image-4"]} alt={t("cube.alts.clio")} />
+    <Image src={imageTerrassa} class:list={["cube-face-image", "image-5"]} alt={t("cube.alts.terrassa")} />
+    <Image src={imageRojo} class:list={["cube-face-image", "image-6"]} alt={t("cube.alts.rojo")} />
+  </div>
 </div>
 
 <div class="image-buttons">
-    <input type="image" class="show-image-1" src={imageEric.src} alt="Eric" />
-    <input
-        type="image"
-        class="show-image-2"
-        src={imageMentaGaryTabby.src}
-        alt="Menta, Gary y Tabby"
-    />
-    <input type="image" class="show-image-3" src={imageNala.src} alt="Nala" />
-    <input type="image" class="show-image-4" src={imageClio.src} alt="Clio" />
-    <input
-        type="image"
-        class="show-image-5"
-        src={imageTerrassa.src}
-        alt="Terrassa"
-    />
-    <input type="image" class="show-image-6" src={imageRojo.src} alt="Rojo" />
+  <input type="image" class="show-image-1" src={imageEric.src} alt={t("cube.alts.eric")} />
+  <input type="image" class="show-image-2" src={imageMentaGaryTabby.src} alt={t("cube.alts.mentaGaryTabby")} />
+  <input type="image" class="show-image-3" src={imageNala.src} alt={t("cube.alts.nala")} />
+  <input type="image" class="show-image-4" src={imageClio.src} alt={t("cube.alts.clio")} />
+  <input type="image" class="show-image-5" src={imageTerrassa.src} alt={t("cube.alts.terrassa")} />
+  <input type="image" class="show-image-6" src={imageRojo.src} alt={t("cube.alts.rojo")} />
 </div>
 
 <style>

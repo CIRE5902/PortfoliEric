@@ -3,7 +3,7 @@
 
   "navMain": "Menú",
   "navHome": "Inici",
-  "navAbout": "Sobre mi",
+  "navAbout": "Biografia",
   "navProjects": "Projectes",
   "navStack": "Tecnologies",
   "navContact": "Contacte",
@@ -21,9 +21,11 @@
       "available": "Disponible"
     }
   },
+
   "github": {
     "title": "Contribucions a GitHub"
   },
+
   "experience": {
     "title": "Experiència",
     "roles": {
@@ -34,6 +36,7 @@
       "current": "actualment"
     }
   },
+
   "education": {
     "title": "Educació",
     "diplomas": {
@@ -42,6 +45,7 @@
       "smix": "Sistemes Microinformàtics i Xarxes (SMIX)"
     }
   },
+
   "certificates": {
     "title": "Certificats",
     "names": {
@@ -51,10 +55,87 @@
       "smix": "SMIX"
     }
   },
+
   "projects": {
     "title": "Projectes"
   },
+
   "stack": {
     "title": "Stack"
+  },
+
+  "cube": {
+    "alts": {
+      "eric": "Eric",
+      "mentaGaryTabby": "Menta, Gary i Tabby",
+      "nala": "Nala",
+      "clio": "Clio",
+      "terrassa": "Terrassa",
+      "rojo": "Rojo"
+    }
+  },
+
+  "social": {
+    "followSpotify": "Segueix a Spotify",
+    "followInstagram": "Segueix a Instagram",
+    "followLinkedIn": "Segueix a LinkedIn",
+    "sendEmail": "Envia un Email",
+    "followGitHub": "Segueix a GitHub",
+    "followFigma": "Segueix a Figma"
+  },
+
+  "about": {
+    "title": "JO",
+    "name": "Eric",
+    "nickname": "“Cirelema”",
+    "age": "22 anys",
+    "location": "Barcelona, Espanya",
+    "intuitive": "intuitives",
+    "visuallyAppealing": "visualment atractives",
+    "visualSide": "part visual",
+    "interfaceDesign": "disseny d'interfícies",
+    "webDeveloper": "Desenvolupador Web",
+    "systemsAdministrator": "Administrador de Sistemes",
+    "css": "CSS",
+    "webApplications": "aplicacions web",
+    "programming": "programació",
+    "animalWorld": "món animal",
+    "motorVehicles": "món del motor",
+    "sports": "esports",
+    "fashion": "moda",
+    "animals": "animals",
+    "family": "família",
+    "favoriteMovies": "El Gegant de Ferro, El Senyor dels Anells o Sóc Llegenda",
+    "paragraph1": {
+      "part1": "El meu nom és",
+      "part2": "—tot i que els meus amics em diuen",
+      "part3": "—, tinc",
+      "part4": "i sóc de",
+      "part5": ". Al principi, vaig considerar dedicar-me al sector de la cura d'animals, que sempre ha estat una de les meves grans passions. Tot i això, després d'unes pràctiques, vaig descobrir que també té moments molt durs, així que vaig decidir fer el salt a la programació."
+    },
+    "paragraph2": {
+      "part1": "Des de llavors, disfruto creant experiències web",
+      "part2": "i",
+      "part3": ". M'apassiona la",
+      "part4": "i el",
+      "part5": ", perquè crec que l'estètica és clau per oferir la millor experiència d'usuari possible."
+    },
+    "paragraph3": {
+      "part1": "Vaig completar els meus estudis com a",
+      "part2": "i",
+      "part3": ". Durant la meva Formació Professional, vaig destacar ajudant als meus companys a aprendre",
+      "part4": "."
+    },
+    "paragraph4": {
+      "part1": "Ara tinc experiència desenvolupant",
+      "part2": ", i el meu objectiu és combinar les meves dues grans passions —",
+      "part3": " i el ",
+      "part4": "— creant projectes que ajudin a millorar la vida dels animals."
+    },
+    "paragraph5": {
+      "part1": "Fora del món tecnològic, m'apassiona el",
+      "part2": " a la meva manera, i també valoro la solitud, però realment gaudeixo passant temps amb la meva",
+      "part3": " i amics propers. Les pel·lícules emocionals i inspiradores, especialment aquelles que tenen un missatge significatiu, són les meves favorites — com"
+    }
   }
 }

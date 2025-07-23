@@ -3,7 +3,7 @@
 
   "navMain": "Main",
   "navHome": "Home",
-  "navAbout": "About",
+  "navAbout": "Bio",
   "navProjects": "Projects",
   "navStack": "Stack",
   "navContact": "Contact",
@@ -21,9 +21,11 @@
       "available": "Available"
     }
   },
+
   "github": {
     "title": "Github Contributions"
   },
+
   "experience": {
     "title": "Experience",
     "roles": {
@@ -34,6 +36,7 @@
       "current": "currently"
     }
   },
+
   "education": {
     "title": "Education",
     "diplomas": {
@@ -42,6 +45,7 @@
       "smix": "Microcomputer Systems and Networks (SMIX)"
     }
   },
+
   "certificates": {
     "title": "Certificates",
     "names": {
@@ -51,10 +55,87 @@
       "smix": "SMIX"
     }
   },
+
   "projects": {
     "title": "Projects"
   },
+
   "stack": {
     "title": "Stack"
+  },
+
+  "cube": {
+    "alts": {
+      "eric": "Eric",
+      "mentaGaryTabby": "Menta, Gary y Tabby",
+      "nala": "Nala",
+      "clio": "Clio",
+      "terrassa": "Terrassa",
+      "rojo": "Rojo"
+    }
+  },
+
+  "social": {
+    "followSpotify": "Follow on Spotify",
+    "followInstagram": "Follow on Instagram",
+    "followLinkedIn": "Follow on LinkedIn",
+    "sendEmail": "Send Email",
+    "followGitHub": "Follow on GitHub",
+    "followFigma": "Follow on Figma"
+  },
+
+  "about": {
+    "title": "ME",
+    "name": "Eric",
+    "nickname": "“Cirelema”",
+    "age": "22 years old",
+    "location": "Barcelona, Spain",
+    "intuitive": "intuitive",
+    "visuallyAppealing": "visually appealing",
+    "visualSide": "visual side",
+    "interfaceDesign": "interface design",
+    "webDeveloper": "Web Developer",
+    "systemsAdministrator": "Systems Administrator",
+    "css": "CSS",
+    "webApplications": "web applications",
+    "programming": "programming",
+    "animalWorld": "animal world",
+    "motorVehicles": "world of motor vehicles",
+    "sports": "sports",
+    "fashion": "fashion",
+    "animals": "animals",
+    "family": "family",
+    "favoriteMovies": "The Iron Giant, The Lord of the Rings, or I Am Legend",
+    "paragraph1": {
+      "part1": "My name is",
+      "part2": "—although my friends call me",
+      "part3": "—, I'm",
+      "part4": "and from",
+      "part5": ". At first, I considered pursuing a career in the animal care sector, as it's always been one of my greatest passions. However, after an internship, I discovered that it also has very tough moments, so I decided to make the leap into programming."
+    },
+    "paragraph2": {
+      "part1": "Since then, I've enjoyed creating",
+      "part2": "and",
+      "part3": "web experiences. I'm passionate about the",
+      "part4": "and",
+      "part5": ", because I believe aesthetics are key to delivering the best possible user experience."
+    },
+    "paragraph3": {
+      "part1": "I completed my studies as a",
+      "part2": "and",
+      "part3": ". During my Higher Vocational Training, I stood out by helping my classmates learn",
+      "part4": "."
+    },
+    "paragraph4": {
+      "part1": "I now have experience developing",
+      "part2": ", and my goal is to combine my two greatest passions —",
+      "part3": " and the ",
+      "part4": "— by creating projects that help improve the lives of animals."
+    },
+    "paragraph5": {
+      "part1": "Outside of tech, I’m passionate about the",
+      "part2": " in my own style, and I also value solitude, but I truly enjoy spending time with my",
+      "part3": " and close friends. Emotional and inspiring movies, especially those with a meaningful message, are my favorites — like"
+    }
   }
 }

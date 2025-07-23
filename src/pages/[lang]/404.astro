@@ -1,5 +1,11 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import { getI18nStaticPaths } from "../../i18n/utils";
+
+export function getStaticPaths() {
+  return getI18nStaticPaths();
+}
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 import { Icon } from "astro-icon/components";
 ---
@@ -12,7 +18,8 @@ import { Icon } from "astro-icon/components";
     </section>
     <a href="/" class="back-home">
       <Icon name="mdi:home-outline" class="box-icon" />
-      <p>Go to Home</p></a>
+      <p>Go to Home</p></a
+    >
   </main>
 </BaseLayout>
 

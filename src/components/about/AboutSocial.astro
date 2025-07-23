@@ -1,43 +1,37 @@
 ---
-// Asegúrate de tener astro-icon instalado y activo
+
+import type { Lang } from "../../i18n/ui";
+import { useTranslations } from "../../i18n/utils";
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
 import { Icon } from "astro-icon/components";
 ---
 
 <div class="about-txtimg-socialMedia">
   <ul>
     <li>
-      <a
-        href="https://open.spotify.com/user/ericperezvera02"
-        target="_blank"
-        aria-label="Spotify"
-      >
+      <a href="https://open.spotify.com/user/ericperezvera02" target="_blank" aria-label="Spotify">
         <div>
           <Icon name="mdi:spotify" class="about-icons" />
-          <span id="firstFollow">Follow on Spotify</span>
+          <span>{t("social.followSpotify")}</span>
         </div>
       </a>
     </li>
     <li>
-      <a
-        href="https://www.instagram.com/eriicpz___/"
-        target="_blank"
-        aria-label="Instagram"
-      >
+      <a href="https://www.instagram.com/eriicpz___/" target="_blank" aria-label="Instagram">
         <div>
           <Icon name="mdi:instagram" class="about-icons" />
-          <span id="secondFollow">Follow on Instagram</span>
+          <span>{t("social.followInstagram")}</span>
         </div>
       </a>
     </li>
     <li>
-      <a
-        href="https://www.linkedin.com/in/ericperezvera"
-        target="_blank"
-        aria-label="LinkedIn"
-      >
+      <a href="https://www.linkedin.com/in/ericperezvera" target="_blank" aria-label="LinkedIn">
         <div>
           <Icon name="mdi:linkedin" class="about-icons" />
-          <span id="thirdFollow">Follow on LinkedIn</span>
+          <span>{t("social.followLinkedIn")}</span>
         </div>
       </a>
     </li>
@@ -45,7 +39,7 @@ import { Icon } from "astro-icon/components";
       <a href="mailto:ericperezvera02@gmail.com" aria-label="Email">
         <div>
           <Icon name="mdi:email-outline" class="about-icons" />
-          <span id="quarterFollow">Send Email</span>
+          <span>{t("social.sendEmail")}</span>
         </div>
       </a>
     </li>
@@ -53,19 +47,15 @@ import { Icon } from "astro-icon/components";
       <a href="https://github.com/CIRE5902" target="_blank" aria-label="GitHub">
         <div>
           <Icon name="mdi:github" class="about-icons" />
-          <span id="fifthFollow">Follow on GitHub</span>
+          <span>{t("social.followGitHub")}</span>
         </div>
       </a>
     </li>
     <li>
-      <a
-        href="https://www.figma.com/@d5318559_4aaa_4"
-        target="_blank"
-        aria-label="Figma"
-      >
+      <a href="https://www.figma.com/@d5318559_4aaa_4" target="_blank" aria-label="Figma">
         <div>
           <Icon name="solar:figma-bold" class="about-icons" />
-          <span id="sixthFollow">Follow on Figma</span>
+          <span>{t("social.followFigma")}</span>
         </div>
       </a>
     </li>

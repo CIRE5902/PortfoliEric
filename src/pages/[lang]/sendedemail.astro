@@ -1,5 +1,11 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import { getI18nStaticPaths } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return getI18nStaticPaths();
+}
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 <BaseLayout>
   <main class="thanks-page">
