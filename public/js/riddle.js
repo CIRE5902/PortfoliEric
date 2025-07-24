@@ -110,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // --- BOTONES DE SLIDER (NO SE TOCAN) ---
 $(document).ready(function () {
   $('.slider').each(function () {
+    // if (i === 0) btn.classList.add("active");
     var $this = $(this);
     var $group = $this.find('.slide-group');
     var $slides = $this.find('.slide');
@@ -124,24 +125,18 @@ $(document).ready(function () {
     ];
 
     function move(newIndex) {
-      var animateLeft, slideLeft;
+      if ($group.is(':animated') || currentIndex === newIndex) return;
 
-      if ($group.is(':animated') || currentIndex === newIndex) {
-        return;
-      }
+      $slides.eq(currentIndex).find("iframe").attr("src", "");
 
       buttonArray[currentIndex].removeClass('active');
       buttonArray[newIndex].addClass('active');
 
-      if (newIndex > currentIndex) {
-        slideLeft = '100%';
-        animateLeft = '-100%';
-      } else {
-        slideLeft = '-100%';
-        animateLeft = '100%';
-      }
+      var slideLeft = (newIndex > currentIndex) ? '100%' : '-100%';
+      var animateLeft = (newIndex > currentIndex) ? '-100%' : '100%';
 
       $slides.eq(newIndex).css({ left: slideLeft, display: 'block' });
+
       $group.animate({ left: animateLeft }, function () {
         $slides.eq(currentIndex).css({ display: 'none' });
         $slides.eq(newIndex).css({ left: 0 });
@@ -153,15 +148,15 @@ $(document).ready(function () {
       });
     }
 
-    $.each($slides, function (index) {
-      var $button = $('<button type="button" class="slide-btn"></button>');
-      if (index === currentIndex) {
-        $button.addClass('active');
-      }
-      $button.on('click', function () {
-        move(index);
-      }).appendTo('.slide-buttons');
-      buttonArray.push($button);
-    });
+
+$.each($slides, function (index) {
+  var $button = $('<button type="button" class="slide-btn"></button>');
+  $button.on('click', function () {
+    move(index);
+  }).appendTo('.slide-buttons');
+  buttonArray.push($button);
+});
+    // Carga el primer video siempre
+    // $slides.eq(0).find("iframe").attr("src", videoUrls[0]);
   });
 });
