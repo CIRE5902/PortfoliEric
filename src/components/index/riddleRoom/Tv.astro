@@ -1,0 +1,300 @@
+---
+// TV.astro
+---
+
+<div class="tv-container">
+    <div class="antenna"></div>
+    <div class="legs"></div>
+    <div class="knobs"></div>
+    <div class="tv">
+        <div class="slider">
+            <div class="slide-viewer">
+                <div class="slide-group">
+                    {
+                        Array.from({ length: 4 }).map((_, index) => (
+                            <div class={`slide slide-${index + 1}`}>
+                                <iframe
+                                    src=""
+                                    class="trailer-frame"
+                                    width="100%"
+                                    height="100%"
+                                    frameborder="0"
+                                    allow="autoplay; encrypted-media"
+                                    allowfullscreen
+                                ></iframe>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+            <div class="slide-buttons"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/riddle.js" defer></script>
+
+<style is:global>
+    .tv-container {
+        transform: scale(0.4);
+        bottom: 55%;
+        left: 25%;
+        position: absolute;
+    }
+
+    .tv {
+        position: absolute;
+        left: 50px;
+        top: 150px;
+        width: 200px;
+        height: 150px;
+    }
+
+    .tv:after {
+        content: "";
+        position: absolute;
+        top: -15px;
+        left: -25px;
+        width: 300px;
+        height: 180px;
+        background: #3b2a1f;
+        z-index: -1;
+        border-radius: 10px;
+        box-shadow: 0 0 0 6px #b08d55;
+    }
+
+    .antenna {
+        position: absolute;
+        top: 100px;
+        left: 130px;
+        width: 75px;
+        height: 75px;
+        background: #3b2a1f;
+        border-radius: 50%;
+        z-index: -2;
+        box-shadow:
+            -50px -115px 0 -32px #b08d55,
+            50px -115px 0 -32px #b08d55;
+    }
+
+    .antenna:before {
+        content: "";
+        bottom: 66px;
+        left: 1px;
+        position: absolute;
+        height: 94px;
+        width: 2px;
+        background: #b08d55;
+        transform: rotate(340deg);
+    }
+
+    .antenna:after {
+        content: "";
+        bottom: 66px;
+        left: 72px;
+        position: absolute;
+        height: 94px;
+        width: 2px;
+        background: #b08d55;
+        transform: rotate(20deg);
+    }
+
+    .legs {
+        position: absolute;
+        left: 75px;
+        top: 300px;
+        width: 20px;
+        height: 75px;
+        background: #3b2a1f;
+        z-index: -2;
+        transform: rotate(15deg);
+    }
+
+    .legs:before {
+        content: "";
+        position: absolute;
+        bottom: 45px;
+        left: 170px;
+        width: 20px;
+        height: 75px;
+        background: #3b2a1f;
+        transform: rotate(330deg);
+    }
+
+    .legs:after {
+        content: "";
+        position: absolute;
+        top: 65px;
+        left: 0px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #3b2a1f;
+        box-shadow: 189px -50px 0 0 #3b2a1f;
+    }
+
+    .knobs {
+        position: absolute;
+        top: 160px;
+        left: 275px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #b08d55;
+        box-shadow: 0 40px 0 0 #b08d55;
+    }
+
+    .knobs:before,
+    .knobs:after {
+        content: "";
+        position: absolute;
+        height: 40px;
+        width: 10px;
+        border-left: 4px solid #3b2a1f;
+        border-right: 4px solid #3b2a1f;
+    }
+
+    .knobs:before {
+        top: 40px;
+        left: 6px;
+    }
+
+    .knobs:after {
+        top: -5px;
+        left: 6px;
+        transform: rotate(45deg);
+    }
+
+    .slide-viewer {
+        position: relative;
+        top: 15px;
+        overflow: hidden;
+        height: 120px;
+        background: #b08d55;
+        border-radius: 5% / 50%;
+    }
+
+    .slide-group {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    .slide {
+        width: 100%;
+        height: 100%;
+        display: none;
+        position: absolute;
+        text-align: center;
+        font-size: 120px;
+        color: #b5b5b5;
+    }
+
+    .slide:first-child {
+        display: block;
+    }
+
+    .slide-buttons {
+        text-align: center;
+    }
+
+    .slide-btn {
+        display: block;
+        margin-bottom: 4px;
+        position: relative;
+        top: -35px;
+        left: 220px;
+        width: 40px;
+        height: 10px;
+        border: none;
+        background: lightgoldenrodyellow;
+        border-radius: 10px;
+        animation: glowPulse 2s ease-in-out infinite;
+        cursor: grab;
+    }
+
+    .slide-btn.active,
+    .slide-btn:hover {
+        background: #b08d55;
+        cursor: pointer;
+    }
+
+    @keyframes glowPulse {
+        0%,
+        100% {
+            box-shadow: 0 0 0px rgba(255, 255, 255, 0);
+        }
+        50% {
+            box-shadow: 0 0 8px rgba(255, 255, 255, 1);
+        }
+    }
+</style>
+
+<script is:inline>document.addEventListener("DOMContentLoaded", () => {
+  const sliders = document.querySelectorAll('.slider');
+
+  sliders.forEach((slider) => {
+    const group = slider.querySelector('.slide-group');
+    const slides = slider.querySelectorAll('.slide');
+    const buttonsContainer = slider.querySelector('.slide-buttons');
+
+    const videoUrls = [
+      "https://geo.dailymotion.com/player.html?video=x873kpf",
+      "https://geo.dailymotion.com/player.html?video=x7vsfd8",
+      "https://geo.dailymotion.com/player.html?video=x8x2aoe",
+      "https://geo.dailymotion.com/player.html?video=x8x3nvw"
+    ];
+
+    let currentIndex = 0;
+    const buttonArray = [];
+
+    function move(newIndex) {
+      if (!group || group.style.left !== "0px" && group.style.left !== "") return;
+      if (currentIndex === newIndex) return;
+
+      const currentSlideIframe = slides[currentIndex].querySelector("iframe");
+      if (currentSlideIframe) currentSlideIframe.setAttribute("src", "");
+
+      buttonArray[currentIndex].classList.remove('active');
+      buttonArray[newIndex].classList.add('active');
+
+      const slideLeft = newIndex > currentIndex ? '100%' : '-100%';
+      const animateLeft = newIndex > currentIndex ? '-100%' : '100%';
+
+      const newSlide = slides[newIndex];
+      newSlide.style.left = slideLeft;
+      newSlide.style.display = 'block';
+
+      group.style.transition = 'left 0.5s ease-in-out';
+      group.style.left = animateLeft;
+
+      setTimeout(() => {
+        slides[currentIndex].style.display = 'none';
+        newSlide.style.left = '0';
+        group.style.transition = '';
+        group.style.left = '0';
+        currentIndex = newIndex;
+
+        const newIframe = slides[newIndex].querySelector("iframe");
+        if (newIframe) newIframe.setAttribute("src", videoUrls[newIndex]);
+      }, 500);
+    }
+
+    slides.forEach((_slide, index) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.classList.add("slide-btn");
+      btn.addEventListener("click", () => move(index));
+      buttonsContainer.appendChild(btn);
+      buttonArray.push(btn);
+    });
+
+    // if(buttonArray[0]){
+    //   buttonArray[0].classList.add("active");
+    //   const firstIframe = slides[0].querySelector("iframe");
+    //   if(firstIframe) firstIframe.setAttribute("src", videoUrls[0]);
+    // }
+  });
+});
+
+</script>

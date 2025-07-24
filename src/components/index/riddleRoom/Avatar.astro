@@ -1,0 +1,89 @@
+---
+import { Image } from "astro:assets";
+
+import imageAvatar from "../../../assets/images/avatar2.png";
+---
+
+<div class="ia-character">
+    <Image src={imageAvatar} class:list={["ia-avatar"]} alt="avatar" />
+    <div class="ia-bubble"></div>
+</div>
+
+<style>
+    .ia-character {
+        position: absolute;
+        display: flex;
+        align-items: flex-end;
+        gap: 10px;
+        z-index: 10;
+        bottom: 0%;
+        right: 50%;
+    }
+
+    .ia-avatar {
+        width: 120px;
+        height: 150px;
+    }
+
+    .ia-bubble {
+        max-width: 200px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.85);
+        color: #333;
+        font-family: "Courier New", monospace;
+        border-radius: 10px;
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+        font-size: 13px;
+        position: relative;
+    }
+
+    .ia-bubble::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: -10px;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        border-top-color: rgba(255, 255, 255, 0.85);
+        border-bottom: 0;
+        border-right: 0;
+        margin-left: -5px;
+    }
+</style>
+
+<script is:inline>
+  async function getLocalReply(evento = "saludo") {
+    const res = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ evento })
+    });
+    const data = await res.json();
+    return data.reply;
+  }
+
+  function speakText(text) {
+    const bubble = document.getElementById("ia-bubble");
+    bubble.textContent = text;
+
+    if (window.speechSynthesis) {
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = "es-ES";
+      utter.pitch = 1;
+      utter.rate = 1;
+      speechSynthesis.cancel();
+      speechSynthesis.speak(utter);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    const reply = await getLocalReply("saludo");
+    speakText(reply);
+  });
+
+  // Ejemplo para disparar otras respuestas desde fuera:
+  window.hablaIA = async (evento) => {
+    const reply = await getLocalReply(evento);
+    speakText(reply);
+  };

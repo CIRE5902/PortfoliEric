@@ -1,5 +1,97 @@
-document.addEventListener("DOMContentLoaded", () => {
+<div id="lamp">
+  <div class="cable"></div>
+  <div class="block dragable"></div>
+  <div class="shade dragable"></div>
+  <div class="bulb_wrapper">
+    <div class="bulb dragable"></div>
+  </div>
+</div>
+
+<style is:global>
+#lamp {
+  top: 0px;
+  left: 50%;
+  width: 130px;
+  transform-origin: 50% 0;
+  transform: rotate(0deg);
+}
+
+#lamp.swinging {
+  transition: all 0.6s ease-in-out;
+  animation: swing 2s ease-in-out infinite;
+}
+
+@keyframes swing {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(15deg); }
+  100% { transform: rotate(0deg); }
+}
+
+#lamp .cable {
+  width: 6px;
+  height: 70px;
+  margin: auto;
+  background: #4c4c4c;
+}
+
+#lamp .block {
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  margin-bottom: -10px;
+  background: #222;
+}
+
+#lamp .shade {
+  width: 130px;
+  height: 65px;
+  background: #222;
+  border-top-right-radius: 65px;
+  border-top-left-radius: 65px;
+}
+
+#lamp .bulb_wrapper {
+  position: absolute;
+  width: 500px;
+  height: 120px;
+  overflow: hidden;
+  margin-left: -185px;
+  z-index: -1;
+}
+
+#lamp .bulb_wrapper .bulb {
+  z-index: -1;
+  width: 44px;
+  height: 22px;
+  margin-left: 228px;
+  background: #8b73cc;
+  border-bottom-right-radius: 22px;
+  border-bottom-left-radius: 22px;
+  box-shadow: 0px 0px 200px 20px #8b73cc;
+}
+
+#lamp.off .bulb_wrapper .bulb {
+  background: #5d44b5;
+  box-shadow: none;
+}
+
+@keyframes swingSideToSide {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+}
+
+#lamp.hint {
+  animation: swingSideToSide 5s linear infinite;
+  cursor: grab;
+}
+</style>
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
   const lamp = document.getElementById("lamp");
+
+  if (!lamp) return; // Aseguramos que el elemento existe
 
   // Añadir animación de aviso
   lamp.classList.add("hint");
@@ -107,56 +199,4 @@ document.addEventListener("DOMContentLoaded", () => {
   flicker();
 });
 
-// --- BOTONES DE SLIDER (NO SE TOCAN) ---
-$(document).ready(function () {
-  $('.slider').each(function () {
-    // if (i === 0) btn.classList.add("active");
-    var $this = $(this);
-    var $group = $this.find('.slide-group');
-    var $slides = $this.find('.slide');
-    var buttonArray = [];
-    var currentIndex = 0;
-
-    const videoUrls = [
-      "https://geo.dailymotion.com/player.html?video=x873kpf",
-      "https://geo.dailymotion.com/player.html?video=x7vsfd8",
-      "https://geo.dailymotion.com/player.html?video=x8x2aoe",
-      "https://geo.dailymotion.com/player.html?video=x8x3nvw"
-    ];
-
-    function move(newIndex) {
-      if ($group.is(':animated') || currentIndex === newIndex) return;
-
-      $slides.eq(currentIndex).find("iframe").attr("src", "");
-
-      buttonArray[currentIndex].removeClass('active');
-      buttonArray[newIndex].addClass('active');
-
-      var slideLeft = (newIndex > currentIndex) ? '100%' : '-100%';
-      var animateLeft = (newIndex > currentIndex) ? '-100%' : '100%';
-
-      $slides.eq(newIndex).css({ left: slideLeft, display: 'block' });
-
-      $group.animate({ left: animateLeft }, function () {
-        $slides.eq(currentIndex).css({ display: 'none' });
-        $slides.eq(newIndex).css({ left: 0 });
-        $group.css({ left: 0 });
-        currentIndex = newIndex;
-
-        const $iframe = $slides.eq(newIndex).find("iframe");
-        $iframe.attr("src", videoUrls[newIndex]);
-      });
-    }
-
-
-$.each($slides, function (index) {
-  var $button = $('<button type="button" class="slide-btn"></button>');
-  $button.on('click', function () {
-    move(index);
-  }).appendTo('.slide-buttons');
-  buttonArray.push($button);
-});
-    // Carga el primer video siempre
-    // $slides.eq(0).find("iframe").attr("src", videoUrls[0]);
-  });
-});
+  </script>
