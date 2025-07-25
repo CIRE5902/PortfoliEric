@@ -1,0 +1,58 @@
+---
+import { useTranslations } from "../../../i18n/utils";
+import { Image } from "astro:assets";
+import ImageMP3 from "../../../assets/images/riddleRoom/mp3.png";
+
+const { lang } = Astro.props; 
+const t = useTranslations(lang);
+
+let hoverMessage = t("ipodMessages.hover");
+---
+
+<!-- iPods -->
+<div class="mp3" onclick="interactWithIpods()" onmouseenter="hoverInteractWithIpods()">
+  <Image src={ImageMP3} class:list={["ipods-img"]} alt="iPods" />
+</div>
+
+<script is:inline>
+  function interactWithIpods() {
+    showBubbleMessage(hoverMessage);
+  }
+
+  function hoverInteractWithIpods() {
+    showBubbleMessage(hoverMessage); 
+  }
+
+  function showBubbleMessage(message) {
+    const bubble = document.getElementById("ia-bubble");
+    bubble.textContent = message;
+    bubble.style.display = "block"; 
+
+    const utter = new SpeechSynthesisUtterance(message);
+    utter.lang = "es-ES"; // Define el idioma
+    speechSynthesis.speak(utter);
+  }
+
+  function clearMessage() {
+    const bubble = document.getElementById("ia-bubble");
+    bubble.style.display = "none";
+  }
+</script>
+
+<style is:global>
+  .mp3 {
+    cursor: pointer;
+    position: absolute;
+    bottom: 5%;
+    right: 40%;
+    width: 45px;
+    height: 45px;
+  }
+
+  .mp3 img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+</style>

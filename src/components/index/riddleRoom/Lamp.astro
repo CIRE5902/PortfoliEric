@@ -87,116 +87,139 @@
 }
 </style>
 
-  <script is:inline>
-    document.addEventListener("DOMContentLoaded", () => {
-  const lamp = document.getElementById("lamp");
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const lamp = document.getElementById("lamp");
 
-  if (!lamp) return; // Aseguramos que el elemento existe
+    if (!lamp) return; 
 
-  // Añadir animación de aviso
-  lamp.classList.add("hint");
+    lamp.classList.add("hint");
 
-  // Quitar animación al primer arrastre o toque
-  lamp.querySelectorAll(".dragable").forEach((el) => {
-    const removeHint = () => lamp.classList.remove("hint");
+    lamp.querySelectorAll(".dragable").forEach((el) => {
+      const removeHint = () => lamp.classList.remove("hint");
 
-    el.addEventListener("mousedown", removeHint, { once: true });
-    el.addEventListener("touchstart", removeHint, { once: true });
-  });
+      el.addEventListener("mousedown", removeHint, { once: true });
+      el.addEventListener("touchstart", removeHint, { once: true });
+    });
 
-  // --- LÓGICA DE LA LÁMPARA ---
-  let speed, swing, rotation = 0,
-    time, gravity = 1,
-    length = 250,
-    startAngle = 0;
+    let speed, swing, rotation = 0,
+      time, gravity = 1,
+      length = 250,
+      startAngle = 0;
 
-  function startLampSwing() {
-    time = 0;
-    speed = 1;
-    lampSwing();
-  }
+    function startLampSwing() {
+      time = 0;
+      speed = 1;
+      lampSwing();
+    }
 
-  function stopLampSwing() {
-    clearTimeout(swing);
-    lamp.style.transition = "none";
-    lamp.style.transform = `rotate(${rotation}deg)`;
-  }
-
-  function lampSwing() {
-    time += 1;
-    if (Math.abs(startAngle) > 0.5) {
-      rotation = Math.cos(Math.sqrt(gravity / length) * time) * startAngle;
-      lamp.style.transform = `rotate(${rotation}deg)`;
-
-      startAngle *= 0.996;
-      swing = setTimeout(lampSwing, 1000 / 60);
-    } else {
-      rotation = 0;
+    function stopLampSwing() {
+      clearTimeout(swing);
+      lamp.style.transition = "none";
       lamp.style.transform = `rotate(${rotation}deg)`;
     }
-  }
 
-  let mousedown = false,
-    startDegree;
+    function lampSwing() {
+      time += 1;
+      if (Math.abs(startAngle) > 0.5) {
+        rotation = Math.cos(Math.sqrt(gravity / length) * time) * startAngle;
+        lamp.style.transform = `rotate(${rotation}deg)`;
 
-  lamp.querySelectorAll(".dragable").forEach((element) => {
-    element.addEventListener("mousedown", (e) => {
-      document.body.classList.add("dragging");
+        startAngle *= 0.996;
+        swing = setTimeout(lampSwing, 1000 / 60);
+      } else {
+        rotation = 0;
+        lamp.style.transform = `rotate(${rotation}deg)`;
+      }
+    }
 
-      const deltaX = window.innerWidth / 2 - e.pageX;
-      const deltaY = 0 - e.pageY;
-      const degree = Math.atan(deltaX / deltaY) * (180 / Math.PI);
-      startDegree = rotation;
+    let mousedown = false,
+      startDegree;
 
-      mousedown = {
-        start: {
-          x: e.pageX,
-          y: e.pageY,
-          deltaX,
-          deltaY,
-          degree
-        },
-        event: e
-      };
-      stopLampSwing();
+    lamp.querySelectorAll(".dragable").forEach((element) => {
+      element.addEventListener("mousedown", (e) => {
+        document.body.classList.add("dragging");
+
+        const deltaX = window.innerWidth / 2 - e.pageX;
+        const deltaY = 0 - e.pageY;
+        const degree = Math.atan(deltaX / deltaY) * (180 / Math.PI);
+        startDegree = rotation;
+
+        mousedown = {
+          start: {
+            x: e.pageX,
+            y: e.pageY,
+            deltaX,
+            deltaY,
+            degree
+          },
+          event: e
+        };
+        stopLampSwing();
+      });
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (mousedown) {
+        const deltaX = window.innerWidth / 2 - e.pageX;
+        const deltaY = 0 - e.pageY;
+        let degree = Math.atan(deltaX / deltaY) * (180 / Math.PI);
+
+        degree = Math.min(Math.max(startDegree + (mousedown.start.degree - degree), -75), 75);
+        lamp.style.transform = `rotate(${degree}deg)`;
+        startAngle = degree;
+      }
+    });
+
+    document.addEventListener("mouseup", () => {
+      if (mousedown) {
+        document.body.classList.remove("dragging");
+        mousedown = false;
+        startLampSwing();
+      }
+    });
+
+    function flicker() {
+      toggleLamp();
+      setTimeout(() => {
+        toggleLamp();
+      }, Math.round(Math.random() * 150 + 100));
+
+      setTimeout(flicker, Math.round(Math.random() * 4000 + 100));
+    }
+
+    function toggleLamp() {
+      lamp.classList.toggle("off");
+    }
+
+    flicker();
+
+    // Mostrar mensaje al mover la lámpara
+    lamp.addEventListener("mousemove", () => {
+      const bubble = document.getElementById("ia-bubble");
+      bubble.textContent = "¡Cuidado! La lámpara está en movimiento!";
+      bubble.style.display = "block"; // Mostrar burbuja de texto cuando se mueva
+    });
+
+    // Mostrar mensaje al hacer hover sobre la lámpara
+    lamp.addEventListener("mouseenter", async () => {
+      const reply = "¡Estás interactuando con la lámpara!";
+      speakText(reply); // El avatar dice el mensaje
     });
   });
 
-  document.addEventListener("mousemove", (e) => {
-    if (mousedown) {
-      const deltaX = window.innerWidth / 2 - e.pageX;
-      const deltaY = 0 - e.pageY;
-      let degree = Math.atan(deltaX / deltaY) * (180 / Math.PI);
+  function speakText(text) {
+    const bubble = document.getElementById("ia-bubble");
+    bubble.textContent = text;
+    bubble.style.display = "block"; 
 
-      degree = Math.min(Math.max(startDegree + (mousedown.start.degree - degree), -75), 75);
-      lamp.style.transform = `rotate(${degree}deg)`;
-      startAngle = degree;
+    if (window.speechSynthesis) {
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = "es-ES";
+      utter.pitch = 1;
+      utter.rate = 1;
+      speechSynthesis.cancel();
+      speechSynthesis.speak(utter);
     }
-  });
-
-  document.addEventListener("mouseup", () => {
-    if (mousedown) {
-      document.body.classList.remove("dragging");
-      mousedown = false;
-      startLampSwing();
-    }
-  });
-
-  // --- EFECTO PARPADEO DE LA BOMBILLA ---
-  function flicker() {
-    toggleLamp();
-    setTimeout(() => {
-      toggleLamp();
-    }, Math.round(Math.random() * 150 + 100));
-
-    setTimeout(flicker, Math.round(Math.random() * 4000 + 100));
   }
-
-  function toggleLamp() {
-    lamp.classList.toggle("off");
-  }
-
-  flicker();
-});
-
-  </script>
+</script>

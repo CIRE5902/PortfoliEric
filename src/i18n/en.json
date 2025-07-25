@@ -161,5 +161,20 @@
       "messagePlaceholder": "Your message here...",
       "sendButton": "Send Message"
     }
+  },
+  "tvMessages": {
+    "hover": "You've hovered over the TV! Choose a video.",
+    "buttonClick": "You've selected video {{index}}!"
+  },
+  "ps3Messages": {
+    "hover": "You've hovered over the PS3! Choose your game.",
+    "buttonClick": "You've turned on the PS3! Choose your game."
+  },
+  "ipodMessages": {
+    "hover": "Playing music on the iPods!"
+  },
+  "lampMessages": {
+    "interaction": "You're interacting with the lamp!",
+    "movement": "¡Cuidado! La lámpara está en movimiento!"
   }
 }

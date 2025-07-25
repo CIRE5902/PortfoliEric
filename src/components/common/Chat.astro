@@ -1,0 +1,171 @@
+<div id="chat-widget">
+  <button id="chat-toggle" aria-label="Abrir chat">
+    💬
+  </button>
+
+  <div id="chat-window" hidden>
+    <div id="chat-messages" role="log" aria-live="polite" aria-relevant="additions"></div>
+    <form id="chat-form" autocomplete="off" aria-label="Chat with Eric">
+      <input
+        type="text"
+        id="chat-input"
+        name="message"
+        placeholder="Hazme una pregunta..."
+        required
+        aria-label="Mensaje"
+      />
+      <button type="submit" aria-label="Enviar mensaje">Enviar</button>
+    </form>
+    <button id="chat-close" aria-label="Cerrar chat">×</button>
+  </div>
+</div>
+
+<style>
+  #chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-family: sans-serif;
+    z-index: 10;
+  }
+
+  #chat-toggle {
+    font-size: 28px;
+    background: var(--purple-dark);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    cursor: pointer;
+    box-shadow:
+      0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+  }
+
+  #chat-toggle:hover {
+    background: var(--purple);
+  }
+
+  #chat-window {
+    width: 320px;
+    height: 400px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--purple-dark);
+    border-radius: 8px;
+    box-shadow:
+      0 8px 16px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin-bottom: 10px;
+  }
+
+  #chat-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+    padding-right: 8px;
+  }
+
+  .message {
+    padding: 0.5rem;
+    border-radius: 6px;
+    margin-bottom: 0.25rem;
+    max-width: 80%;
+  }
+
+  .message.user {
+    background: var(--purple-dark);
+    color: white;
+    align-self: flex-end;
+    text-align: right;
+  }
+
+  .message.bot {
+    background: var(--bg-primary);
+    color: var(--purple-dark);
+    align-self: flex-start;
+    text-align: left;
+  }
+
+  #chat-form {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  #chat-input {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid var(--purple-dark);
+  }
+
+  #chat-form button {
+    background: var(--purple-dark);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0 1rem;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  #chat-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--purple-dark);
+  }
+</style>
+
+<script is:inline>
+  const toggleBtn = document.getElementById('chat-toggle');
+  const chatWindow = document.getElementById('chat-window');
+  const closeBtn = document.getElementById('chat-close');
+  const chatForm = document.getElementById('chat-form');
+  const chatInput = document.getElementById('chat-input');
+  const chatMessages = document.getElementById('chat-messages');
+
+  function appendMessage(text, sender) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    div.className = `message ${sender}`;
+    chatMessages.appendChild(div);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    chatWindow.hidden = false;
+    toggleBtn.hidden = true;
+    chatInput.focus();
+  });
+
+  closeBtn.addEventListener('click', () => {
+    chatWindow.hidden = true;
+    toggleBtn.hidden = false;
+  });
+
+  chatForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const message = chatInput.value.trim();
+    if (!message) return;
+    appendMessage(message, 'user');
+    chatInput.value = '';
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ message }),
+      });
+      const data = await res.json();
+      appendMessage(data.reply || 'Lo siento, no pude responder.', 'bot');
+    } catch {
+      appendMessage('Error de conexión.', 'bot');
+    }
+  });
+</script>

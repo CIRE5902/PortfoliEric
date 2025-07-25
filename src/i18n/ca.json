@@ -161,5 +161,19 @@
       "messagePlaceholder": "El teu missatge aquí...",
       "sendButton": "Envia Missatge"
     }
+  },
+  "tvMessages": {
+    "hover": "Has passat el ratolí sobre la TV! Escull un vídeo.",
+    "buttonClick": "Has seleccionat el vídeo {{index}}!"
+  },
+  "ps3Messages": {
+    "hover": "Has passat el ratolí sobre la PS3! Escull el teu joc.",
+    "buttonClick": "Has engegat la PS3! Escull el teu joc."
+  },
+  "ipodMessages": {
+    "hover": "Reproduint música als iPods!"
+  },
+  "lampMessages": {
+    "interaction": "Estàs interactuant amb la làmpada!"
   }
 }

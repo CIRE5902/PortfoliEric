@@ -7,6 +7,8 @@ import "../css/main.css";
 import Navbar from "../components/common/Navbar.astro";
 import LanguagePicker from "../components/common/LanguagePicker.astro";
 
+import Chat from '../components/common/Chat.astro';
+
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
@@ -20,9 +22,9 @@ const t = useTranslations(lang);
     <slot name="head" />
   </head>
   <body data-page="home">
-    <LanguagePicker lang={lang}/>
+    <LanguagePicker lang={lang} />
     <Navbar lang={lang} />
     <slot />
-    <slot name="footer" />
+    <!-- <Chat /> -->
   </body>
 </html>
