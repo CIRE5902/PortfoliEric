@@ -1,8 +1,6 @@
 // @ts-ignore
 import { defineConfig } from 'astro/config';
 import icon from 'astro-icon';
-import react from '@astrojs/react';
-
 
 export default defineConfig({
   integrations: [
@@ -14,6 +12,5 @@ export default defineConfig({
         local:  'src/icons/',
       },
     }),
-    react(),
   ],
 });
