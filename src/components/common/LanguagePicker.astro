@@ -3,6 +3,7 @@ import { languages, type Lang } from "../../i18n/ui";
 import { Image } from "astro:assets";
 
 const { lang } = Astro.props as { lang: Lang };
+const pathname = Astro.url.pathname;
 
 import enFlag from "../../assets/images/languages/en.png";
 import esFlag from "../../assets/images/languages/es.png";
@@ -26,7 +27,10 @@ const flags: Record<Lang, typeof enFlag> = {
           (Object.keys(flags) as Lang[]).map((key) =>
             key !== lang ? (
               <>
-                <a href={`/${key}/`} aria-label={`${key}`}>
+                <a
+                  href={pathname.replace(`/${lang}`, `/${key}`)}
+                  aria-label={`${key}`}
+                >
                   <Image src={flags[key]} alt={`Bandera de ${key}`} />
                 </a>
               </>
