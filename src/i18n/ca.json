@@ -162,23 +162,25 @@
       "sendButton": "Envia Missatge"
     }
   },
+  "avatarMessages": {
+    "greeting": "Sí que plou avui!"
+  },
   "tvMessages": {
-    "hover": "¡Has pasado el ratón sobre la TV! Elige un video.",
+    "hover": "Mira les meves pel·lis i sèries preferides!",
     "videoTitles": {
-      "0": "¡Has seleccionado el tráiler de Matrix!",
-      "1": "¡Has seleccionado el videoclip de Daft Punk!",
-      "2": "¡Has seleccionado una joya nostálgica!",
-      "3": "¡Has elegido una rareza pixelada!"
+      "0": "Pearl Harbor!",
+      "1": "Sóc Llegenda!",
+      "2": "El Gegant de Ferro!",
+      "3": "Els Peaky Blinders!"
     }
   },
   "ps3Messages": {
-    "hover": "Has passat el ratolí sobre la PS3! Escull el teu joc.",
-    "buttonClick": "Has engegat la PS3! Escull el teu joc."
+    "hover": "Quins records amb la PS3!"
   },
   "mp3Messages": {
-    "hover": "Reproduint música als iPods!"
+    "hover": "Tant de bo sonés Phil Collins!"
   },
   "lampMessages": {
-    "interaction": "Estàs interactuant amb la làmpada!"
+    "interaction": "Compte, no la moguis gaire!"
   }
 }

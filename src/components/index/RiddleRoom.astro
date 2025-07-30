@@ -5,6 +5,7 @@ import Lamp from "./riddleRoom/Lamp.astro";
 import Avatar from "./riddleRoom/Avatar.astro";
 import Mp3 from "./riddleRoom/Ps3.astro";
 import Ps3 from "./riddleRoom/Mp3.astro";
+import Volume from "./riddleRoom/Volume.astro";
 
 import type { Lang } from "../../i18n/ui";
 import { useTranslations } from "../../i18n/utils";
@@ -12,12 +13,14 @@ import { useTranslations } from "../../i18n/utils";
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
+
 <div class="content-riddle">
   <Room>
     <Avatar lang={lang} />
     <Tv lang={lang} />
     <Mp3 lang={lang} />
     <Ps3 lang={lang} />
+    <Volume />
   </Room>
   <Lamp lang={lang} />
 </div>

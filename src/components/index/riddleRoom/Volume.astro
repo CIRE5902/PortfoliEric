@@ -1,0 +1,74 @@
+---
+import { Icon } from "astro-icon/components";
+import audioRain from "../../../assets/sounds/rain.mp3";
+---
+
+<button
+    id="volume-toggle"
+    class="volume-btn"
+    aria-label="Toggle sound"
+    data-state="off"
+>
+    <Icon class="volume-icon volume-on" name="mdi:volume-high" />
+    <Icon class="volume-icon volume-off" name="mdi:volume-off" />
+</button>
+
+<audio id="background-audio" loop preload="auto" src={audioRain}></audio>
+
+<style>
+    .volume-btn {
+        position: absolute;
+        top: 3px;
+        right: 5%;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+
+    .volume-btn svg {
+        width: 25px;
+        height: 25px;
+    }
+
+    .volume-on {
+        display: none;
+    }
+
+    .volume-off {
+        display: inline;
+    }
+
+    .volume-btn[data-state="on"] .volume-on {
+        display: inline;
+    }
+
+    .volume-btn[data-state="on"] .volume-off {
+        display: none;
+    }
+</style>
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+        const audio = document.getElementById("background-audio");
+        const toggleBtn = document.getElementById("volume-toggle");
+
+        let audioEnabled = false;
+
+        toggleBtn.addEventListener("click", () => {
+            audioEnabled = !audioEnabled;
+
+            if (audioEnabled) {
+                audio.play();
+                toggleBtn.dataset.state = "on";
+            } else {
+                audio.pause();
+                toggleBtn.dataset.state = "off";
+            }
+        });
+    });
+</script>

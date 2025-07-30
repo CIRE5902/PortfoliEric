@@ -1,17 +1,21 @@
 ---
+import Window from "./Window.astro";
+
 const { children } = Astro.slots;
 ---
 
 <div class="room">
   <div class="wall left-wall"></div>
   <div class="wall front-wall"></div>
-  <div class="wall right-wall"></div>
+  <div class="wall right-wall">
+    <Window />
+  </div>
   <div class="floor">
     <slot />
   </div>
 </div>
 
-<style is:global>
+<style>
   .room {
     border-radius: 10px;
     width: 90%;

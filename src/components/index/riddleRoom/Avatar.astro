@@ -1,9 +1,14 @@
 ---
 import { Image } from "astro:assets";
 import imageAvatar from "../../../assets/images/avatar2.png";
+import { useTranslations } from "../../../i18n/utils";
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const saludo = t("avatarMessages.greeting");
 ---
 
-<div class="ia-character">
+<div class="ia-character" data-saludo={saludo}>
   <Image src={imageAvatar} class:list={["ia-avatar"]} alt="avatar" />
   <div id="ia-bubble" class="ia-bubble"></div>
 </div>
@@ -26,7 +31,7 @@ import imageAvatar from "../../../assets/images/avatar2.png";
   }
 
   .ia-bubble {
-    max-width: 200px;
+    min-width: 100px;
     padding: 10px;
     background: rgba(255, 255, 255, 0.85);
     color: #333;
@@ -57,38 +62,33 @@ import imageAvatar from "../../../assets/images/avatar2.png";
 </style>
 
 <script is:inline>
-  function speakText(text) {
-    const bubble = document.getElementById("ia-bubble");
+  const saludo = document.querySelector(".ia-character")?.dataset?.saludo;
+  const bubble = document.getElementById("ia-bubble");
+
+  function showBubble(text) {
+    if (!bubble || !text) return;
     bubble.textContent = text;
     bubble.style.display = "block";
-
-    if (window.speechSynthesis) {
-      const utter = new SpeechSynthesisUtterance(text);
-      utter.lang = "es-ES";
-      utter.pitch = 1;
-      utter.rate = 1;
-      speechSynthesis.cancel();
-      speechSynthesis.speak(utter);
-    }
   }
 
-  document.addEventListener("DOMContentLoaded", async () => {
-    const reply = await getLocalReply("saludo");
-    speakText(reply);
+  function hideBubble() {
+    if (!bubble) return;
+    bubble.style.display = "none";
+    bubble.textContent = "";
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    showBubble(saludo);
 
     window.addEventListener("ia-habla", (event) => {
       const texto = event.detail.texto;
-      if (texto) speakText(texto);
+      if (typeof texto === "string") {
+        showBubble(texto);
+
+        setTimeout(() => {
+          hideBubble();
+        }, 5000);
+      }
     });
   });
-
-  async function getLocalReply(evento = "saludo") {
-    const res = await fetch("/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ evento }),
-    });
-    const data = await res.json();
-    return data.reply;
-  }
 </script>
