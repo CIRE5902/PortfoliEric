@@ -26,6 +26,17 @@ import { Icon } from "astro-icon/components";
         color: var(--purple-dark);
         filter: drop-shadow(0 0 4px var(--purple-dark));
     }
+
+    @media screen and (max-width: 420px) {
+        .uptime-msg {
+            font-size: 18px;
+        }
+    }
+        @media screen and (max-width: 350px) {
+        .uptime-msg {
+            font-size: 14px;
+        }
+    }
 </style>
 
 <script is:inline>
