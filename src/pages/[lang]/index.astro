@@ -24,6 +24,8 @@ import GithubContributions from "../../components/index/GithubContributions.astr
 import SpotifyPlaylist from "../../components/index/SpotifyPlaylist.astro";
 import Certificates from "../../components/index/Certificates.astro";
 import VideoGame from "../../components/index/VideoGame.astro";
+import LaunchInfo from "../../components/index/LaunchInfo.astro";
+
 ---
 
 
@@ -52,7 +54,8 @@ import VideoGame from "../../components/index/VideoGame.astro";
           <GithubContributions lang={lang} class="contributions" />
           <div class="div6">
             <Certificates lang={lang} class="certificates" />
-            <VideoGame lang={lang} class="videogame" />
+            <VideoGame lang={lang} class="videogame" /> 
+            <LaunchInfo class="launch"/>
           </div>
         </div>
         <SpotifyPlaylist lang={lang} class="spotify-playlist" />

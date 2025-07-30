@@ -1,0 +1,37 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div class="box-card launch">
+    <Icon name="mdi:rocket-launch-outline" class="launch-icons" />
+    <Icon name="mdi:access-point" class="launch-icons" />
+    <p id="uptime-msg" class="uptime-msg"></p>
+</div>
+<style>
+    .launch {
+        display: flex;
+        align-items: center;
+        /* justify-content: space-evenly; */
+        flex-direction: row;
+        padding-left: 30px;
+    }
+    .uptime-msg {
+        font-size: 24px;
+        /* color: var(--purple-dark); */
+        padding: 20px;
+    }
+    .launch-icons {
+        width: 32px;
+        height: 32px;
+        color: var(--purple-dark);
+        filter: drop-shadow(0 0 4px var(--purple-dark));
+    }
+</style>
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", async () => {
+        const res = await fetch("/api/info");
+        const data = await res.json();
+        document.getElementById("uptime-msg").textContent = `${data.uptime}`;
+    });
+</script>
