@@ -1,83 +1,95 @@
 <div class="window-container">
   <div class="rain-zone">
-    {Array.from({ length: 40 }).map((_, i) => (
-      <div
-        class="drop"
-        style={`left:${Math.floor(Math.random() * 100)}%; animation-duration:${(0.3 + Math.random() * 0.4).toFixed(2)}s; animation-delay:${(Math.random() * 5).toFixed(2)}s`}
-      />
-    ))}
+    {
+      Array.from({ length: 40 }).map((_, i) => (
+        <div
+          class="drop"
+          style={`left:${Math.floor(Math.random() * 100)}%; animation-duration:${(0.3 + Math.random() * 0.4).toFixed(2)}s; animation-delay:${(Math.random() * 5).toFixed(2)}s`}
+        />
+      ))
+    }
   </div>
 
   <div class="window-mask"></div>
 </div>
 
 <style>
-.window-container {
-  position: absolute;
-  top: 30%;
-  left: 30%;
-  width: 180px;
-  height: 250px;
-  z-index: 5;
-  pointer-events: none;
-  background-color: #2a0a3e;
-}
-
-/* Lluvia visible por delante */
-.rain-zone {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 5;
-  /* transform: skewX(-20deg); */
-}
-
-/* Gotas dentro del hueco */
-.drop {
-  position: absolute;
-  top: -20px;
-  width: 2px;
-  height: 20px;
-  background: rgba(255, 255, 255, 0.4);
-  animation: rain 2s linear infinite;
-  filter: blur(0.3px);
-  opacity: 0.8;
-  border-radius: 1px;
-  /* z-index: 2; */
-}
-
-/* Máscara negra encima para ocultar lo exterior al marco */
-.window-mask::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-background: linear-gradient(to top, #0b0f18 0%, #1b263b 40%, #33415c 100%);
-
-  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 85,0 85,120 0,120" fill="black"/><polygon points="95,0 180,0 180,120 95,120" fill="black"/><polygon points="0,130 85,130 85,250 0,250" fill="black"/><polygon points="95,130 180,130 180,250 95,250" fill="black"/></svg>') no-repeat center/contain;
-
-  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 85,0 85,120 0,120" fill="black"/><polygon points="95,0 180,0 180,120 95,120" fill="black"/><polygon points="0,130 85,130 85,250 0,250" fill="black"/><polygon points="95,130 180,130 180,250 95,250" fill="black"/></svg>') no-repeat center/contain;
-
-  -webkit-mask-composite: destination-out;
-  mask-composite: exclude;
-
-  animation: thunderInner 10s linear 5s infinite;
-  /* z-index: 3; */
-}
-
-@keyframes rain {
-  from {
-    transform: translateX(0) translateY(0);
+  .window-container {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    width: 180px;
+    height: 250px;
+    z-index: 5;
+    pointer-events: none;
+    background-color: #2a0a3e;
   }
-  to {
-    transform: translateX(-40px) translateY(250px);
-  }
-}
 
-@keyframes thunderInner {
-  0% { background-color: black; }
-  1% { background-color: #999; }
-  2% { background-color: #777; }
-  8% { background-color: black; }
-}
+  @media screen and (min-width: 2000px) {
+    .window-container {
+      left: 35%;
+    }
+  }
+
+  .rain-zone {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 5;
+  }
+
+  .drop {
+    position: absolute;
+    top: -20px;
+    width: 2px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.4);
+    animation: rain 2s linear infinite;
+    filter: blur(0.3px);
+    opacity: 0.8;
+    border-radius: 1px;
+  }
+
+  .window-mask::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, #0b0f18 0%, #1b263b 40%, #33415c 100%);
+
+    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 85,0 85,120 0,120" fill="black"/><polygon points="95,0 180,0 180,120 95,120" fill="black"/><polygon points="0,130 85,130 85,250 0,250" fill="black"/><polygon points="95,130 180,130 180,250 95,250" fill="black"/></svg>')
+      no-repeat center/contain;
+
+    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 85,0 85,120 0,120" fill="black"/><polygon points="95,0 180,0 180,120 95,120" fill="black"/><polygon points="0,130 85,130 85,250 0,250" fill="black"/><polygon points="95,130 180,130 180,250 95,250" fill="black"/></svg>')
+      no-repeat center/contain;
+
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+
+    animation: thunderInner 10s linear 5s infinite;
+  }
+
+  @keyframes rain {
+    from {
+      transform: translateX(0) translateY(0);
+    }
+    to {
+      transform: translateX(-40px) translateY(250px);
+    }
+  }
+
+  @keyframes thunderInner {
+    0% {
+      background-color: black;
+    }
+    1% {
+      background-color: #999;
+    }
+    2% {
+      background-color: #777;
+    }
+    8% {
+      background-color: black;
+    }
+  }
 </style>
