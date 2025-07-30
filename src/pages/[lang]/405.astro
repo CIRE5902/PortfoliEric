@@ -1,0 +1,57 @@
+---
+import { getI18nStaticPaths, useTranslations } from "../../i18n/utils";
+import type { Lang } from "../../i18n/ui";
+
+export async function getStaticPaths() {
+  return getI18nStaticPaths();
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import { Icon } from "astro-icon/components";
+---
+
+<BaseLayout lang={lang}>
+  <main class="not-found-container">
+    <section class="not-found-content">
+      <h1 class="error-title">405</h1>
+      <p>Method Not Allowed.</p>
+    </section>
+    <a href="/" class="back-home">
+      <Icon name="mdi:home-outline" class="box-icon" />
+      <p>Go to Home</p></a
+    >
+  </main>
+</BaseLayout>
+
+<style>
+  .not-found-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 60vh;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .not-found-content {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    font-size: 32px;
+  }
+
+  .back-home {
+    filter: drop-shadow(0 0 10px var(--purple-dark));
+    color: var(--purple-dark);
+    display: flex;
+    flex-direction: row;
+    font-size: 42px;
+  }
+</style>

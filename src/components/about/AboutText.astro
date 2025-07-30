@@ -2,21 +2,71 @@
 import type { Lang } from "../../i18n/ui";
 import { useTranslations } from "../../i18n/utils";
 
+import Status from "../common/Status.astro";
+
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
 
 <div class="about-txtimg-info-text">
-  <p>{t("about.paragraph1.part1")} <strong>{t("about.name")}</strong> {t("about.paragraph1.part2")} <strong>{t("about.nickname")}</strong> {t("about.paragraph1.part3")} <strong>{t("about.age")}</strong> {t("about.paragraph1.part4")} <strong>{t("about.location")}</strong> {t("about.paragraph1.part5")}</p>
+  <p>
+    {t("about.paragraph1.part1")}
+    <strong>{t("about.name")}</strong>
+    {t("about.paragraph1.part2")}
+    <strong>{t("about.nickname")}</strong>
+    {t("about.paragraph1.part3")}
+    <strong>{t("about.age")}</strong>
+    {t("about.paragraph1.part4")}
+    <strong>{t("about.location")}</strong>
+    {t("about.paragraph1.part5")}
+  </p>
 
-  <p>{t("about.paragraph2.part1")} <strong>{t("about.intuitive")}</strong> {t("about.paragraph2.part2")} <strong>{t("about.visuallyAppealing")}</strong> {t("about.paragraph2.part3")} <strong>{t("about.visualSide")}</strong> {t("about.paragraph2.part4")} <strong>{t("about.interfaceDesign")}</strong> {t("about.paragraph2.part5")}</p>
+  <p>
+    {t("about.paragraph2.part1")}
+    <strong>{t("about.intuitive")}</strong>
+    {t("about.paragraph2.part2")}
+    <strong>{t("about.visuallyAppealing")}</strong>
+    {t("about.paragraph2.part3")}
+    <strong>{t("about.visualSide")}</strong>
+    {t("about.paragraph2.part4")}
+    <strong>{t("about.interfaceDesign")}</strong>
+    {t("about.paragraph2.part5")}
+  </p>
 
-  <p>{t("about.paragraph3.part1")} <strong>{t("about.webDeveloper")}</strong> {t("about.paragraph3.part2")} <strong>{t("about.systemsAdministrator")}</strong> {t("about.paragraph3.part3")} <strong>{t("about.css")}</strong> {t("about.paragraph3.part4")}</p>
+  <p>
+    {t("about.paragraph3.part1")}
+    <strong>{t("about.webDeveloper")}</strong>
+    {t("about.paragraph3.part2")}
+    <strong>{t("about.systemsAdministrator")}</strong>
+    {t("about.paragraph3.part3")}
+    <strong>{t("about.css")}</strong>
+    {t("about.paragraph3.part4")}
+  </p>
 
-  <p>{t("about.paragraph4.part1")} <strong>{t("about.webApplications")}</strong> {t("about.paragraph4.part2")} <strong>{t("about.programming")}</strong> {t("about.paragraph4.part3")} <strong>{t("about.animalWorld")}</strong> {t("about.paragraph4.part4")}</p>
+  <p>
+    {t("about.paragraph4.part1")}
+    <strong>{t("about.webApplications")}</strong>
+    {t("about.paragraph4.part2")}
+    <strong>{t("about.programming")}</strong>
+    {t("about.paragraph4.part3")}
+    <strong>{t("about.animalWorld")}</strong>
+    {t("about.paragraph4.part4")}
+  </p>
 
-  <p>{t("about.paragraph5.part1")} <strong>{t("about.motorVehicles")}</strong>, <strong>{t("about.sports")}</strong>, <strong>{t("about.fashion")}</strong> {t("about.paragraph5.part2")} <strong>{t("about.animals")}</strong>. {t("about.paragraph5.part3")} <strong>{t("about.family")}</strong> {t("about.paragraph5.part4")} <em>{t("about.favoriteMovies")}</em>.</p>
+  <p>
+    {t("about.paragraph5.part1")}
+    <strong>{t("about.motorVehicles")}</strong>, <strong
+      >{t("about.sports")}</strong
+    >, <strong>{t("about.fashion")}</strong>
+    {t("about.paragraph5.part2")}
+    <strong>{t("about.animals")}</strong>. {t("about.paragraph5.part3")}
+    <strong>{t("about.family")}</strong>
+    {t("about.paragraph5.part4")}
+    <em>{t("about.favoriteMovies")}</em>.
+  </p>
 </div>
+
+<Status lang={lang} />
 
 <style>
   .about-txtimg-info strong {
