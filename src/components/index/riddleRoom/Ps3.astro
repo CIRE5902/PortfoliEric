@@ -2,86 +2,64 @@
 import { Image } from "astro:assets";
 import ImagePS3 from "../../../assets/images/riddleRoom/ps3.png";
 import ImageMandoPs3 from "../../../assets/images/riddleRoom/mando-ps3.png";
+import { useTranslations } from "../../../i18n/utils";
 
-import Avatar from "./Avatar.astro";
-
-let message = "¡Haz hover sobre la PS3 para encenderla!";
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const ps3HoverMessage = t("ps3Messages.hover");
 ---
 
-<Avatar updateMessage={message} />
-
-<div class="ps3" onmouseenter="interactWithPS3()">
-    <Image src={ImagePS3} class:list={["ps3-img"]} alt="PS3" />
-    <Image
-        src={ImageMandoPs3}
-        class:list={["mando-img", "mando-left"]} 
-        alt="Mando"
-    />
-    <Image
-        src={ImageMandoPs3}
-        class:list={["mando-img", "mando-right"]}
-        alt="Mando"
-    />
+<div class="ps3" data-msg={ps3HoverMessage} onmouseenter="interactWithPS3()">
+  <Image src={ImagePS3} class:list={["ps3-img"]} alt="PS3" />
+  <Image src={ImageMandoPs3} class:list={["mando-img", "mando-left"]} alt="Mando izquierdo" />
+  <Image src={ImageMandoPs3} class:list={["mando-img", "mando-right"]} alt="Mando derecho" />
 </div>
 
 <script is:inline>
-    function interactWithPS3() {
-        const message = "¡Has encendido la PS3! Escoge tu juego.";
-        showBubbleMessage(message);
-    }
-
-    function clearMessage() {
-        const bubble = document.getElementById("ia-bubble");
-        bubble.style.display = "none"; 
-    }
-
-    function showBubbleMessage(message) {
-        const bubble = document.getElementById("ia-bubble");
-        bubble.textContent = message;
-        bubble.style.display = "block"; 
-
-        const utter = new SpeechSynthesisUtterance(message);
-        utter.lang = "es-ES";
-        speechSynthesis.speak(utter);
-    }
+  function interactWithPS3() {
+    const el = document.querySelector(".ps3");
+    const mensaje = el?.dataset?.msg || "Has encès la PS3!";
+    window.dispatchEvent(new CustomEvent("ia-habla", {
+      detail: { texto: mensaje }
+    }));
+  }
 </script>
 
 <style is:global>
-    .ps3 {
-        cursor: pointer;
-        position: absolute;
-        width: 120px;
-        height: 120px;
-        bottom: 5%;
-        right: 20%;
-        user-select: none;
-        display: flex;
-        position: absolute;
-    }
+  .ps3 {
+    cursor: pointer;
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    bottom: 5%;
+    right: 20%;
+    user-select: none;
+    display: flex;
+  }
 
-    .ps3-img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        display: block;
-    }
+  .ps3-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
 
-    .mando-img {
-        position: absolute;
-        width: 48px;
-        height: 32px;
-        object-fit: contain;
-        cursor: pointer;
-    }
+  .mando-img {
+    position: absolute;
+    width: 48px;
+    height: 32px;
+    object-fit: contain;
+    cursor: pointer;
+  }
 
-    .mando-left {
-        bottom: 10%;
-        right: 0;
-    }
+  .mando-left {
+    bottom: 10%;
+    right: 0;
+  }
 
-    .mando-right {
-        bottom: 0;
-        right: 25%;
-        transform: scaleX(-1);
-    }
+  .mando-right {
+    bottom: 0;
+    right: 25%;
+    transform: scaleX(-1);
+  }
 </style>

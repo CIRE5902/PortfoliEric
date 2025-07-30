@@ -163,8 +163,13 @@
     }
   },
   "tvMessages": {
-    "hover": "You've hovered over the TV! Choose a video.",
-    "buttonClick": "You've selected video {{index}}!"
+    "hover": "¡Has pasado el ratón sobre la TV! Elige un video.",
+    "videoTitles": {
+      "0": "¡Has seleccionado el tráiler de Matrix!",
+      "1": "¡Has seleccionado el videoclip de Daft Punk!",
+      "2": "¡Has seleccionado una joya nostálgica!",
+      "3": "¡Has elegido una rareza pixelada!"
+    }
   },
   "ps3Messages": {
     "hover": "You've hovered over the PS3! Choose your game.",

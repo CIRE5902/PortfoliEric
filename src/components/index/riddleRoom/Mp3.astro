@@ -1,41 +1,23 @@
 ---
-import { useTranslations } from "../../../i18n/utils";
 import { Image } from "astro:assets";
 import ImageMP3 from "../../../assets/images/riddleRoom/mp3.png";
+import { useTranslations } from "../../../i18n/utils";
 
-const { lang } = Astro.props; 
+const { lang } = Astro.props;
 const t = useTranslations(lang);
-
-let hoverMessage = t("ipodMessages.hover");
+const mp3HoverMessage = t("mp3Messages.hover");
 ---
-
-<!-- iPods -->
-<div class="mp3" onclick="interactWithIpods()" onmouseenter="hoverInteractWithIpods()">
+<div class="mp3" data-msg={mp3HoverMessage} onmouseenter="sendMp3Message()" onclick="sendMp3Message()">
   <Image src={ImageMP3} class:list={["ipods-img"]} alt="iPods" />
 </div>
 
 <script is:inline>
-  function interactWithIpods() {
-    showBubbleMessage(hoverMessage);
-  }
-
-  function hoverInteractWithIpods() {
-    showBubbleMessage(hoverMessage); 
-  }
-
-  function showBubbleMessage(message) {
-    const bubble = document.getElementById("ia-bubble");
-    bubble.textContent = message;
-    bubble.style.display = "block"; 
-
-    const utter = new SpeechSynthesisUtterance(message);
-    utter.lang = "es-ES"; // Define el idioma
-    speechSynthesis.speak(utter);
-  }
-
-  function clearMessage() {
-    const bubble = document.getElementById("ia-bubble");
-    bubble.style.display = "none";
+  function sendMp3Message() {
+    const el = document.querySelector(".mp3");
+    const mensaje = el?.dataset?.msg || "Sin mensaje";
+    window.dispatchEvent(new CustomEvent("ia-habla", {
+      detail: { texto: mensaje }
+    }));
   }
 </script>
 

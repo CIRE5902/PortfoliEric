@@ -1,22 +1,23 @@
 ---
-import Room from "./RiddleRoom/Room.astro";
-import Tv from "./RiddleRoom/Tv.astro";
-import Lamp from "./RiddleRoom/Lamp.astro";
-import Avatar from "./RiddleRoom/Avatar.astro";
-import Mp3 from "./RiddleRoom/Ps3.astro";
-import Ps3 from "./RiddleRoom/Mp3.astro";
+import Room from "./riddleRoom/Room.astro";
+import Tv from "./riddleRoom/Tv.astro";
+import Lamp from "./riddleRoom/Lamp.astro";
+import Avatar from "./riddleRoom/Avatar.astro";
+import Mp3 from "./riddleRoom/Ps3.astro";
+import Ps3 from "./riddleRoom/Mp3.astro";
 
+import type { Lang } from "../../i18n/ui";
 import { useTranslations } from "../../i18n/utils";
+
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
-
 <div class="content-riddle">
   <Room>
-    <Avatar lang={lang} updateMessage={t("ps3Messages.buttonClick")} />
-    <Tv lang={lang} updateMessage={t("tvMessages.buttonClick")} />
-    <Mp3 lang={lang} updateMessage={t("ipodMessages.hover")} />
-    <Ps3 lang={lang} updateMessage={t("ps3Messages.buttonClick")} />
+    <Avatar lang={lang} />
+    <Tv lang={lang} />
+    <Mp3 lang={lang} />
+    <Ps3 lang={lang} />
   </Room>
   <Lamp lang={lang} />
 </div>

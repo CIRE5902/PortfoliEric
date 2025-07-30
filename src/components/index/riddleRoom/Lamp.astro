@@ -1,4 +1,13 @@
-<div id="lamp">
+---
+import { useTranslations } from "../../../i18n/utils";
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const hoverMessage = t("lampMessages.interaction");
+const clickMessage = t("lampMessages.click");
+---
+
+<div id="lamp" data-msg={hoverMessage} data-click={clickMessage}>
   <div class="cable"></div>
   <div class="block dragable"></div>
   <div class="shade dragable"></div>
@@ -90,22 +99,20 @@
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
     const lamp = document.getElementById("lamp");
-
-    if (!lamp) return; 
+    if (!lamp) return;
 
     lamp.classList.add("hint");
 
     lamp.querySelectorAll(".dragable").forEach((el) => {
       const removeHint = () => lamp.classList.remove("hint");
-
       el.addEventListener("mousedown", removeHint, { once: true });
       el.addEventListener("touchstart", removeHint, { once: true });
     });
 
     let speed, swing, rotation = 0,
-      time, gravity = 1,
-      length = 250,
-      startAngle = 0;
+        time, gravity = 1,
+        length = 250,
+        startAngle = 0;
 
     function startLampSwing() {
       time = 0;
@@ -124,7 +131,6 @@
       if (Math.abs(startAngle) > 0.5) {
         rotation = Math.cos(Math.sqrt(gravity / length) * time) * startAngle;
         lamp.style.transform = `rotate(${rotation}deg)`;
-
         startAngle *= 0.996;
         swing = setTimeout(lampSwing, 1000 / 60);
       } else {
@@ -133,8 +139,7 @@
       }
     }
 
-    let mousedown = false,
-      startDegree;
+    let mousedown = false, startDegree;
 
     lamp.querySelectorAll(".dragable").forEach((element) => {
       element.addEventListener("mousedown", (e) => {
@@ -146,13 +151,7 @@
         startDegree = rotation;
 
         mousedown = {
-          start: {
-            x: e.pageX,
-            y: e.pageY,
-            deltaX,
-            deltaY,
-            degree
-          },
+          start: { x: e.pageX, y: e.pageY, deltaX, deltaY, degree },
           event: e
         };
         stopLampSwing();
@@ -164,7 +163,6 @@
         const deltaX = window.innerWidth / 2 - e.pageX;
         const deltaY = 0 - e.pageY;
         let degree = Math.atan(deltaX / deltaY) * (180 / Math.PI);
-
         degree = Math.min(Math.max(startDegree + (mousedown.start.degree - degree), -75), 75);
         lamp.style.transform = `rotate(${degree}deg)`;
         startAngle = degree;
@@ -181,11 +179,8 @@
 
     function flicker() {
       toggleLamp();
-      setTimeout(() => {
-        toggleLamp();
-      }, Math.round(Math.random() * 150 + 100));
-
-      setTimeout(flicker, Math.round(Math.random() * 4000 + 100));
+      setTimeout(() => toggleLamp(), Math.random() * 150 + 100);
+      setTimeout(flicker, Math.random() * 4000 + 100);
     }
 
     function toggleLamp() {
@@ -194,32 +189,12 @@
 
     flicker();
 
-    // Mostrar mensaje al mover la lámpara
-    lamp.addEventListener("mousemove", () => {
-      const bubble = document.getElementById("ia-bubble");
-      bubble.textContent = "¡Cuidado! La lámpara está en movimiento!";
-      bubble.style.display = "block"; // Mostrar burbuja de texto cuando se mueva
-    });
-
-    // Mostrar mensaje al hacer hover sobre la lámpara
-    lamp.addEventListener("mouseenter", async () => {
-      const reply = "¡Estás interactuando con la lámpara!";
-      speakText(reply); // El avatar dice el mensaje
+    // 🔊 Enviar mensaje al avatar al hacer hover
+    lamp.addEventListener("mouseenter", () => {
+      const msg = lamp.dataset.msg;
+      window.dispatchEvent(new CustomEvent("ia-habla", {
+        detail: { texto: msg }
+      }));
     });
   });
-
-  function speakText(text) {
-    const bubble = document.getElementById("ia-bubble");
-    bubble.textContent = text;
-    bubble.style.display = "block"; 
-
-    if (window.speechSynthesis) {
-      const utter = new SpeechSynthesisUtterance(text);
-      utter.lang = "es-ES";
-      utter.pitch = 1;
-      utter.rate = 1;
-      speechSynthesis.cancel();
-      speechSynthesis.speak(utter);
-    }
-  }
 </script>

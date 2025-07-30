@@ -164,7 +164,12 @@
   },
   "tvMessages": {
     "hover": "¡Has pasado el ratón sobre la TV! Elige un video.",
-    "buttonClick": "¡Has seleccionado el video {{index}}!"
+    "videoTitles": {
+      "0": "¡Has seleccionado el tráiler de Matrix!",
+      "1": "¡Has seleccionado el videoclip de Daft Punk!",
+      "2": "¡Has seleccionado una joya nostálgica!",
+      "3": "¡Has elegido una rareza pixelada!"
+    }
   },
   "ps3Messages": {
     "hover": "¡Has pasado el ratón sobre la PS3! Escoge tu juego.",

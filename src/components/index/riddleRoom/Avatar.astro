@@ -22,7 +22,7 @@ import imageAvatar from "../../../assets/images/avatar2.png";
   .ia-avatar {
     width: 120px;
     height: 150px;
-    cursor: pointer; 
+    cursor: pointer;
   }
 
   .ia-bubble {
@@ -34,11 +34,11 @@ import imageAvatar from "../../../assets/images/avatar2.png";
     border-radius: 10px;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
     font-size: 13px;
-    position: absolute; 
-    top: 0; 
-    left: 100%; 
-    transform: translateY(-50%); 
-    display: none; 
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transform: translateY(-50%);
+    display: none;
   }
 
   .ia-bubble::before {
@@ -57,22 +57,10 @@ import imageAvatar from "../../../assets/images/avatar2.png";
 </style>
 
 <script is:inline>
-  // Función para obtener una respuesta
-  async function getLocalReply(evento = "saludo") {
-    const res = await fetch("/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ evento })
-    });
-    const data = await res.json();
-    return data.reply;
-  }
-
-  // Función para hacer hablar al avatar (usando síntesis de voz)
   function speakText(text) {
     const bubble = document.getElementById("ia-bubble");
     bubble.textContent = text;
-    bubble.style.display = "block"; 
+    bubble.style.display = "block";
 
     if (window.speechSynthesis) {
       const utter = new SpeechSynthesisUtterance(text);
@@ -85,20 +73,22 @@ import imageAvatar from "../../../assets/images/avatar2.png";
   }
 
   document.addEventListener("DOMContentLoaded", async () => {
-    // Cuando se cargue la página, haremos que el avatar diga algo de saludo
     const reply = await getLocalReply("saludo");
     speakText(reply);
+
+    window.addEventListener("ia-habla", (event) => {
+      const texto = event.detail.texto;
+      if (texto) speakText(texto);
+    });
   });
 
-  // Evento de hover sobre el avatar para hacer que diga algo
-  document.querySelector(".ia-avatar").addEventListener("mouseenter", async () => {
-    const reply = await getLocalReply("saludo");
-    speakText(reply);
-  });
-
-  // Ejemplo para disparar otras respuestas desde fuera:
-  // window.hablaIA = async (evento) => {
-  //   const reply = await getLocalReply(evento);
-  //   speakText(reply);
-  // };
+  async function getLocalReply(evento = "saludo") {
+    const res = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ evento }),
+    });
+    const data = await res.json();
+    return data.reply;
+  }
 </script>
