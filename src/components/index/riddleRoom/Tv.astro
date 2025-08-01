@@ -38,6 +38,7 @@ const videoTitles = [
                   frameborder="0"
                   allow="autoplay; encrypted-media"
                   allowfullscreen
+                  onerror="this.parentElement.innerHTML = '<p>Error cargando el vídeo</p>';"
                 />
               </div>
             ))
@@ -64,14 +65,15 @@ const videoTitles = [
         "https://geo.dailymotion.com/player.html?video=x873kpf",
         "https://geo.dailymotion.com/player.html?video=x7vsfd8",
         "https://geo.dailymotion.com/player.html?video=x8x2aoe",
-        "https://geo.dailymotion.com/player.html?video=x8x3nvw"
+        "https://geo.dailymotion.com/player.html?video=x8x3nvw",
       ];
 
       let currentIndex = 0;
       const buttonArray = [];
 
       function move(newIndex) {
-        if (!group || (group.style.left !== "0px" && group.style.left !== "")) return;
+        if (!group || (group.style.left !== "0px" && group.style.left !== ""))
+          return;
         if (currentIndex === newIndex) return;
 
         const currentSlideIframe = slides[currentIndex].querySelector("iframe");
@@ -101,9 +103,11 @@ const videoTitles = [
           if (newIframe) newIframe.setAttribute("src", videoUrls[newIndex]);
 
           const msg = videoTitles[newIndex] || "Has seleccionado un vídeo.";
-          window.dispatchEvent(new CustomEvent("ia-habla", {
-            detail: { texto: msg }
-          }));
+          window.dispatchEvent(
+            new CustomEvent("ia-habla", {
+              detail: { texto: msg },
+            }),
+          );
         }, 500);
       }
 
@@ -121,9 +125,11 @@ const videoTitles = [
   function hoverTV() {
     const el = document.querySelector(".tv-container");
     const mensaje = el?.dataset?.msg || "¡Has pasado el ratón sobre la TV!";
-    window.dispatchEvent(new CustomEvent("ia-habla", {
-      detail: { texto: mensaje }
-    }));
+    window.dispatchEvent(
+      new CustomEvent("ia-habla", {
+        detail: { texto: mensaje },
+      }),
+    );
   }
 
   function clearTVMessage() {
@@ -169,7 +175,9 @@ const videoTitles = [
     background: #3b2a1f;
     border-radius: 50%;
     z-index: -2;
-    box-shadow: -50px -115px 0 -32px #b08d55, 50px -115px 0 -32px #b08d55;
+    box-shadow:
+      -50px -115px 0 -32px #b08d55,
+      50px -115px 0 -32px #b08d55;
   }
 
   .antenna:before,
@@ -314,7 +322,8 @@ const videoTitles = [
   }
 
   @keyframes glowPulse {
-    0%, 100% {
+    0%,
+    100% {
       box-shadow: 0 0 0px rgba(255, 255, 255, 0);
     }
     50% {
