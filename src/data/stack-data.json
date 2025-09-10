@@ -80,28 +80,10 @@
                 "enlace": "https://www.java.com"
             },
             {
-                "nombre": "MariaDB",
-                "icono": "logos:mariadb-icon",
-                "nivel": "favourite",
-                "enlace": "https://mariadb.org/"
-            },
-            {
-                "nombre": "Postgre",
-                "icono": "logos:postgresql",
-                "nivel": "favourite",
-                "enlace": "https://www.postgresql.org/"
-            },
-            {
                 "nombre": "Node",
                 "icono": "logos:nodejs-icon",
                 "nivel": "learning",
                 "enlace": "https://nodejs.org"
-            },
-            {
-                "nombre": "Mongo",
-                "icono": "logos:mongodb-icon",
-                "nivel": "familiar",
-                "enlace": "https://www.mongodb.com/"
             }
         ]
     },
@@ -139,40 +121,10 @@
                 "enlace": "https://httpd.apache.org/"
             },
             {
-                "nombre": "PFSENSE",
-                "icono": "local:pfsense",
-                "nivel": "favourite",
-                "enlace": "https://www.pfsense.org/"
-            },
-            {
                 "nombre": "Windows",
                 "icono": "logos:microsoft-windows-icon",
                 "nivel": "familiar",
                 "enlace": "https://www.microsoft.com/es-es/windows"
-            },
-            {
-                "nombre": "IPFIRE",
-                "icono": "local:ipfire",
-                "nivel": "familiar",
-                "enlace": "https://www.ipfire.org/"
-            },
-            {
-                "nombre": "NFS",
-                "icono": "local:nfs",
-                "nivel": "familiar",
-                "enlace": ""
-            },
-            {
-                "nombre": "FTP",
-                "icono": "local:ftp",
-                "nivel": "familiar",
-                "enlace": ""
-            },
-            {
-                "nombre": "Nginx",
-                "icono": "logos:nginx",
-                "nivel": "familiar",
-                "enlace": "https://nginx.org/"
             }
         ]
     },
@@ -226,18 +178,6 @@
                 "icono": "local:vm",
                 "nivel": "favourite",
                 "enlace": "https://www.virtualbox.org/"
-            },
-            {
-                "nombre": "wireshark",
-                "icono": "local:wireshark",
-                "nivel": "favourite",
-                "enlace": "https://www.wireshark.org/"
-            },
-            {
-                "nombre": "vagrant",
-                "icono": "logos:vagrant-icon",
-                "nivel": "favourite",
-                "enlace": "https://developer.hashicorp.com/vagrant"
             },
             {
                 "nombre": "trello",
