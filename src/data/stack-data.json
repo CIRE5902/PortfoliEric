@@ -33,18 +33,6 @@
                 "enlace": "https://www.typescriptlang.org/"
             },
             {
-                "nombre": "Vue",
-                "icono": "logos:vue",
-                "nivel": "familiar",
-                "enlace": "https://vuejs.org/"
-            },
-            {
-                "nombre": "Nuxt",
-                "icono": "logos:nuxt-icon",
-                "nivel": "familiar",
-                "enlace": "https://nuxt.com/"
-            },
-            {
                 "nombre": "Tailwind",
                 "icono": "logos:tailwindcss-icon",
                 "nivel": "familiar",
@@ -95,12 +83,6 @@
                 "icono": "logos:linux-tux",
                 "nivel": "favourite",
                 "enlace": "https://www.linux.org/"
-            },
-            {
-                "nombre": "SSH",
-                "icono": "mdi:ssh",
-                "nivel": "favourite",
-                "enlace": "https://www.ssh.com/"
             },
             {
                 "nombre": "DNS",
